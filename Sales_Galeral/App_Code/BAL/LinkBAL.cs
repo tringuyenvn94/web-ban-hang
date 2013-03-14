@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 
 /// <summary>
 /// Summary description for LinkBAL
@@ -14,4 +15,22 @@ public class LinkBAL
 		// TODO: Add constructor logic here
 		//
 	}
+
+    //Load Data Link
+    public DataSet Load_Link()
+    {
+        return new LinkDAL().Load_Link();
+    }
+
+    //Update and Insert Link
+    public bool Update_Link(int id, string Link)
+    {
+        return new LinkDAL().Update_Link(id, Link);
+    }
+
+    //Delete Link By ID
+    public bool Delete_Link(int ID)
+    {
+        return new LinkDAL().Delete_Link(ID);
+    }
 }
