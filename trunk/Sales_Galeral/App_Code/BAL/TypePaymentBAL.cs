@@ -23,8 +23,8 @@ public class TypePaymentBAL
     }
 
     //Update and Insert TypePayment
-    public bool Update_TypePayment(int id, int TypePayment, string Info)
+    public bool Update_TypePayment(int id, string Info)
     {
-        return new TypePaymentDAL().Update_TypePayment(id, TypePayment, Info);
+        return new TypePaymentDAL().Update_TypePayment(id, Info);
     }
 }

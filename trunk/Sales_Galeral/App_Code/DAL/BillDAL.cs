@@ -84,7 +84,7 @@ public class BillDAL
             pr_Type_Payment_ID.Value = Type_Payment_ID;
             SqlParameter pr_Date_Purcharse = command.Parameters.Add("@Date_Purcharse", SqlDbType.VarChar);
             pr_Date_Purcharse.Value = Date_Purcharse;
-            SqlParameter pr_TotalNameProduct = command.Parameters.Add("@TotalNameProduct", SqlDbType.VarChar);
+            SqlParameter pr_TotalNameProduct = command.Parameters.Add("@TotalNameProduct", SqlDbType.NVarChar);
             pr_TotalNameProduct.Value = TotalNameProduct;
             SqlParameter pr_TotalQuantity = command.Parameters.Add("@TotalQuantity", SqlDbType.Int);
             pr_TotalQuantity.Value = TotalQuantity;

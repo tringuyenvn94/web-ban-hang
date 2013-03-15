@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="ManagerAdmin.aspx.cs" Inherits="Admin_ManagerAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" EnableEventValidation="true" ValidateRequest="false" AutoEventWireup="true" CodeFile="ManagerAdmin.aspx.cs" Inherits="Admin_ManagerAdmin" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -7,12 +7,12 @@
     <ContentTemplate>
     <div id="DIV_Admin" style="width:100%;border:0px solid #c0c0c0;padding-bottom:30px;" visible="false" align="center" runat="server">
         <div style="color:Red;padding-top:15px;padding-bottom:15px;font-size:20px;font-weight:bold">
-            Admin Data Management
+            Quản lý dữ liệu Admin
         </div>
         <div style="width:50%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
         border-left:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0;">
 		    <div class="DataGridTitleBar">
-			    Manage Admin
+			    Quản lý Admin
 		    </div>
 		    <div style="width:100%;vertical-align:top;">
 				<div style="border-collapse:collapse;border-color:#c0c0c0;width:100%;border::1px solid #c0c0c0;">
@@ -48,13 +48,13 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:Button ID="BT_SelectAdmin" CausesValidation="false" CssClass="ButtonText" Text="Update" runat="server" CommandName="Select"/>
+                                        <asp:Button ID="BT_SelectAdmin" CausesValidation="false" CssClass="ButtonText" Text="Cập Nhật" runat="server" CommandName="Select"/>
                                     </ItemTemplate>
                                     <ItemStyle Width="5%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:Button ID="BT_DeleteAdmin" CssClass="ButtonText" runat="server" CommandName="Delete" Text="Delete"/>
+                                        <asp:Button ID="BT_DeleteAdmin" CssClass="ButtonText" runat="server" CommandName="Delete" Text="Xóa"/>
                                     </ItemTemplate>
                                     <ItemStyle Width="5%"/>
                                 </asp:TemplateField>
@@ -71,7 +71,7 @@
                         </asp:GridView>
                         <div style="width:100%;padding-top:5px;" align="left">
                             <asp:Button ID="BT_AddAdmin" CssClass="ButtonText" Width="55px" runat="server" 
-                            Text="Add" CausesValidation="False" onclick="BT_AddAdmin_Click1" />
+                            Text="Thêm" CausesValidation="False" onclick="BT_AddAdmin_Click1" />
                         </div>
 					</div>
 				</div>
@@ -92,7 +92,7 @@
         </div>
         <div id="Div1" style="width:310px;border:1px solid #c0c0c0;" align="left" runat="server">
             <div style="width:310px;" class="DataGridTitleBar">
-			    Add/Edit Admin
+			    Thêm/Cập Nhật Admin
 		    </div>
             <div style="height:10px;"></div>
             <div style="width:100px;padding:2px;float:left;">
@@ -116,11 +116,11 @@
             <div style="width:310px;padding-top:20px;padding-bottom:10px;" align="center">
                 <div style="width:155px;float:left;" align="right">
                     <asp:Button ID="BT_SubmitAdmin" runat="server" CssClass="ButtonText" 
-                    Text="Submit" onclick="BT_SubmitAdmin_Click" />
+                    Text="Chấp nhận" onclick="BT_SubmitAdmin_Click" />
                 </div>
                 <div style="width:155px;float:left;" align="left">
-                    <asp:Button ID="BT_Cancel" runat="server" CssClass="ButtonText"  
-                    CausesValidation="false" Text="Cancel" onclick="BT_Cancel_Click"/>
+                    <asp:Button ID="BT_Cancel" runat="server" CssClass="ButtonText" Width="75px" 
+                    CausesValidation="false" Text="Thoát" onclick="BT_Cancel_Click"/>
                 </div>
                 <div style="clear:left;"></div>
             </div>

@@ -54,7 +54,7 @@ public class CategoryDAL
                 string commandText = "SP_Update_Category";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_CategoryName = command.Parameters.Add("@Category_Name", SqlDbType.VarChar);
+                SqlParameter pr_CategoryName = command.Parameters.Add("@Category_Name", SqlDbType.NVarChar);
                 pr_CategoryName.Value = Category_Name;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Value = id;
@@ -66,7 +66,7 @@ public class CategoryDAL
                 string commandText = "SP_Insert_Category";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_CategoryName = command.Parameters.Add("@Category_Name", SqlDbType.VarChar);
+                SqlParameter pr_CategoryName = command.Parameters.Add("@Category_Name", SqlDbType.NVarChar);
                 pr_CategoryName.Value = Category_Name;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Direction = ParameterDirection.Output;

@@ -54,9 +54,9 @@ public class AdminDAL
                 string commandText = "SP_Update_Admin";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_UseName = command.Parameters.Add("@UseName", SqlDbType.VarChar);
+                SqlParameter pr_UseName = command.Parameters.Add("@UseName", SqlDbType.NVarChar);
                 pr_UseName.Value = usename;
-                SqlParameter pr_Pass = command.Parameters.Add("@Password", SqlDbType.VarChar);
+                SqlParameter pr_Pass = command.Parameters.Add("@Password", SqlDbType.NVarChar);
                 pr_Pass.Value = pass;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Value = id;
@@ -68,9 +68,9 @@ public class AdminDAL
                 string commandText = "SP_Insert_Admin";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_UseName = command.Parameters.Add("@UseName", SqlDbType.VarChar);
+                SqlParameter pr_UseName = command.Parameters.Add("@UseName", SqlDbType.NVarChar);
                 pr_UseName.Value = usename;
-                SqlParameter pr_Pass = command.Parameters.Add("@Password", SqlDbType.VarChar);
+                SqlParameter pr_Pass = command.Parameters.Add("@Password", SqlDbType.NVarChar);
                 pr_Pass.Value = pass;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Direction = ParameterDirection.Output;
