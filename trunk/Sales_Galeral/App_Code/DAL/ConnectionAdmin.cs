@@ -22,7 +22,7 @@ public class ConnectionAdmin
 
     public SqlConnection Connect()
     {
-        string conStr = WebConfigurationManager.ConnectionStrings["Group03_Project"].ConnectionString;
+        string conStr = WebConfigurationManager.ConnectionStrings["Sales_Geleral"].ConnectionString;
         conn = new SqlConnection(conStr);
         if (conn.State == ConnectionState.Closed)
         {

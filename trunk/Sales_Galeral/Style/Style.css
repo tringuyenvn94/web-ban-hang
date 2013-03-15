@@ -1,0 +1,138 @@
+﻿body { font-size:9pt; font-family:Arial}
+
+.divcan{margin:0 auto; width:1000px;background-color: white;}
+
+#div_bottom{ width:990px; border:1px solid #cccdcf; padding:5px}
+#divlog{width:710px;  float:left  ;  padding:7px  0  0  0}
+#divid{ width:200px; float:left; padding:5px  0  0  5px;}
+#divcart{width:80px; float:left; }
+
+#div_menungang{ background:url(../images/bk1.jpg); height:29px; width:1000px;}
+
+#div_left{ width:140px; background-color:#1E484C; padding:20px}
+
+#div1{ float:left; width:180px}
+#div2{float:left; padding:1px}
+
+.div3{background-image:url(../Admin/Images/ar.jpg) ; background-repeat:no-repeat; width:10px; height:29px ; float:left}
+
+#div_content{float:left; width:818px;}
+
+.link1{ color:White;  }
+.link1:hover{ color:Aqua;  font-weight:bold}
+
+.link2{ line-height:29px; color:Black; font-weight:bold; text-decoration:none; }
+.link2:hover{ color:Red}
+
+/*-----------------------------Style for Page link----------------------------*/
+.PageLink:link 
+{ 
+	color:#003399; 
+	text-decoration:underline 
+}
+.PageLink:visited 
+{ 
+	color:#003399; 
+	text-decoration:underline 
+}
+.PageLink:active 
+{ 
+	color:#003399; 
+	text-decoration:underline 
+}
+.PageLink:hover 
+{ 
+	color:#000000; 
+	text-decoration:none 
+}
+
+.ReadonlyTextLeft
+{
+    font-family:Arial,Verdana;
+	font-size:8pt;
+    color:Black;	
+	text-align:Left;
+	background-color:#E1E1E1;	
+}
+/*------------------------------------------------------------------*/
+
+.menu{ background-image:url(../Admin/ImageAdmin/bk2.jpg); height:29px; padding-left:3px}
+.menucon{padding:1px 0 0 8px ; display:none;}
+
+#div_mq{ background-image:url(../Admin/Images/nenmq.jpg); width:100%; height:18px}
+.div4{ background-image:url(../Images/nen1.jpg); width:205px; height:24px; color:White; line-height:24px; padding-left:5px; font-weight:bold }
+.div5{width:100%; border:1px solid #cccccc; }
+.div6{width:100%; border:1px solid #cccccc; }
+
+/*----------------------Admin------------------------------*/
+
+.divtab{float:left; padding:5px; border:1px solid white;  background-color:Green; color:White; font-weight:bold}
+.divtab:hover{ background-color:Blue; cursor:pointer}
+
+div_khungad{border:1px solid #333333; width:1000px; margin:0 auto; padding:10px}
+
+/*----------------------Login------------------------------*/
+
+.login{text-align:left;}
+
+.NormalText
+{
+    font-family:Arial,Verdana;	
+	font-size:10pt;   	
+}
+
+.ButtonText
+{
+    font-family:Arial,Verdana;
+	font-size:8pt;
+    color:Black;        
+	font-weight:normal;       
+}
+
+.DataGridTitleBar
+{
+	font-family:Arial,Verdana;
+	color:#000000;
+	vertical-align:middle;
+	background-color:#BECCE7;
+	font-size:9pt;
+	font-weight:Bold;
+	text-align:center;
+}
+
+.Fieldset
+{
+	padding-top:6px;
+	padding-bottom:6px;
+	padding-Left:6px;
+	padding-Right:6px;	
+    font-family:Arial,Verdana;
+    font-size:8pt;
+    color:Black;    	    
+}
+
+.FieldSetLegend
+{
+	font-family:Arial,Verdana;	
+	font-size:8pt;
+	color:Black;
+	text-align:Left;
+}
+
+.ValidationErrorText
+{
+    font-family:Arial,Verdana;	
+	font-size:8pt;
+    color:red;
+}
+
+.ReadonlyTextRight
+{
+    font-family:Arial,Verdana;
+	font-size:8pt; 
+    color:Black;
+	text-align:Right;
+	background-color:#E1E1E1;	
+}
+
+.btn1{ line-height:20px; color:White; text-decoration:none; background-color:green; border:1px solid #808080; color:#ffffff; padding:3px; height:20px;cursor:hand;}
