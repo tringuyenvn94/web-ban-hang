@@ -7,8 +7,97 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_ManagerLink : System.Web.UI.Page
 {
+    LinkDAL ToolsAdmin = new LinkDAL();
+    Encryption Encryption = new Encryption();
+    HtmlRemoval HtmlRemoval = new HtmlRemoval();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            DIV_Link.Visible = true;
+            Load_Grid_Link();
+        }
+    }
 
+    public void Load_Grid_Link()
+    {
+        Grid_Link.DataSource = ToolsAdmin.Load_Link().Tables[0];
+        Grid_Link.DataBind();
+    }
+
+    protected void Grid_Link_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        Grid_Link.PageIndex = e.NewPageIndex;
+        Load_Grid_Link();
+        DIV_AddEditLink.Visible = false;
+    }
+
+    protected void On_RowDelete(object sender, GridViewDeleteEventArgs e)
+    {
+        int ID = Convert.ToInt32(Grid_Link.DataKeys[e.RowIndex].Value.ToString());
+        if (ToolsAdmin.Delete_Link(ID))
+        {
+            DIV_AddEditLink.Visible = false;
+            Load_Grid_Link();
+        }
+        else
+        {
+            WebMsgBox.Show("Error Delete");
+        }
+    }
+
+    public void set_Hidden_DIVLink()
+    {
+        DIV_AddEditLink.Visible = false;
+    }
+
+    public void set_Text_Link()
+    {
+        TB_LienKet.Text = "";
+    }
+
+    protected void OnRowData_Link(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            Button BT_Delete = (Button)e.Row.FindControl("BT_DeleteLink");
+            BT_Delete.Attributes.Add("onclick", "javascript:return confirm('Bạn có chắc chắn muốn xóa bản ghi này không?');");
+            e.Row.Attributes.Add("onmouseover", "this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#D3EDBA'");
+            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalstyle;");
+        }
+    }
+
+    protected void OnRowSelected_Link(object sender, EventArgs e)
+    {
+        DIV_AddEditLink.Visible = true;
+        HD_ID_Link.Value = ((Label)Grid_Link.SelectedRow.FindControl("LBL_LinkItem")).Text;
+        TB_LienKet.Text = ((Label)Grid_Link.SelectedRow.FindControl("LBL_LinkLinkItem")).Text;
+    }
+
+    protected void BT_SubmitLink_Click(object sender, EventArgs e)
+    {
+        string link = TB_LienKet.Text.Trim();
+        if (ToolsAdmin.Update_Link(Convert.ToInt32(HD_ID_Link.Value), link))
+        {
+            Load_Grid_Link();
+        }
+        else
+        {
+            WebMsgBox.Show("Error Update");
+        }
+        set_Hidden_DIVLink();
+    }
+
+    protected void BT_AddLink_Click1(object sender, EventArgs e)
+    {
+        HD_ID_Link.Value = "0";
+        DIV_AddEditLink.Visible = true;
+        set_Text_Link();
+    }
+
+    protected void BT_Cancel_Click(object sender, EventArgs e)
+    {
+        set_Hidden_DIVLink();
+        set_Text_Link();
     }
 }

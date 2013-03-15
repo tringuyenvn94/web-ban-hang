@@ -56,7 +56,7 @@ public class ShoppingCartDAL
                 command.CommandType = CommandType.StoredProcedure;
                 SqlParameter pr_Bill_ID = command.Parameters.Add("@Bill_ID", SqlDbType.Int);
                 pr_Bill_ID.Value = Bill_ID;
-                SqlParameter pr_NameProduct = command.Parameters.Add("@NameProduct", SqlDbType.VarChar);
+                SqlParameter pr_NameProduct = command.Parameters.Add("@NameProduct", SqlDbType.NVarChar);
                 pr_NameProduct.Value = NameProduct;
                 SqlParameter pr_PriceProduct = command.Parameters.Add("@PriceProduct", SqlDbType.Float);
                 pr_PriceProduct.Value = PriceProduct;
@@ -76,7 +76,7 @@ public class ShoppingCartDAL
                 command.CommandType = CommandType.StoredProcedure;
                 SqlParameter pr_Bill_ID = command.Parameters.Add("@Bill_ID", SqlDbType.Int);
                 pr_Bill_ID.Value = Bill_ID;
-                SqlParameter pr_NameProduct = command.Parameters.Add("@NameProduct", SqlDbType.VarChar);
+                SqlParameter pr_NameProduct = command.Parameters.Add("@NameProduct", SqlDbType.NVarChar);
                 pr_NameProduct.Value = NameProduct;
                 SqlParameter pr_PriceProduct = command.Parameters.Add("@PriceProduct", SqlDbType.Float);
                 pr_PriceProduct.Value = PriceProduct;

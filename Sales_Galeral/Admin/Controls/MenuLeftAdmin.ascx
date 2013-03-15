@@ -38,7 +38,7 @@
     </div>
     <div class="menu">
         <div class="div3" ></div>
-        <a href="ManagerLink.aspx?" class="link2" target="_parent" >Quản lý liên kết</a>
+        <a href="ManagerLink.aspx?" class="link2" target="_parent" >Quản lý Liên kết</a>
     </div>
     <div class="menu">
         <div class="div3" ></div>
@@ -46,7 +46,7 @@
     </div>
     <div class="menu">
         <div class="div3" ></div>
-        <a href="ManagerTypePayment.aspx?" class="link2" target="_parent" >Quản lý thanh toán</a>
+        <a href="ManagerTypePayment.aspx?" class="link2" target="_parent" >Quản lý Thanh toán</a>
     </div>
     <div style="height:758px;"></div>
  </div>

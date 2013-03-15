@@ -45,7 +45,7 @@ public class TypePaymentDAL
     }
 
     //Update and Insert TypePayment
-    public bool Update_TypePayment(int id, int TypePayment, string Info)
+    public bool Update_TypePayment(int id, string Info)
     {
         try
         {
@@ -54,9 +54,7 @@ public class TypePaymentDAL
                 string commandText = "SP_Update_Type_Payment";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_TypePayment = command.Parameters.Add("@TypePayment", SqlDbType.Int);
-                pr_TypePayment.Value = TypePayment;
-                SqlParameter pr_Info = command.Parameters.Add("@Info", SqlDbType.VarChar);
+                SqlParameter pr_Info = command.Parameters.Add("@Info", SqlDbType.NVarChar);
                 pr_Info.Value = Info;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Value = id;
@@ -68,9 +66,7 @@ public class TypePaymentDAL
                 string commandText = "SP_Insert_Type_Payment";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_TypePayment = command.Parameters.Add("@TypePayment", SqlDbType.Int);
-                pr_TypePayment.Value = TypePayment;
-                SqlParameter pr_Info = command.Parameters.Add("@Info", SqlDbType.VarChar);
+                SqlParameter pr_Info = command.Parameters.Add("@Info", SqlDbType.NVarChar);
                 pr_Info.Value = Info;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Direction = ParameterDirection.Output;

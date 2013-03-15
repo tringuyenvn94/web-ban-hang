@@ -54,9 +54,9 @@ public class AboutDAL
                 string commandText = "SP_Update_About";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_Title_About = command.Parameters.Add("@Title_About", SqlDbType.VarChar);
+                SqlParameter pr_Title_About = command.Parameters.Add("@Title_About", SqlDbType.NVarChar);
                 pr_Title_About.Value = title_about;
-                SqlParameter pr_Detail_About = command.Parameters.Add("@Detail_About", SqlDbType.VarChar);
+                SqlParameter pr_Detail_About = command.Parameters.Add("@Detail_About", SqlDbType.NVarChar);
                 pr_Detail_About.Value = detail_about;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Value = id;
@@ -68,9 +68,9 @@ public class AboutDAL
                 string commandText = "SP_Insert_About";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_Title_About = command.Parameters.Add("@Title_About", SqlDbType.VarChar);
+                SqlParameter pr_Title_About = command.Parameters.Add("@Title_About", SqlDbType.NVarChar);
                 pr_Title_About.Value = title_about;
-                SqlParameter pr_Detail_About = command.Parameters.Add("@Detail_About", SqlDbType.VarChar);
+                SqlParameter pr_Detail_About = command.Parameters.Add("@Detail_About", SqlDbType.NVarChar);
                 pr_Detail_About.Value = detail_about;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Direction = ParameterDirection.Output;

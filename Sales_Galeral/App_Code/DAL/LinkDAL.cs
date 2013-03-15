@@ -54,7 +54,7 @@ public class LinkDAL
                 string commandText = "SP_Update_Link";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_Link = command.Parameters.Add("@Link", SqlDbType.VarChar);
+                SqlParameter pr_Link = command.Parameters.Add("@Link", SqlDbType.NVarChar);
                 pr_Link.Value = Link;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Value = id;
@@ -66,7 +66,7 @@ public class LinkDAL
                 string commandText = "SP_Insert_Link";
                 SqlCommand command = new SqlCommand(commandText, conn.Connect());
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter pr_Link = command.Parameters.Add("@Link", SqlDbType.VarChar);
+                SqlParameter pr_Link = command.Parameters.Add("@Link", SqlDbType.NVarChar);
                 pr_Link.Value = Link;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Direction = ParameterDirection.Output;

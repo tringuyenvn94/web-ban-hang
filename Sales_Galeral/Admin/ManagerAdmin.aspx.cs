@@ -63,7 +63,7 @@ public partial class Admin_ManagerAdmin : System.Web.UI.Page
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             Button BT_Delete = (Button)e.Row.FindControl("BT_DeleteAdmin");
-            BT_Delete.Attributes.Add("onclick", "javascript:return confirm('Are you sure you want to delete this Record?');");
+            BT_Delete.Attributes.Add("onclick", "javascript:return confirm('Bạn có chắc chắn muốn xóa bản ghi này không?');");
             e.Row.Attributes.Add("onmouseover", "this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#D3EDBA'");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalstyle;");
         }

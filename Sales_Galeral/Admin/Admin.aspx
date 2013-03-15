@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="Admin.aspx.cs" Inherits="Admin_Admin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" EnableEventValidation="true" ValidateRequest="false" AutoEventWireup="true" CodeFile="Admin.aspx.cs" Inherits="Admin_Admin" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
     <div id="DIV_Logo" style="width:100%;border:0px solid #c0c0c0;padding-top:5px;padding-bottom:15px;" align="center" runat="server">

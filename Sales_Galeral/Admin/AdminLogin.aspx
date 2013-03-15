@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdminLogin.aspx.cs" Inherits="Admin_AdminLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdminLogin.aspx.cs" EnableEventValidation="true" ValidateRequest="false" Inherits="Admin_AdminLogin" %>
 <%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
 <%@ Register Src="~/Admin/Controls/HeaderAdmin.ascx" TagName="Top" TagPrefix="uc_Top" %>
 <%@ Register Assembly="BotDetect" Namespace="BotDetect.Web.UI" TagPrefix="BotDetect" %>
@@ -15,8 +15,8 @@
         <div class="divcan">
             <uc_Top:Top runat="server" ID="UC_Top" />
         </div>
-        <div style="padding-top:130px;padding-bottom:230px;width:1000px;margin:0 auto;color:Red;border:1px solid #c0c0c0" align="center">
-            <h1>PLEASE LOGIN TO MANAGER</h1>
+        <div style="padding-top:130px;padding-bottom:180px;width:1000px;margin:0 auto;color:Red;border:1px solid #c0c0c0" align="center">
+            <h1>HÃY ĐĂNG NHẬP ĐỂ QUẢN LÝ</h1>
             <div style="padding-bottom:3px;">
                 <asp:Label ID="LBL_Info" runat="server" Visible="false" Text="Label" ForeColor="Red"></asp:Label>
             </div>
