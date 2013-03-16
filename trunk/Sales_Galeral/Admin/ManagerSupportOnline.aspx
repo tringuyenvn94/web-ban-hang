@@ -126,11 +126,11 @@
             <div style="width:310px;padding-top:20px;padding-bottom:10px;" align="center">
                 <div style="width:155px;float:left;" align="right">
                     <asp:Button ID="BT_SubmitSupportOnline" runat="server" CssClass="ButtonText" 
-                    Text="Submit" onclick="BT_SubmitSupportOnline_Click" />
+                    Text="Chấp nhận" onclick="BT_SubmitSupportOnline_Click" />
                 </div>
                 <div style="width:155px;float:left;" align="left">
-                    <asp:Button ID="BT_Cancel" runat="server" CssClass="ButtonText"  
-                    CausesValidation="false" Text="Cancel" onclick="BT_Cancel_Click"/>
+                    <asp:Button ID="BT_Cancel" runat="server" CssClass="ButtonText" Width="75px"
+                    CausesValidation="false" Text="Thoát" onclick="BT_Cancel_Click"/>
                 </div>
                 <div style="clear:left;"></div>
             </div>

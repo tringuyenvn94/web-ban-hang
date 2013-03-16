@@ -39,6 +39,7 @@ public partial class Admin_ManagerTypePayment : System.Web.UI.Page
 
     public void set_Text_TypePayment()
     {
+        TB_LoaiThanhToan.Text = "";
         TB_NoiDung.Text = "";
     }
 
@@ -55,13 +56,15 @@ public partial class Admin_ManagerTypePayment : System.Web.UI.Page
     {
         DIV_AddEditTypePayment.Visible = true;
         HD_ID_TypePayment.Value = ((Label)Grid_TypePayment.SelectedRow.FindControl("LBL_TypePaymentItem")).Text;
+        TB_LoaiThanhToan.Text = ((Label)Grid_TypePayment.SelectedRow.FindControl("LBL_TitleInfoItem")).Text;
         TB_NoiDung.Text = ((Label)Grid_TypePayment.SelectedRow.FindControl("LBL_InfoItem")).Text;
     }
 
     protected void BT_SubmitTypePayment_Click(object sender, EventArgs e)
     {
         string info = TB_NoiDung.Text.Trim();
-        if (ToolsAdmin.Update_TypePayment(Convert.ToInt32(HD_ID_TypePayment.Value), info))
+        string titleinfo = TB_LoaiThanhToan.Text.Trim();
+        if (ToolsAdmin.Update_TypePayment(Convert.ToInt32(HD_ID_TypePayment.Value), titleinfo, info))
         {
             Load_Grid_TypePayment();
         }
