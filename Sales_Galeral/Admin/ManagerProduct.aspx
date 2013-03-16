@@ -74,7 +74,7 @@
         border-left:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0;">
             <div align="left" style="padding-bottom:15px;">
 			    <b>Tìm kiếm bằng tên sản phẩm : </b>&nbsp;<asp:TextBox ID="TB_SearchProduct" runat="server"></asp:TextBox>&nbsp;
-                <asp:Button ID="Button1" runat="server" CssClass="ButtonText" Text="Tìm Kiếm" 
+                <asp:Button ID="Button1" runat="server" CausesValidation="false" CssClass="ButtonText" Text="Tìm Kiếm" 
                     onclick="Button1_Click" />
 		    </div>
 		    <div class="DataGridTitleBar">
@@ -110,56 +110,56 @@
                                         <asp:Label ID="LBL_NameItem" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
-                                    <ItemStyle Width="10%" />
+                                    <ItemStyle Width="35%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Mã SP" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_ProductCodeItem" runat="server" Text='<%# Eval("Product_Code") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="Silver" />
-                                    <ItemStyle Width="10%" />
+                                    <ItemStyle Width="8%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Giá gốc" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original") %>'></asp:Label>
                                     </ItemTemplate>
-                                    <HeaderStyle BackColor="Silver" />
-                                    <ItemStyle Width="10%" />
+                                    <HeaderStyle BackColor="#D2B48C" />
+                                    <ItemStyle Width="8%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Giá Bán" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_PriceSaleItem" runat="server" Text='<%# Eval("Price_Sale") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="Silver" />
-                                    <ItemStyle Width="10%" />
+                                    <ItemStyle Width="8%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="% giảm giá" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_PriceDiscountItem" runat="server" Text='<%# Eval("Price_Discount") %>'></asp:Label>
                                     </ItemTemplate>
-                                    <HeaderStyle BackColor="Silver" />
-                                    <ItemStyle Width="10%" />
+                                    <HeaderStyle BackColor="#D2B48C" />
+                                    <ItemStyle Width="8%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Số lượng hiện có" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_QuantityInItem" runat="server" Text='<%# Eval("Quantity_In") %>'></asp:Label>
                                     </ItemTemplate>
-                                    <HeaderStyle BackColor="#D2B48C" />
+                                    <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="5%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Số lượng bán" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_QuantityBoughtItem" runat="server" Text='<%# Eval("Quantity_Bought") %>'></asp:Label>
                                     </ItemTemplate>
-                                    <HeaderStyle BackColor="Silver" />
+                                    <HeaderStyle BackColor="#D2B48C" />
                                     <ItemStyle Width="5%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Ảnh" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Image ID="LBL_ImageProductItem" runat="server" ImageUrl='<%# "../images/ImageProduct/"+Eval("Image")%>'  Width="30px" Height="30px"/>
+                                        <asp:Image ID="LBL_ImageProductItem" runat="server" ImageUrl='<%# "../Images/ImageProduct/"+Eval("Image")%>'  Width="30px" Height="30px"/>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="Silver" />
-                                    <ItemStyle Width="10%" />
+                                    <ItemStyle Width="8%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Đường dẫn ảnh" Visible="false" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
@@ -330,6 +330,13 @@
                 </div>
             </div>
             <div style="clear:left;"></div>
+            <div style="width:150px;padding:2px;float:left;">
+                Loại
+            </div>
+            <div style="width:350px;padding:2px;float:left;">
+                <asp:DropDownList ID="DDL_Type" runat="server" Width="155px"></asp:DropDownList>
+            </div>
+            <div style="clear:left;"></div>
             <div style="width:700px;padding-top:20px;padding-bottom:10px;" align="center">
                 <div style="width:350px;float:left;" align="right">
                     <asp:Button ID="BT_SubmitProduct" runat="server" CssClass="ButtonText" 
@@ -346,6 +353,7 @@
     <div visible="false">
         <input id="HD_ID_Product" type="hidden" runat="server" value="0"/>
         <input id="HD_CategoryID_Product" type="hidden" runat="server" value="0"/>
+        <input id="HD_TypeID_Product" type="hidden" runat="server" value="0"/>
         <input id="TB_PartImage" type="hidden" runat="server" value=""/>
     </div>
 </asp:Content>

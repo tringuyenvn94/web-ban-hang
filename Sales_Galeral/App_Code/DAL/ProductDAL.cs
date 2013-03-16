@@ -196,4 +196,30 @@ public class ProductDAL
         }
         return null;
     }
+
+    //Search By Name Product
+    public DataSet Load_SearchProduct_ByName(string Name)
+    {
+        try
+        {
+            DataSet dset = new DataSet();
+            string commandText = "SP_Get_ProductByName";
+            SqlCommand command = new SqlCommand(commandText, conn.Connect());
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter prName = command.Parameters.Add("@Name", SqlDbType.VarChar);
+            prName.Value = Name;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(dset);
+            return dset;
+        }
+        catch (SqlException e)
+        {
+            WebMsgBox.Show(e.Message);
+        }
+        finally
+        {
+            conn.Close_Connection();
+        }
+        return null;
+    }
 }
