@@ -92,7 +92,7 @@
                 Tên Thể Loại : 
             </div>
             <div style="width:200px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_CategoryName" runat="server" Width="150px" MaxLength="10"></asp:TextBox>
+                <asp:TextBox ID="TB_CategoryName" runat="server" Width="150px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RFV_TB_CategoryName" runat="server" Display="Dynamic" ControlToValidate="TB_CategoryName"
 				ErrorMessage="Category Name must be enter."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
             </div>

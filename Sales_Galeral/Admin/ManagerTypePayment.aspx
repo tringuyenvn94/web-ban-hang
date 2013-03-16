@@ -25,19 +25,26 @@
                         CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
-                                <asp:TemplateField HeaderText="Loại Thanh Toán" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="STT" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_TypePaymentItem" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="Silver"/>
                                     <ItemStyle Width="5%" />
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Loại Thanh Toán" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBL_TitleInfoItem" runat="server" Text='<%# Eval("Title_Info") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle BackColor="#D2B48C" />
+                                    <ItemStyle Width="35%" />
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Hình Thức Thanh Toán" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_InfoItem" runat="server" Text='<%# Eval("Info") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
-                                    <ItemStyle Width="85%" />
+                                    <ItemStyle Width="40%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -83,6 +90,13 @@
 		    </div>
             <div style="height:10px;"></div>
             <div style="width:150px;padding:2px;float:left;">
+                Loại Thanh Toán : 
+            </div>
+            <div style="width:350px;padding:2px;float:left;">
+                <asp:TextBox ID="TB_LoaiThanhToan" runat="server" Width="300px" TextMode="MultiLine" Rows="3" Wrap="true"></asp:TextBox>
+            </div>
+            <div style="clear:left;"></div>
+            <div style="width:150px;padding:2px;float:left;">
                 Nội Dung Thanh Toán : 
             </div>
             <div style="width:350px;padding:2px;float:left;">
@@ -92,11 +106,11 @@
             <div style="width:510px;padding-top:20px;padding-bottom:10px;" align="center">
                 <div style="width:250px;float:left;" align="right">
                     <asp:Button ID="BT_SubmitTypePayment" runat="server" CssClass="ButtonText" 
-                    Text="Submit" onclick="BT_SubmitTypePayment_Click" />
+                    Text="Chấp nhận" onclick="BT_SubmitTypePayment_Click" />
                 </div>
                 <div style="width:250px;float:left;" align="left">
-                    <asp:Button ID="BT_Cancel" runat="server" CssClass="ButtonText"  
-                    CausesValidation="false" Text="Cancel" onclick="BT_Cancel_Click"/>
+                    <asp:Button ID="BT_Cancel" runat="server" CssClass="ButtonText" Width="75px"  
+                    CausesValidation="false" Text="Thoát" onclick="BT_Cancel_Click"/>
                 </div>
                 <div style="clear:left;"></div>
             </div>
