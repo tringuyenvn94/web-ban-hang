@@ -250,7 +250,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         DDL_Type.Items.Insert(1, "New");
         DDL_Type.Items[1].Value = "1";
         DDL_Type.Items.Insert(2, "Normal");
-        DDL_Type.Items[1].Value = "2";
+        DDL_Type.Items[2].Value = "2";
     }
 
     protected void BT_Cancel_Click(object sender, EventArgs e)
