@@ -45,4 +45,10 @@ public class ProductBAL
     {
         return new ProductDAL().Load_DDL_Category();
     }
+
+    //Search By Name Product
+    public DataSet Load_SearchProduct_ByName(string Name)
+    {
+        return new ProductDAL().Load_SearchProduct_ByName(Name);
+    }
 }

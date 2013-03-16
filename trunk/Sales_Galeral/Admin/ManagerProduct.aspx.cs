@@ -9,6 +9,7 @@ using System.Data;
 public partial class Admin_ManagerProduct : System.Web.UI.Page
 {
     ProductBAL ToolsAdmin = new ProductBAL();
+    CategoryBAL ToolsAdmin1 = new CategoryBAL();
     Encryption Encryption = new Encryption();
     HtmlRemoval HtmlRemoval = new HtmlRemoval();
     protected void Page_Load(object sender, EventArgs e)
@@ -18,6 +19,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
             DIV_Product.Visible = true;
             Load_Grid_Products();
             Load_DDL_Category();
+            Load_DDL_Type();
             Set_Attribute();
         }
     }
@@ -86,6 +88,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         IMG_Upload.ImageUrl = null;
         TB_MoTa.Text = "";
         FCKeditor.Value = "";
+        DDL_Type.SelectedIndex = 0;
     }
 
     protected void OnRowData_Product(object sender, GridViewRowEventArgs e)
@@ -93,7 +96,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             Button BT_Delete = (Button)e.Row.FindControl("BT_DeleteProduct");
-            BT_Delete.Attributes.Add("onclick", "javascript:return confirm('Are you sure you want to delete this Record?');");
+            BT_Delete.Attributes.Add("onclick", "javascript:return confirm('Bạn có chắc chắn muốn xóa bản ghi này không?');");
             e.Row.Attributes.Add("onmouseover", "this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#D3EDBA'");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalstyle;");
         }
@@ -107,15 +110,17 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         DDL_TheLoai.SelectedValue = HD_CategoryID_Product.Value;
         TB_TenSanPham.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_NameItem")).Text;
         TB_MaSanPham.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_ProductCodeItem")).Text;
-        TB_GiaGoc.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_ManufactureItem")).Text;
-        TB_GiaBan.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_PriceItem")).Text;
-        TB_GiamGia.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_PriceItem")).Text;
+        TB_GiaGoc.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_PriceOriginalItem")).Text;
+        TB_GiaBan.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_PriceSaleItem")).Text;
+        TB_GiamGia.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_PriceDiscountItem")).Text;
         TB_SoLuongCo.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_QuantityInItem")).Text;
-        TB_SoLuongBan.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_QuantityOutItem")).Text;
+        TB_SoLuongBan.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_QuantityBoughtItem")).Text;
         TB_PartImage.Value = ((Label)Grid_Product.SelectedRow.FindControl("LBL_LinkImageProductItem")).Text;
-        IMG_Upload.ImageUrl = "../images/ImageProduct/" + TB_PartImage.Value;
+        IMG_Upload.ImageUrl = "../Images/ImageProduct/" + TB_PartImage.Value;
         TB_MoTa.Text = ((Label)Grid_Product.SelectedRow.FindControl("LBL_DescriptionItem")).Text;
         FCKeditor.Value = ((Label)Grid_Product.SelectedRow.FindControl("LBL_DetailsItem")).Text;
+        HD_TypeID_Product.Value = ((Label)Grid_Product.SelectedRow.FindControl("LBL_TypeItem")).Text;
+        DDL_Type.SelectedValue = HD_TypeID_Product.Value;
     }
 
     protected void BT_AddProduct_Click(object sender, EventArgs e)
@@ -127,87 +132,87 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
 
     protected void BT_SubmitProduct_Click(object sender, EventArgs e)
     {
-        int CategoryID = Convert.ToInt32(DDL_CategoryName.SelectedValue.ToString());
-        if (Convert.ToInt32(ToolsAdmin.Load_ID_Parent_Categories(CategoryID).Tables[0].Rows[0][0].ToString()) == 0)
+        int CategoryID = Convert.ToInt32(DDL_TheLoai.SelectedValue.ToString());
+        string NameProduct = HtmlRemoval.StripTagsRegex(TB_TenSanPham.Text.Trim());
+        string ProductCode = HtmlRemoval.StripTagsRegex(TB_MaSanPham.Text.Trim());
+        double GiaGoc;
+        if (TB_GiaGoc.Text.Trim() == "")
         {
-            WebMsgBox.Show("You can't select CategoryName here ! Please Select again");
-            DDL_CategoryName.SelectedValue = "";
-            //CategoryID = Convert.ToInt32(DDL_CategoryName.SelectedValue.ToString());
+            GiaGoc = 0;
         }
         else
         {
-            string NameProduct = HtmlRemoval.StripTagsRegex(TB_NameProduct.Text.Trim());
-            string ProductCode = HtmlRemoval.StripTagsRegex(TB_ProductCode.Text.Trim());
-            string Manufacture = HtmlRemoval.StripTagsRegex(TB_Manufacture.Text.Trim());
-            double PriceProduct;
-            if (TB_PriceProduct.Text.Trim() == "")
-            {
-                PriceProduct = 0;
-            }
-            else
-            {
-                PriceProduct = Convert.ToDouble(TB_PriceProduct.Text.Trim());
-            }
-            int QuantityInProduct;
-            if (TB_QuantityInProduct.Text.Trim() == "")
-            {
-                QuantityInProduct = 0;
-            }
-            else
-            {
-                QuantityInProduct = Convert.ToInt32(TB_QuantityInProduct.Text.Trim());
-            }
-            int QuantityOutProduct = 0;
-            if (TB_QuantityOutProduct.Text.Trim() == "")
-            {
-                QuantityInProduct = 0;
-            }
-            else
-            {
-                QuantityOutProduct = Convert.ToInt32(TB_QuantityOutProduct.Text.Trim());
-            }
-            string Date_In;
-            if (TB_Date_In.Text.Trim() == "")
-            {
-                Date_In = "00:00:00";
-            }
-            else
-            {
-                Date_In = HtmlRemoval.StripTagsRegex(TB_Date_In.Text.Trim());
-            }
-            string PartImage = TB_PartImage.Value.Trim();
-            string DescriptionProduct = TB_DescriptionProduct.Text.Trim();
-            string Details = FCKeditor.Value.Trim();
-            if (Convert.ToInt32(HD_ID_Product.Value) != 0)
-            {
-                if (ToolsAdmin.Update_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, Manufacture, PriceProduct, QuantityInProduct, QuantityOutProduct, Date_In, PartImage, DescriptionProduct, Details))
-                {
-                    Load_Grid_Products();
-                }
-                else
-                {
-                    WebMsgBox.Show("Error Update");
-                }
-            }
-            else if (Convert.ToInt32(HD_ID_Product.Value) == 0)
-            {
-                if (ToolsAdmin.Insert_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, Manufacture, PriceProduct, QuantityInProduct, 0, Date_In, PartImage, DescriptionProduct, Details))
-                {
-                    Load_Grid_Products();
-                }
-                else
-                {
-                    WebMsgBox.Show("Error Insert");
-                }
-            }
-            TB_SearchProduct.Text = "";
-            set_Hidden_DIVProduct();
+            GiaGoc = Convert.ToDouble(TB_GiaGoc.Text.Trim());
         }
+        double GiaBan;
+        if (TB_GiaBan.Text.Trim() == "")
+        {
+            GiaBan = 0;
+        }
+        else
+        {
+            GiaBan = Convert.ToDouble(TB_GiaBan.Text.Trim());
+        }
+        double GiamGia;
+        if (TB_GiamGia.Text.Trim() == "")
+        {
+            GiamGia = 0;
+        }
+        else
+        {
+            GiamGia = Convert.ToDouble(TB_GiamGia.Text.Trim());
+        }
+        int QuantityInProduct;
+        if (TB_SoLuongCo.Text.Trim() == "")
+        {
+            QuantityInProduct = 0;
+        }
+        else
+        {
+            QuantityInProduct = Convert.ToInt32(TB_SoLuongCo.Text.Trim());
+        }
+        int QuantitySalesProduct = 0;
+        if (TB_SoLuongBan.Text.Trim() == "")
+        {
+            QuantitySalesProduct = 0;
+        }
+        else
+        {
+            QuantitySalesProduct = Convert.ToInt32(TB_SoLuongBan.Text.Trim());
+        }
+        string PartImage = TB_PartImage.Value.Trim();
+        string DescriptionProduct = TB_MoTa.Text.Trim();
+        string Details = FCKeditor.Value.Trim();
+        int Type = Convert.ToInt32(DDL_Type.SelectedValue.ToString());
+        if (Convert.ToInt32(HD_ID_Product.Value) != 0)
+        {
+            if (ToolsAdmin.Update_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, GiaGoc, GiaBan, GiamGia, QuantityInProduct, QuantitySalesProduct, PartImage, DescriptionProduct, Details, Type))
+            {
+                Load_Grid_Products();
+            }
+            else
+            {
+                WebMsgBox.Show("Error Update");
+            }
+        }
+        else if (Convert.ToInt32(HD_ID_Product.Value) == 0)
+        {
+            if (ToolsAdmin.Insert_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, GiaGoc, GiaBan, GiamGia, QuantityInProduct, QuantitySalesProduct, PartImage, DescriptionProduct, Details, Type))
+            {
+                Load_Grid_Products();
+            }
+            else
+            {
+                WebMsgBox.Show("Error Insert");
+            }
+        }
+        TB_SearchProduct.Text = "";
+        set_Hidden_DIVProduct();
     }
 
     protected void BT_Upload_Click(object sender, EventArgs e)
     {
-        string uploadPath = Server.MapPath("../images/ImageProduct/");
+        string uploadPath = Server.MapPath("../Images/ImageProduct/");
         if (FileUpload_Image.HasFile)
         {
             string filename = FileUpload_Image.FileName;
@@ -216,7 +221,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
             try
             {
                 FileUpload_Image.SaveAs(savefile);
-                IMG_Upload.ImageUrl = "../images/ImageProduct/" + filename;
+                IMG_Upload.ImageUrl = "../Images/ImageProduct/" + filename;
                 TB_PartImage.Value = FileUpload_Image.FileName;
             }
             catch (Exception ex)
@@ -228,19 +233,24 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
 
     public void Load_DDL_Category()
     {
-        DDL_CategoryName.Items.Clear();
-        DataRow[] RootRow = ToolsAdmin.Load_DDL_Category().Tables[0].Select("ID_Parent = 0");
-        foreach (DataRow row in RootRow)
-        {
-            DDL_CategoryName.Items.Add(new ListItem(row["Category_Name"].ToString(), row["ID"].ToString()));
-            DataRow[] ChildRow = ToolsAdmin.Load_DDL_Category().Tables[0].Select("ID_Parent =" + row["ID"].ToString());
-            foreach (DataRow childrow in ChildRow)
-            {
-                DDL_CategoryName.Items.Add(new ListItem("----" + childrow["Category_Name"].ToString(), childrow["ID"].ToString()));
-            }
-        }
-        DDL_CategoryName.Items.Insert(0, "");
-        DDL_CategoryName.Items[0].Value = "";
+        DDL_TheLoai.Items.Clear();
+        DDL_TheLoai.DataSource = ToolsAdmin1.Load_Category().Tables[0];
+        DDL_TheLoai.DataValueField = "ID";
+        DDL_TheLoai.DataTextField = "Category_Name";
+        DDL_TheLoai.DataBind();
+        DDL_TheLoai.Items.Insert(0, "");
+        DDL_TheLoai.Items[0].Value = "0";
+    }
+
+    public void Load_DDL_Type()
+    {
+        //DDL_Type.Items.Clear();
+        DDL_Type.Items.Insert(0, "Hot");
+        DDL_Type.Items[0].Value = "0";
+        DDL_Type.Items.Insert(1, "New");
+        DDL_Type.Items[1].Value = "1";
+        DDL_Type.Items.Insert(2, "Normal");
+        DDL_Type.Items[1].Value = "2";
     }
 
     protected void BT_Cancel_Click(object sender, EventArgs e)
