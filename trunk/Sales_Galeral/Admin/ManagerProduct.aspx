@@ -119,23 +119,23 @@
                                     <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="8%" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Giá gốc" ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="Giá gốc" ItemStyle-HorizontalAlign="Center" ControlStyle-ForeColor="Red">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original") %>'></asp:Label>
+                                        <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original")+",000" %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
-                                    <ItemStyle Width="8%" />
+                                    <ItemStyle Width="9%" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Giá Bán" ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="Giá Bán" ItemStyle-HorizontalAlign="Center" ControlStyle-ForeColor="Red">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBL_PriceSaleItem" runat="server" Text='<%# Eval("Price_Sale") %>'></asp:Label>
+                                        <asp:Label ID="LBL_PriceSaleItem" runat="server" Text='<%# Eval("Price_Sale")+",000" %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="Silver" />
-                                    <ItemStyle Width="8%" />
+                                    <ItemStyle Width="9%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="% giảm giá" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBL_PriceDiscountItem" runat="server" Text='<%# Eval("Price_Discount") %>'></asp:Label>
+                                        <asp:Label ID="LBL_PriceDiscountItem" runat="server" Text='<%# Eval("Price_Discount")+"%" %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
                                     <ItemStyle Width="8%" />
@@ -291,7 +291,7 @@
                 Số lượng đã bán
             </div>
             <div style="width:350px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_SoLuongBan" runat="server" Width="150px" MaxLength="12" ReadOnly="true" CssClass="ReadonlyTextRight"></asp:TextBox>
+                <asp:TextBox ID="TB_SoLuongBan" runat="server" Width="150px" MaxLength="12" ReadOnly="true" CssClass="ReadonlyTextLeft"></asp:TextBox>
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
