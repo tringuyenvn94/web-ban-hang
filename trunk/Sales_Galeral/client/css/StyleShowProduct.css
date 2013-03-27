@@ -1,0 +1,772 @@
+﻿#lofdeals-detail{
+	float: left;
+    margin-left: 5px;
+    margin-top: 130px;
+    position: absolute;
+    width: 240px;
+    z-index: 9999;
+	
+}
+.saleoff-icon {
+    background: url("images/bg-giam.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-size: 10px;
+    height: 140px;
+    padding-top: 11px;
+    position: absolute;
+    right: -30px;
+    
+    top: 35px;
+    width: 105px;
+    z-index: 99999;
+}
+.saleoff-icon span {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    top: 50px;
+	margin: 25px;
+}
+
+.saleoff-icon p {
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: normal;
+    margin: 45px 29px 0 !important;
+}
+
+#lofdeals-detail .price-buynow{
+	background:url(images/combo-header.png) no-repeat;
+	height:95px;
+	color:#FFF;
+	margin-left:-50px;
+	position:relative;
+}
+
+#lofdeals-detail .price-buynow .buynow{
+	float:right;	
+		height:100%;
+	width:100px;
+}
+
+#lofdeals-detail .btn-submit {
+    background: url("images/buy_btn.png") no-repeat scroll 0 -56px transparent;
+    border: 0 none !important;
+    color: #333333;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    height: 52px !important;
+    padding: 0 !important;
+    text-align: center;
+    text-shadow: 0 1px 1px #FFFFFF;
+    width: 90px;
+    position: relative;
+    right:48px;
+    top:14px;
+}
+#lofdeals-detail .dealcontent{
+    margin-left:0px !important;
+    padding:12px 0 !important;
+}
+#lofdeals-detail .dealcontent .bottom-box {
+    background: url("images/bg-time.png") no-repeat scroll right bottom transparent;
+    height: 210px;
+    padding: 0px 7px;
+}
+#lofdeals-detail .price-buynow .dealprice{
+	float:left;
+	width:55%;
+    position: relative;
+    text-align:center;
+    padding-top:12px;
+}
+#lofdeals-detail .price-buynow .dealprice span{
+	font-size:17px;
+	font-weight:bold;
+}
+#lofdeals-detail .price-buynow .dealprice div {
+    font-size: 20px;
+    font-weight: bold;
+}
+#lofdeals-detail .price-buynow .buynow a {
+	color:#FFF;	
+}
+#lofdeals-detail  .dealcontent {
+	padding:12px 5px;
+	color:#000;
+	width:90%;
+	margin-left:22px;
+}
+  
+  #lofdeals-detail  .dealcontent .originalprice {
+	background:#E3F5FF; 
+		border-radius: 5px;	-webkit-border-radius:5px; -moz-border-radius: 5px;
+			border:#6CC solid 1px;
+  }
+ 
+ #lofdeals-detail .dealcontent .originalprice {
+    border: 1px solid #66CCCC;
+    height: 56px;
+	border-radius: 5px;	-webkit-border-radius:5px; -moz-border-radius: 5px;
+    margin-bottom: 10px;
+	text-align:center	
+}
+#lofdeals-detail .dealcontent .originalprice ul{
+	margin:7px 0;
+}
+#lofdeals-detail .dealcontent .originalprice .rightside{
+	border-left: solid 1px #CCC	
+}
+#lofdeals-detail .dealcontent .originalprice .rightside b{color:#ff0000;font-size:15px;}
+#lofdeals-detail .dealcontent .originalprice .leftside span{
+
+}
+  #lofdeals-detail  .dealcontent .originalprice ul li{ display:block; float:left; width:43%; background:none; padding:0; margin:0} 
+ #lofdeals-detail  .dealcontent .originalprice em{ clear:both; display:block;position:relative;padding-right:14px;} 
+   #lofdeals-detail  .dealcontent .originalprice span{ font-size:14px; font-weight:bold; color:#666 }
+  
+
+  
+   #lofdeals-detail .dealcontent  .timeleft{
+	padding-top:12px;  color:#3F5F00; 
+   }
+	#lofdeals-detail .dealcontent .timeleft .timer-text {
+		background: url("images/timer.png") no-repeat scroll 42px -1px transparent;
+		bottom: 10px;
+		margin-bottom: 0;
+		padding-left: 30px;
+		position: relative;
+		text-align: center;
+	}
+	  #lofdeals-detail .dealcontent  .timeleft .timer-explain{ font-size:11px; text-align:center; padding:6px;}
+	  #lofdeals-detail .dealcontent  .timeleft #cntdwn{ color:#3f5f00; font-size:14px; display:block; font-weight:bold;}
+  #lofdeals-detail .dealcontent .totalbought  .restnumber{ text-align:center; font-weight:bold; padding-bottom:0px; color:#3F5F00}
+  #lofdeals-detail .dealcontent .totalbought  .restnumber b{ font-size:16px; color:#F30}
+  #lofdeals-detail .dealcontent .totalbought .bought{ text-align: center; font-size:11px; }
+  #lofdeals-detail .simplestatic {
+    background: url("images/lofloading.png") no-repeat scroll 0 0 transparent;
+    border: 0 solid #006633;
+    border-radius: 5px 5px 5px 5px;
+    height: 35px;
+    margin: 0 auto;
+    position: relative;
+    right: 10px;
+    width: 220px;
+}
+  #lofdeals-detail .simplestatic div.staticbuy{
+    width:180px;
+  }
+  #lofdeals-detail .simplestatic div.percentbuy{ 
+        background: url("images/ajax-loader.gif") no-repeat scroll -6px 0 transparent !important;
+        height: 1.3em;
+        margin: 0 0 0 30px;
+        max-width: 150px;
+        padding: 0;
+        position: relative;
+        top: 8px;
+        z-index: 3;
+  }
+  
+  #lofdeals-detail .buynow .btn-expire {
+        background: url("images/buy3.png") no-repeat scroll 0 0 transparent;
+        color: #F2F2F2;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0px 0;
+        padding: 16px 5px;
+        text-align:center;
+        position: relative;
+        right:38px;
+        top:17px;
+        text-shadow: 0 1px 1px #000000;
+    }
+
+/* --- END --- */
+ 
+#ja-container .column {
+	overflow:visible
+}
+div.catItemHeader , #k2Container div.article-tools, #k2Container .itemToolbar {
+	display:block;
+	margin-left:265px;
+	clear:none;
+}
+ #k2Container div.article-tools,  #k2Container .itemToolbar, #k2Container .itemRatingBlock {
+	overflow:hidden;
+ }
+ #k2Container .itemImageBlock{
+	float:left;	 
+	margin-left:12px;
+ }
+ .k2deals-inner-value-header li{   padding:0; margin:0; height:100px;}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ div.catItemReadMore {
+	display: inline;
+	float: right;
+	font-weight: bold;
+	margin: 10px 0;
+	text-transform: uppercase;
+}
+ 
+ 
+#lofdeals-detail-itemlist .saleoff-icon-itemlist {
+    background: url('../img_product/discount.png') no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-size: 14px;
+    height: 94px;
+    padding-top: 18px;
+    position: absolute;
+    right: -15px;
+    text-align: center;
+    top: 35px;
+    width: 90px;
+}
+
+#lofdeals-detail-itemlist .saleoff-icon-itemlist span {
+	
+  	font-size:18px;
+    color: #FFF;
+    font-weight: bold;
+	padding-left: 10px;
+
+}
+ #lofdeals-detail-itemlist .price-buynow-itemlist{
+	height:55px;
+	color:#FF8800;
+    float:left;
+    width:165px;
+    text-align: center;
+}
+
+#lofdeals-detail-itemlist .price-buynow-itemlist .buynow{
+	float:right;	
+		height:100%;
+	width:100px;
+}
+#lofdeals-detail-itemlist .price-buynow-itemlist .buynow .btn-submit{
+	height:52px!important;
+	width:85px;
+	border:0!important;
+	padding:0!important;
+	margin:16px 0 0!important;
+	font-weight:bold;
+	font-size:14px;
+	color:#333;text-shadow:0px 1px 1px #FFF;
+	cursor:hand; cursor:pointer;
+}
+
+#lofdeals-detail-itemlist{
+
+}
+.dealcontent-itemlist{
+    position: relative;
+}
+.dealcontent-itemlist .bottom-box {
+    height: 60px;
+    overflow: hidden;
+    padding-top: 1px;
+    position: relative;
+}
+#itemListLeading .dealcontent-itemlist .bottom-box{
+    height:80px;
+}
+#lofdeals-detail-itemlist .price-buynow-itemlist .dealprice{
+	margin-left: -20px; 
+}
+#lofdeals-detail-itemlist .price-buynow-itemlist .dealorig{
+    margin-left: -30px;
+}
+#itemListLeading #lofdeals-detail-itemlist .saleoff-icon-itemlist{
+    display:none;
+}
+#itemListLeading .catItemImageBlock .catItemImage img{
+    height:210px !important;
+    overflow: hidden;
+}
+#lofdeals-detail-itemlist .price-buynow-itemlist .dealprice span{
+	font-size:12px;
+	font-weight:bold;
+}
+#lofdeals-detail-itemlist .price-buynow-itemlist .dealprice div {
+	font-size:26px;
+	font-weight:bolder;
+	color: #FF4200;
+	text-shadow: 1px 1px 1px #000000;
+}
+#lofdeals-detail-itemlist .price-buynow-itemlist .buynow a {
+	color:#FFF;	
+}
+.dealcontent-itemlist .totalbought, .dealcontent-itemlist .timeleft{
+    float:left;
+    position: relative;
+    text-align: center;
+}
+.dealcontent-itemlist .totalbought, .dealcontent-itemlist .timeleft span{
+    color: #787878;
+}
+#lofdeals-detail-itemlist{
+    width:100%;
+    height:55px;
+}
+#lofdeals-detail-itemlist .totalbought{
+	 color: #787878;
+    float: right;
+    margin-right: 17px;
+    margin-top: 10px;
+}
+span.catItemImage img{
+	border:1px #F3F3F3 solid !important;
+}
+.dealcontent-itemlist .timeleft{
+    width: 100%;
+}
+.catItemBody .dealcontent-itemlist .timeleft {
+	width: 60%;
+	margin-left:95px;
+}
+.dealcontent-itemlist .timeleft .timer-text{
+
+}
+#lofdeals-detail-itemlist .totalbought .bought-value{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.deal-item-leading{
+    border-left: 1px solid #F3F3F3;
+    height: 200px;
+    position: absolute;
+    right: 6px;
+    top: 63px;
+	width:275px;
+}
+span.catItemImage img {
+    -moz-transition: background-color 0.4s ease-in 0s;
+    -webkit-transition: background-color 0.4s ease-in 0s;
+    border: 1px solid #CCCCCC;
+    padding: 8px;
+}
+span.catItemImage img:hover{
+    background-color: #6DE3F8;
+}
+#itemListLeading div.catItemReadMore a{
+	top:-15px !important;
+}
+.deal-item-leading .buynow{
+    position: relative;
+    width:85px;
+    margin:0 auto;
+    top:9px;
+    right:-48px;
+}
+#itemListLeading .totalbought{
+    border-left: none !important;
+}
+.deal-item-leading .buynow .btn-submit{
+    background: url("images/muahang.png") no-repeat;
+    height:46px;
+    width:111px;
+    position: relative;
+    margin:0 auto;
+    cursor: pointer;
+    font-weight:bold;
+    border:none;
+}
+.deal-item-leading .dealcontent-itemlist{
+    position: relative;
+    bottom:-25px;
+    margin:0 auto;
+    text-align: center;
+    
+}
+#itemListLeading .catItemReadMore{
+    position: absolute;
+    top:133px;
+    right:130px;
+	width:130px;
+}
+#itemListLeading div.catItemReadMore a{
+    position:absolute !important;
+    bottom:0px;
+}
+#itemListLeading  h3.catItemTitle{
+	padding:10px 10px 0;
+}
+#itemListLeading  h3.catItemTitle a{
+    color: #056ecf;
+    font-size:22px;
+    font-weight:bold;
+	text-shadow: -1px 1px 0 #b6b8ba;
+}
+.itemContainer h3.catItemTitle a{
+    color: #056ECF;
+    font-size:15px;
+    font-weight:bold;
+}
+.itemContainer .catItemImage img{
+    max-height:165px !important;
+    overflow: hidden;
+	box-shadow: 0 0 6px #333333;
+}
+div.catItemHeader h3.catItemTitle, div.catItemBlogHeader h3.catItemTitle{
+    padding-bottom:0px !important;
+}
+#k2Container  .itemBody .itemImageBlock {
+	overflow:hidden;
+}
+div.itemIntroText img{
+    border: 1px solid #DDDDDD;
+    padding: 4px;
+    width: 450px;
+}
+div.itemFullText img {
+	border: 1px solid #DDDDDD;
+    padding: 4px;
+	margin-bottom:10px;
+}
+#k2Container  .itemBody .ja-before-content{ display:none; }
+#itemListLeading .catItemIntroText {
+    float: left;
+    font-size: 15px;
+    line-height: 1.8em;
+    overflow: hidden;
+    position: relative;
+    text-align: justify;
+    width: 300px;
+	top:15px;
+}
+#itemListLeading{
+	height:300px;
+    width:100%;
+	overflow:hidden;
+	margin-bottom:8px;
+	border: 1px solid #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+}
+div.catItemView{
+	border-bottom:none !important;
+}
+.itemContainer .itemContainer-inner{
+	border:1px #DDDDDD solid !important;
+}
+.itemContainer .itemContainer-inner:hover{
+    border:1px #DDDDDD solid !important;
+}
+#itemListPrimary .itemContainer .itemContainer-inner:hover > div.catItemView.groupPrimary > div.catItemBody > div.catItemImageBlock > span.catItemImage > a > img{
+    background-color:#6DE3F8 !important;
+}
+#itemListPrimary .itemContainer .itemContainer-inner:hover > div.catItemView.groupPrimary > div.catItemBody > div.catItemIntroText > div.itemLinks > div.itemHitsTwitter{
+    border-bottom: 1px dotted #6DE3F8 !important;
+}
+#itemListLeading:hover{
+    border:1px #00D9D9 solid !important;
+}
+#itemListLeading .itemContainer.itemContainerLast:hover > div.catItemView.groupLeading > div.catItemBody > div.catItemImageBlock > span.catItemImage > a > img{
+    background-color:#6DE3F8 !important;
+}
+#itemListLeading .itemContainer.itemContainerLast:hover > div.catItemView.groupLeading > div.deal-item-leading{
+    border-left:1px #6DE3F8 solid !important;
+}
+.itemNotes{
+	position:relative;
+}
+
+.itemNotes .bd_dk {
+	background-color: #F3F3F3;
+    border: 1px solid #D7D7D7;
+    margin-left: 16px;
+    overflow: hidden;
+    padding: 10px 10px 30px;
+    position: relative;
+    width: 650px;
+}
+.itemNotes .bd_dk .chitiet_btn {
+    background: none repeat scroll 0 0 #FAFAFA;
+    border-top: 1px solid #D8D8D4;
+    bottom: 0;
+    cursor: pointer;
+    font-size: 12px;
+    height: 23px;
+    left: 0;
+    padding: 3px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 99;
+}
+.itemNotes .bd_dk .cols {
+    float: left;
+    font-size: 13px;
+    line-height: 20px;
+    width: 325px;
+}
+.itemNotes .bd_dk .cols p {
+	margin-left: 5px;
+    padding: 0 10px;
+}
+.itemNotes .bd_dk .cols p span {
+}
+.itemNotes .bd_dk .cols ul {
+    list-style: disc outside none;
+    margin: 0;
+    padding-left: 3px;
+}
+.itemNotes .bd_dk .cols ul li {
+    color: #505050;
+    font-size: 13px;
+    line-height: 18px;
+    list-style-type: disc;
+    margin-left: 14px;
+}
+.itemNotes .bd_dk .cols h1 {
+  	background: url("/images/stories/social-bookmark/bg-title-2.png") no-repeat scroll left top transparent;
+    color: #666666;
+    font-size: 1.3em;
+    height: 50px;
+    line-height: 34px;
+    margin: 10px;
+    padding: 0 10px;
+}
+#detail {
+	background: url("/images/stories/social-bookmark/bg-title-2.png") no-repeat scroll left top transparent;
+    color: #666666;
+    font-size: 1.3em;
+    height: 50px;
+    line-height: 34px;
+    padding: 0 10px;
+}
+.itemNotes .bd_dk .line {
+    border-left: 1px dashed #BBBBBB;
+    height: 100%;
+    left: 330px;
+    margin-left: 5px;
+    position: absolute;
+    width: 3px;
+}
+
+#ja-mainnav .main-inner2{
+	width:100% !important;
+}
+.lof-countdown{
+	position:relative;
+	width:240px;
+	margin: 0 auto;
+	padding-left:7px;
+}
+.lof-countdown div{
+    background: url("images/time.jpg") no-repeat !important;
+    position:relative;
+    float:left;
+    width:50px;
+    height:40px;
+    border:none !important;
+    margin:0 auto;
+    
+}
+.lof-countdown div > b{
+    position:relative;
+    margin:0 auto;
+    margin-left:-5px;
+}
+.lof-countdown div > p{
+    color:#000000 !important;
+    padding-top:10px;
+    margin-left:-5px;
+    position:relative;
+}
+.lof-countdown div.deal-time{
+    background: none !important;
+    position:relative;
+    float:left;
+    width:35px;
+    margin-right:10px;
+    height:40px;
+    border:none !important;
+    margin:0 auto;
+}
+.lof-countdown div.deal-itemlist{
+    background: none !important;
+    position:relative;
+    float:left;
+    width:35px;
+    margin-right:10px;
+    height:40px;
+    border:none !important;
+    margin:0 auto;
+}
+.lof-countdown div.deal-itemlist b{
+    background: #333 !important;
+    height:30px;
+    color:#ffffff !important;
+    width:35px;
+    padding: 3px 3px;
+    
+}
+.lof-countdown div.deal-time b{
+    background: #2E9FED !important;
+    height:30px;
+    color:#ffffff !important;
+    width:40px;
+    padding: 1px 4px;
+    
+}
+.lof-countdown div.deal-time p, .lof-countdown div.deal-itemlist p{
+    position: relative;
+    top:0px;
+}
+#itemListLeading .lof-countdown, #itemListPrimary .lof-countdown{
+    padding-left:48px;
+}
+div.itemHeader h2.itemTitle, div.itemHeader h2.itemBlogTitle{
+    font-size:190% !important;
+    font-weight:bold !important;
+    font-family:arial;
+}
+.lof-countdown div b{
+	background: none !important;
+	height:40px;
+	width:53px;
+	top:5px;
+	right:5px;
+	font-size:18px !important;
+	color:#333333 !important;
+	position:relative;
+	text-align:center;
+	border:none !important;
+}
+.lof-countdown div p{
+	font-weight:bold;
+	font-size:14px;
+	position:relative;
+	top:-15px;
+	text-align:center;
+}
+div.itemToolbar ul.itemMeta{
+	display:none !important;
+}
+div.itemToolbar ul{
+	display:none !important;
+}
+
+div.itemImageBlock{
+	padding:none !important;
+}
+div.itemExtraFields{
+	border-top:3px dotted #DDDDDD;
+}
+
+#itemListPrimary .itemLinks .itemSocialLinksBlock{
+	display:none;
+}
+div.itemSocialLinksBlock ul.itemSocialLinks{
+	margin-top:5px !important;
+}
+#itemListPrimary div.itemContainer{
+	position:relative;
+	float:left;
+}
+div.catItemIntroText {line-height:1.8em; }
+
+ div.itemImageGallery{
+    position:relative;
+    overflow: hidden;
+}
+div.itemImageGallery h3{
+    display:none;
+}
+div.sigProGalleriaContainer{
+    margin-left: 230px;
+    overflow: hidden;
+    padding: 3px !important;
+
+}
+div.sigProGalleriaPlaceholderContainer{
+    height:226px;
+	
+}
+
+.timeleft .lof-labelexpired {
+    background: url("images/buy3.png") no-repeat scroll 0 0 transparent !important;
+    color: #F2F2F2 !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    padding: 10px !important;
+    position: relative !important;
+    text-align: center !important;
+    text-shadow: 0 1px 1px #000000 !important;
+	width: 70px  !important;
+	
+}
+a.various1
+{
+    margin-left: 40px;
+    background: url("../img_product/buy-now-button-image-yellow.png") no-repeat scroll 0 0 transparent !important;
+    
+    }
+.sectiontableheader {
+    background: none repeat scroll 0 0 #333333;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+.sectiontableheader th {
+    background: none repeat scroll 0 0 #6A9FC7;
+}
+table td, table th {
+    border-color: #CAD7E2;
+    border-style: solid;
+    border-width: 0;
+    text-align: left;
+}
+th {
+    font-weight: bold;
+    padding: 5px;
+    text-align: left;
+}
+table#ContentPlaceHolder1_grvItemShopping td{
+    background: url("../img_product/dot-h.gif") repeat-x scroll left bottom transparent;
+    padding: 8px;
+    font-weight: bold;
+}
+.total-price
+{ margin-right: 27px;}
+.mouseButton1
+{
+    background-color: #5496B6;
+    border: 2px solid #6593A1;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 200px;
+    
+    }
+.mouseButton:hover
+{
+    cursor: pointer;
+}       
+.mouseButton1:hover
+{
+    cursor: pointer;
+}   

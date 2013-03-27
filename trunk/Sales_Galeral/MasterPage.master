@@ -1,0 +1,244 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+    <title>General Store</title>
+    <link href='http://fonts.googleapis.com/css?family=Kreon:400,700' rel='stylesheet'
+        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:400,700' rel='stylesheet'
+        type='text/css' />
+    <link href="client/css/global.css" rel="stylesheet" type="text/css" media="all" />
+    <!--	<link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />-->
+    <link href="client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="client/css/homefeatured.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="client/js/jquery-1.8.3.min.js"></script>
+    <%-- <script type="text/javascript" src="client/js/jquery.easing.1.3.js"></script>--%>
+    <script type="text/javascript" src="client/js/script.js"></script>
+    <%-- <script type="text/javascript" src="client/js/script1.js"></script>--%>
+    <%--	<script type="text/javascript" src="js/jquery.idTabs.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+	<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+	<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        function setClass() {
+            var cate = getUrlVars()["categr"];
+            var attribute = document.createAttribute("class");
+            attribute.nodeValue = "active"
+            switch (cate) {
+                case "1":
+                    {
+                        document.getElementById("a1").setAttributeNode(attribute);
+                    }
+                    break;
+                case "2":
+                    {
+                        document.getElementById("a2").setAttributeNode(attribute);
+                    }
+                    break;
+                case "3":
+                    {
+                        document.getElementById("a3").setAttributeNode(attribute);
+                    }
+                    break;
+                case "4":
+                    {
+                        document.getElementById("a4").setAttributeNode(attribute);
+                    }
+                    break;
+                case "5":
+                    {
+                        document.getElementById("a5").setAttributeNode(attribute);
+                    }
+                    break;
+                case "6":
+                    {
+                        document.getElementById("a6").setAttributeNode(attribute);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            var cate = getUrlVars()["type"];
+            switch (cate) {
+                case "0":
+                    {
+                        document.getElementById("hot").setAttributeNode(attribute);
+                    }
+                    break;
+                case "1":
+                    {
+                        document.getElementById("new").setAttributeNode(attribute);
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+        }
+    </script>
+</head>
+<body id="index" onload="setClass()">
+    <form id="frmTempMaster" runat="Server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <p id="back-top">
+        <a href="#top"><span></span></a>
+    </p>
+    <div id="wrapper1">
+        <div id="wrapper2">
+            <%--<a id="header_logo" href="index.html" title="Pets Store"><img class="logo" src="client/images/log copy.jpg" style="width:260px; height:115px; margin-left: 155px;" alt="Pets Store" /></a>--%>
+            <div id="wrapper3" class="clearfix">
+                <header id="header">
+		<a id="header_logo" href="Default.aspx" title="Pets Store"><img class="logo" src="client/img/logothai.png" style="width:260px; height:115px; margin-left: 155px; position: relative; margin-left: -46px; margin-top: -26px;" alt="Pets Store" /></a>
+		
+        <ul id="tmheaderlinks">
+			<li><a href="Default.aspx" class="active">home</a></li>
+			<li><a href="">specials</a></li>
+			<li><a href="">delivery</a></li>
+			<li><a href="">contact</a></li>
+		</ul><!-- Block user information module HEADER -->
+            <asp:MultiView ID="MultiView1" runat="server">`
+                <asp:View ID="View1" runat="server">
+                    <!-- Block search module TOP -->
+		<div id="search_block_top">
+			
+				<label for="username_querry">UserName</label>
+				<input type="hidden" name="controller" value="search" />
+				<input type="hidden" name="orderby" value="position" />
+				<input type="hidden" name="orderway" value="desc" />
+				<input class="search_query" runat="Server" type="text" id="username_querry" name="username" value="UserName" onFocus="if(this.value=='UserName')this.value='';" onBlur="if(this.value=='')this.value='UserName';" />
+               
+
+                <label for="password_querry">Password</label>
+				<input type="hidden" name="controller" value="search" />
+				<input type="hidden" name="orderby" value="position" />
+				<input type="hidden" name="orderway" value="desc" />
+				<input style=" margin-left: 10px;" class="search_query" type="password" id="password_querry" runat="Server" name="password"  onFocus="if(this.value=='Password')this.value='';" onBlur="if(this.value=='')this.value='Password';" />
+				<asp:LinkButton ID="lbtn_login" runat="server" onclick="lbtn_login_Click" 
+                    CausesValidation="False">OK</asp:LinkButton>
+                <div id="text_remember" style="height: 40px;margin-left: 2px;margin-top: 36px;" >
+                <asp:CheckBox ID="cbxRemember" CssClass="remember" runat="server"></asp:CheckBox><span style="margin-left:10px">Ghi nhớ</span>
+                
+               </div>
+			
+		</div>
+		<!-- /Block search module TOP -->
+		
+		<ul id="header_user">			
+			
+			<li id="user_info">	Welcome&nbsp;(<span style="color: #FE971C"> Quest! </span>)</li>
+			<li id="your_account"><asp:LinkButton ID="lbtn_Register" runat="server" 
+                    onclick="lbtn_Register_Click" ToolTip="Đăng ký tài khoản">Đăng ký</asp:LinkButton></li>
+		
+                </asp:View>
+
+                <asp:View ID="View2" runat="server">
+                <ul id="header_user">
+		
+			
+			<li id="user_info">	Welcome:&nbsp;(&nbsp;<asp:LinkButton ID="lbtn_Account" 
+                    runat="server" onclick="lbtn_Account_Click" Text="account" ></asp:LinkButton> &nbsp;)</li>
+			<li id="your_account"><asp:LinkButton ID="lbtn_Exit" runat="server" 
+                    onclick="lbtn_Exit_Click">Thoát</asp:LinkButton></li>
+		
+                </asp:View>
+            </asp:MultiView>
+             <li id="shopping_cart">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+             <ContentTemplate>
+				        <asp:LinkButton ID="lbtn_Cart" runat="server" onclick="lbtn_Cart_Click" Text="Cart: (Empty)"></asp:LinkButton>
+                </ContentTemplate>       
+        </asp:UpdatePanel>
+			 </li>
+            </ul><!-- /Block user information module HEADER -->
+
+
+		<div id="topmenu">
+			<ul class="sf-menu clearfix">
+            <li><a id="hot" href="TypeProduct.aspx?type=0">DEAL HOT</a></li>
+				<li><a id="new" href="TypeProduct.aspx?type=1">DEAL NEW</a></li>
+            <asp:DataList ID="DataListMenu" runat="server">         
+                        <ItemTemplate>
+                        
+                            <li><a id="a<%# Eval("ID") %>" href='<%# "TypeProduct.aspx?categr=" + Eval("ID") %>' title="<%# Eval("Category_Name")%>">
+                                <%# Eval("Category_Name")%></a></li>
+                        </ItemTemplate>
+                    </asp:DataList>
+			</ul>
+		</div>
+	</header>
+                <div class="columns clearfix">
+                    <div id="center_column" class="center_column">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+            <footer>
+	<div id="footer" class="clearfix">
+		<div>
+			<div id="tmfooterlinks"> 	
+				<div>
+					<h4>Information</h4>
+					<ul>
+						<li><a href="">Sitemap</a></li>
+						<li><a href="">Legal Notice</a></li>
+						<li><a href="">Terms and conditions</a></li>
+						<li><a href="">About us</a></li>
+						<li><a href="index.php?controller=contact">Contact</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Our offers</h4>
+					<ul>
+						<li><a href="">New products</a></li>
+						<li><a href="">Specials</a></li>
+						<li><a href="">Top sellers</a></li>
+						<li><a href="">Manufacturers</a></li>
+						<li><a href="">Suppliers</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>My account</h4>
+					<ul>
+						<li><a href="">My orders</a></li>
+						<li><a href="">My addresses</a></li>
+						<li><a href="">My personal info</a></li>
+						<li><a href="">My credit slips</a></li>
+						<li><a href="">My vouchers</a></li>
+					</ul>
+				</div>
+				
+				<p>&copy; 2012 Powered by <a href="http://www.prestashop.com">PrestaShop</a>&trade;. All rights reserved.</p>
+			</div>
+			<div id="social_block">
+				<h4>Follow us</h4>
+				<ul>
+					<li class="rss"><a href="RSS">RSS</a></li>
+					<li class="facebook"><a href="http://www.facebook.com/">Facebook</a></li>	
+					<li class="twitter"><a href="http://www.twitter.com/">Twitter</a></li>	
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
