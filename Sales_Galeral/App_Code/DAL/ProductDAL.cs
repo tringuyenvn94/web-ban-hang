@@ -44,6 +44,8 @@ public class ProductDAL
         return null;
     }
 
+   
+
     //Update and Product
     public bool Update_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, double PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
     {

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+	
+	<meta name="robots" content="index,follow" />
+	
+	<title>Pets Store</title>
+	
+	
+	<link href='http://fonts.googleapis.com/css?family=Kreon:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:400,700' rel='stylesheet' type='text/css'>
+	
+	<link href="css/global.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/jquery.fancybox.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/homefeatured.css" rel="stylesheet" type="text/css" media="all" />
+
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.js"></script>
+	<script type="text/javascript" src="js/hoverIntent.js"></script>
+	<script type="text/javascript" src="js/superfish-modified.js"></script>	
+	<script type="text/javascript" src="js/script.js"></script>
+	
+	<script type="text/javascript" src="js/jquery.idTabs.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+	<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+	<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+	
+	
+	
+	
+</head>
+<body id="product">
+<p id="back-top"> <a href="#top"><span></span></a></p>
+
+<div id="wrapper1">
+<div id="wrapper2">
+<div id="wrapper3" class="clearfix">
+
+	<header id="header">
+		<a id="header_logo" href="" title="Pets Store"><img class="logo" src="img/logo.jpg" alt="Pets Store" /></a>
+		
+		<!-- Block languages module -->
+		<div id="languages_block_top">
+			<ul id="first-languages">
+				<li class="selected_language">vn</li>
+				<li ><a href="" title="">EN</a></li>
+				
+			</ul>
+		</div><!-- /Block languages module -->
+
+		<!-- Block currencies module 
+		<div id="currencies_block_top">
+			<form id="setCurrency" action="/prestashop_42154/index.php" method="post">
+				<label>Currency:</label>
+				<select onchange="setCurrency(this.value);">
+									<option  value="1" selected="selected">VND</option>
+									<option  value="2">USD</option>
+							</select>
+				<input type="hidden" name="id_currency" id="id_currency" value=""/>
+				<input type="hidden" name="SubmitCurrency" value="" />
+			</form>
+		</div><!-- /Block currencies module -->
+
+
+		<!-- Block search module TOP -->
+		<div id="search_block_top">
+			<form method="post" action="" id="searchbox">
+				<label for="search_query_top">Search</label>
+				<input class="search_query" type="text" id="search_query_top" name="search_query" value="Search" onFocus="if(this.value=='Search')this.value='';" onBlur="if(this.value=='')this.value='Search';" />
+				<a href="">Search</a>
+			</form>
+		</div>
+		<!-- /Block search module TOP -->
+
+		<ul id="tmheaderlinks">
+			<li><a href="" class="active">home</a></li>
+			<li><a href="">specials</a></li>
+			<li><a href="">delivery</a></li>
+			<li><a href="">contact</a></li>
+		</ul><!-- Block user information module HEADER -->
+		
+		<ul id="header_user">
+			<li id="shopping_cart">
+				<a href="" title="Your Shopping Cart">Cart:
+					<span class="hidden">0</span>
+					<span class="hidden">product</span>
+					<span class="hidden">products</span>
+					<span class="">(empty)</span>
+				</a>
+			</li>
+			
+			<li id="user_info">	Welcome(&nbsp; <a class="login" href="">Log in</a>&nbsp;)</li>
+			<li id="your_account"><a href="" title="Your Account">Your Account</a></li>
+		</ul><!-- /Block user information module HEADER -->
+
+		<!-- MODULE Block cart -->
+		<div id="cart_block" class="block exclusive">
+			<h4><a href="">Cart</a></h4>
+			
+			<div class="block_content">
+
+				<!-- block list of products -->
+				<div id="cart_block_list" class="expanded">
+					<p  id="cart_block_no_products">No products</p>
+					<div class="cart-prices">
+						<div class="cart-prices-block">
+							<span id="cart_block_shipping_cost" class="price ajax_cart_shipping_cost">$0.00</span>
+							<span>Shipping</span>
+						</div>
+						
+						<div class="cart-prices-block">
+							<span id="cart_block_total" class="price ajax_block_cart_total">$0.00</span>
+							<span>Total</span>
+						</div>
+					</div>
+						
+						<p id="cart-buttons">
+						<a href="" class="button_mini" title="Cart">Cart</a>
+						<a href="" id="button_order_cart" class="exclusive" title="Check out">Check out</a>
+					</p>
+				</div> <!-- /block list of products -->
+			</div>
+		</div><!-- /MODULE Block cart -->
+
+		<div id="topmenu">
+			<ul class="sf-menu clearfix">
+				<li><a href="category.html">Wedding</a>
+					<ul>
+						<li><a href="">Lorem ipsum</a></li>
+						<li><a href="">Dolore sit amet</a></li>
+						<li><a href="">Denoc magna velit</a></li>
+					</ul>
+				</li>
+				<li><a href="category.html">Rings</a></li>
+				<li><a href="category.html">Necklaces</a></li>
+				<li><a href="category.html">Earrings</a></li>
+				<li ><a href="">Bracelets</a></li>
+				<li><a href="category.html">Watches</a></li>
+				<li><a href="category.html">Collections</a></li>
+				<li><a href="category.html">sale</a></li>
+			</ul>
+		</div>
+	</header>
+
+<div class="columns clearfix">
+
+
+
+<div id="center_column" class="center_column">
+	<!-- Breadcrumb -->
+	<div class="breadcrumb bordercolor">
+		<div class="breadcrumb_inner">
+			<a href="" title="return to Home">Home</a>
+			<span class="navigation-pipe" >&gt;</span>
+			<a href="" title="Wedding">Wedding</a>
+			<span class="navigation-pipe">></span>Lorem ipsum
+		</div>
+	</div><!-- /Breadcrumb -->
+
+	<h1>
+		Lorem ipsum<span class="category-product-count"> There are 7 products.</span>
+	</h1>
+			
+												
+
+	<div class="product_sort">
+		<ul class="product_view">
+			<li id="product_view_grid"></li>
+			<li id="product_view_list" class="current"></li>
+		</ul>
+	</div><!-- /Sort products -->
+
+	<ul id="product_list" class="bordercolor list">
+		
+		<li class="bordercolor">
+			<a href="product.html" class="product_img_link" title="Antique Citrine Cocktail Ring">
+				<img src="images/79-home_default.jpg" alt="" /></a>
+			<div class="center_block">
+				<div class="product_flags">
+					<span class="new">New!</span>
+					<span class="bordercolor">Out of stock</span>
+				</div>
+				<h3><a class="product_link" href="" title="Antique Citrine Cocktail Ring">Antique Citrine Cocktail Ring</a></h3>
+				<p class="product_desc">
+					<a class="product_descr" href="product.html" title="Our collection is like a sea pearl among simple stones. Our devoted clients have noticed that our goods are the index of true, elegant taste. We promise that high quality and fair price of our jewelry will be a pleasant surprise for you. Our precious stones and metals are really reliable and fancy. If you want to be more elegant and stylish you should try..." >Our collection is like a sea pearl among simple stones. Our devoted clients have noticed that our goods are the index of true, elegant taste. We promise that high quality and fair price of our jewelry will be a pleasant surprise for you. Our precious stones and metals are really reliable and fancy. If you want to be...</a>
+				</p>
+			</div>
+		
+			<div class="right_block bordercolor">
+				<span class="on_sale">On sale!</span>
+				<span class="price">$240.25</span>  
+				<span class="exclusive">Add to cart</span>
+				<a class="button" href="product.html" title="View">View</a>          
+			</div>
+		</li>
+		
+		<li class="bordercolor">
+			<a href="product.html" class="product_img_link" title="Art Nouveau Antique Opal &amp; Diamond Cocktail Ring">
+				<img src="images/85-home_default.jpg" alt="" />
+			</a>
+			<div class="center_block">
+				<div class="product_flags">
+					<span class="new">New!</span>
+					<span class="bordercolor">Out of stock</span>
+				</div>
+				<h3><a class="product_link" href="" title="Art Nouveau Antique Opal &amp; Diamond Cocktail Ring">Art Nouveau Antique Opal &amp; Diamond...</a></h3>
+				<p class="product_desc">
+					<a class="product_descr" href="product.html" title="Our devoted clients have noticed that our goods are the index of true, elegant taste. We promise that high quality and fair price of our jewelry will be a pleasant surprise for you. Our precious stones and metals are really reliable and fancy. Nowadays fashion is very important for many customers and that's why we are always in touch with the latest..." >Our devoted clients have noticed that our goods are the index of true, elegant taste. We promise that high quality and fair price of our jewelry will be a pleasant surprise for you. Our precious stones and metals are really reliable and fancy. Nowadays fashion is very important for many customers and that's why we...</a>
+				</p>
+			</div>																				 
+			<div class="right_block bordercolor">
+				<span class="on_sale">On sale!</span>
+				<span class="price">$320.28</span>  
+				<span class="exclusive">Add to cart</span>
+				<a class="button" href="product.html" title="View">View</a>          
+			</div>
+		</li>
+		
+		<li class="bordercolor product_list-3">
+			<a href="product.html" class="product_img_link" title="Ashleys Signature Large Pendentin Gold">
+				<img src="images/91-home_default.jpg" alt="" />
+			</a>
+			<div class="center_block">
+				<div class="product_flags">
+					<span class="new">New!</span>
+					<span class="bordercolor">Out of stock</span>	
+				</div>
+				<h3><a class="product_link" href="product.html" title="Ashleys Signature Large Pendentin Gold">Ashleys Signature Large Pendentin Gold</a></h3>
+				<p class="product_desc">
+					<a class="product_descr" href="" title="We promise that high quality and fair price of our jewelry will be a pleasant surprise for you. Our precious stones and metals are really reliable and fancy. Nowadays fashion is very important for many customers and that's why we are always in touch with the latest fashion tendencies. You will always be popular with our jewelry, the magical shine of our..." >We promise that high quality and fair price of our jewelry will be a pleasant surprise for you. Our precious stones and metals are really reliable and fancy. Nowadays fashion is very important for many customers and that's why we are always in touch with the latest fashion tendencies. You will always be popular with...</a>
+				</p>
+			</div>																				 
+			<div class="right_block bordercolor">
+				<span class="on_sale">On sale!</span>
+				<span class="price">$556.51</span>  
+				<span class="exclusive">Add to cart</span>
+				<a class="button" href="" title="View">View</a>          
+			</div>
+		</li>
+		
+		<li class="bordercolor">
+			<a href="product.html" class="product_img_link" title="Blue trap squiggle">
+				<img src="images/97-home_default.jpg" alt="" />
+			</a>
+			<div class="center_block">
+				<div class="product_flags">
+					<span class="new">New!</span>
+					<span class="bordercolor">Out of stock</span>
+				</div>
+				<h3><a class="product_link" href="product.html" title="Blue trap squiggle">Blue trap squiggle</a></h3>
+				<p class="product_desc">
+					<a class="product_descr" href="" title="Our precious stones and metals are really reliable and fancy. Nowadays fashion is very important for many customers and that's why we are always in touch with the latest fashion tendencies. Our products are a combination of classic and modern style, we can satisfy any demands of customers, that is why we have so many fans. Obviously both of them are..." >Our precious stones and metals are really reliable and fancy. Nowadays fashion is very important for many customers and that's why we are always in touch with the latest fashion tendencies. Our products are a combination of classic and modern style, we can satisfy any demands of customers, that is why we have so...</a>
+				</p>
+			</div>
+			
+			<div class="right_block bordercolor">
+				<span class="on_sale">On sale!</span>
+				 <span class="price">$924.25</span> 
+				<span class="exclusive">Add to cart</span>
+				<a class="button" href="product.html" title="View">View</a>          
+			</div>
+		</li>
+		
+		<li class="bordercolor">
+			<a href="product.html" class="product_img_link" title="Chaumet Paris Natural Ruby Movable Link Ring">
+				<img src="images/109-home_default.jpg" alt="" />
+			</a>
+			<div class="center_block">
+				<div class="product_flags">
+					<span class="new">New!</span>	
+					<span class="bordercolor">Out of stock</span>						
+				</div>
+				<h3><a class="product_link" href="product.html" title="Chaumet Paris Natural Ruby Movable Link Ring">Chaumet Paris Natural Ruby Movable Link Ring</a></h3>
+				<p class="product_desc">
+					<a class="product_descr" href="" title="Nowadays fashion is very important for many customers and that's why we are always in touch with the latest fashion tendencies. Our products are a combination of classic and modern style, we can satisfy any demands of customers, that is why we have so many fans. You will always be popular with our jewelry, the magical shine of our products will bring you..." >Nowadays fashion is very important for many customers and that's why we are always in touch with the latest fashion tendencies. Our products are a combination of classic and modern style, we can satisfy any demands of customers, that is why we have so many fans. You will always be popular with our jewelry, the...</a>
+				</p>
+			</div>																				 
+			<div class="right_block bordercolor">
+				<span class="on_sale">On sale!</span>
+				<span class="price">$528.96</span>  
+				<span class="exclusive">Add to cart</span>
+				<a class="button" href="product.html" title="View">View</a>          
+			</div>
+		</li>
+		
+		<li class="bordercolor product_list-3">
+			<a href="product.html" class="product_img_link" title="CZ Solitaire 14K Yellow Gold Mens Ring">
+				<img src="images/115-home_default.jpg" alt="" />
+			</a>
+			<div class="center_block">
+				<div class="product_flags">
+					<span class="new">New!</span>	
+					<span class="bordercolor">Out of stock</span>
+				</div>
+				<h3><a class="product_link" href="product.html" title="CZ Solitaire 14K Yellow Gold Mens Ring">CZ Solitaire 14K Yellow Gold Mens Ring</a></h3>
+				<p class="product_desc">
+					<a class="product_descr" href="" title="Our products are a combination of classic and modern style, we can satisfy any demands of customers, that is why we have so many fans. You will always be popular with our jewelry, the magical shine of our products will bring you the best of luck! If you want to be more elegant and stylish you should try on our goods, they are worth you. There are two..." >Our products are a combination of classic and modern style, we can satisfy any demands of customers, that is why we have so many fans. You will always be popular with our jewelry, the magical shine of our products will bring you the best of luck! If you want to be more elegant and stylish you should try on our...</a>
+				</p>
+			</div>																				 
+			<div class="right_block bordercolor">
+				<span class="on_sale">On sale!</span>
+				<span class="price">$132.15</span>  
+				<span class="exclusive">Add to cart</span>
+				<a class="button" href="product.html" title="View">View</a>          
+			</div>
+		</li>
+	 
+		<script>
+			(function($) {
+				$(function() {
+					function createCookie(name,value,days) {
+						if (days) {
+							var date = new Date();
+							date.setTime(date.getTime()+(days*24*60*60*1000));
+							var expires = "; expires="+date.toGMTString();
+						}
+						else var expires = "";
+						document.cookie = name+"="+value+expires+"; path=/";
+					}
+					function readCookie(name) {
+						var nameEQ = name + "=";
+						var ca = document.cookie.split(';');
+						for(var i=0;i < ca.length;i++) {
+							var c = ca[i];
+							while (c.charAt(0)==' ') c = c.substring(1,c.length);
+							if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+						}
+						return null;
+					}
+					function eraseCookie(name) {
+						createCookie(name,"",-1);
+					}
+					$('ul.product_view').each(function(i) {
+						var cookie = readCookie('tabCookie'+i);
+						if (cookie) $(this).find('li').eq(cookie).addClass('current').siblings().removeClass('current')
+							.parents('#center_column').find('#product_list').addClass('list').removeClass('grid').eq(cookie).addClass('grid').removeClass('list');
+					})
+					$('ul.product_view').delegate('li:not(.current)', 'click', function(i) {
+						$(this).addClass('current').siblings().removeClass('current')
+							.parents('#center_column').find('#product_list').removeClass('grid').addClass('list').eq($(this).index()).addClass('grid').removeClass('list')
+							
+								var cookie = readCookie('tabCookie'+i);
+						if (cookie) $(this).find('#product_list').eq(cookie).removeClass('grid').addClass('list').siblings().removeClass('list')
+						var ulIndex = $('ul.product_view').index($(this).parents('ul.product_view'));
+						eraseCookie('tabCookie'+ulIndex);
+						createCookie('tabCookie'+ulIndex, $(this).index(), 365);
+					})
+				})
+			})(jQuery)	
+		</script>
+	</ul>
+
+	<!-- Pagination -->
+	<div id="pagination">
+	</div>
+	<!-- /Pagination -->
+
+			
+	</div>
+
+	
+	
+<aside>
+	<div id="right_column" class="column">
+		<!-- MODULE Block cart -->
+		<div id="cart_block" class="block exclusive">
+			<h4>
+				<a href="">Cart</a>
+			</h4>
+			<div class="block_content">
+				<!-- block list of products -->
+				<div id="cart_block_list" class="expanded">
+					<p  id="cart_block_no_products">No products</p>
+					
+					<div class="cart-prices">
+						<div class="cart-prices-block">
+							<span id="cart_block_shipping_cost" class="price">$0.00</span>
+							<span>Shipping</span>
+						</div>
+						<div class="cart-prices-block">
+							<span id="cart_block_total" class="price">$0.00</span>
+							<span>Total</span>
+						</div>
+					</div>
+					<p id="cart-buttons">
+						<a href="" class="button_mini" title="Cart">Cart</a>
+						<a href="" id="button_order_cart" class="exclusive" title="Check out"><span></span>Check out</a>
+					</p>
+				</div><!-- /block list of products -->
+			</div>
+		</div><!-- /MODULE Block cart -->
+
+		<div id="new-products_block_right" class="block products_block">
+			<h4><a href="" title="New products">New products</a></h4>
+			<div class="block_content">
+				<ul>
+					<li class="bordercolor">
+						<a class="products_block_img bordercolor" href="" title="">
+							<img src="images/1-small_default.jpg" alt="" />
+						</a>
+						<div>
+							<h5><a class="product_link" href="" title="10k White Gold Black and White Diamond Ring">10k White Gold Black...</a></h5>
+							<p><a class="product_descr" href="" title="&lt;p&gt;Precious metals..."> Precious metals have always been a...</a></p>
+						</div>
+					</li>
+					<li class="bordercolor">
+						<a class="products_block_img bordercolor" href="" title=""><img src="images/7-small_default.jpg" alt="" /></a>
+						<div>
+							<h5><a class="product_link" href="" title="14k Two Tone Gold 6.0mm Wedding Band">14k Two Tone Gold...</a></h5>
+							<p><a class="product_descr" href="" title="Just remember that jewelry...">Just remember that jewelry was always...</a></p>
+						</div>
+					</li>
+					
+					<li class="bordercolor">
+						<h5><a class="product_link" href="" title="14k White Gold Diamond Sapphire Ring">14k White Gold Diamond...</a></h5>
+						<p><a class="product_descr" href="" title="&lt;p&gt;Only kings and..."> Only kings and emperors, priests and...</a></p>
+					</li>
+					<li class="bordercolor">
+						<h5><a class="product_link" href="" title="14K White Gold Diamond Wedding Band">14K White Gold Diamond...</a></h5>
+						<p><a class="product_descr" href="" title="Ancients believed that...">Ancients believed that precious...</a></p>
+					</li>
+				</ul>
+				<a href="" title="All new products" class="button_large">All new products</a>	
+			</div>
+		</div>
+	</div>
+</aside>
+</div>
+</div>
+
+	
+	<footer>
+		<div id="footer" class="clearfix">
+			<div>
+				<div id="tmfooterlinks"> 	
+					<div>
+						<h4>Information</h4>
+						<ul>
+							<li><a href="">Sitemap</a></li>
+							<li><a href="">Legal Notice</a></li>
+							<li><a href="">Terms and conditions</a></li>
+							<li><a href="">About us</a></li>
+							<li><a href="">Contact</a></li>
+						</ul>
+					</div>
+					<div>
+						<h4>Our offers</h4>
+						<ul>
+							<li><a href="">New products</a></li>
+							<li><a href="">Specials</a></li>
+							<li><a href="">Top sellers</a></li>
+							<li><a href="">Manufacturers</a></li>
+							<li><a href="">Suppliers</a></li>
+						</ul>
+					</div>
+					<div>
+						<h4>My account</h4>
+						<ul>
+							<li><a href="">My orders</a></li>
+							<li><a href="">My addresses</a></li>
+							<li><a href="">My personal info</a></li>
+							<li><a href="">My credit slips</a></li>
+							<li><a href="">My vouchers</a></li>
+						</ul>
+					</div>
+					
+					<p>&copy; 2012 Powered by <a href="http://www.prestashop.com">PrestaShop</a>&trade;. All rights reserved</p>
+				</div>
+				<div id="social_block">
+					<h4>Follow us</h4>
+					<ul>
+						<li class="rss"><a href="RSS">RSS</a></li>
+						<li class="facebook"><a href="http://www.facebook.com/">Facebook</a></li>	
+						<li class="twitter"><a href="http://www.twitter.com/">Twitter</a></li>	
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</div>
+</div>
+
+</body>
+</html>

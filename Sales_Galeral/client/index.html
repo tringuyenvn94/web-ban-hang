@@ -1,0 +1,414 @@
+﻿
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+	<meta name="robots" content="index,follow" />
+	
+	<title>Pets Store</title>
+	
+	
+	<link href='http://fonts.googleapis.com/css?family=Kreon:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:400,700' rel='stylesheet' type='text/css'>
+	
+	<link href="css/global.css" rel="stylesheet" type="text/css" media="all" />
+<!--	<link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />-->
+	<link href="css/homefeatured.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="client/js/jquery-1.8.3.min.js"></script>
+	<!--<script type="text/javascript" src="js/jquery.easing1.js"></script>-->
+    <script type="text/javascript" src="client/js/jquery.easing.js"/>
+
+	<script type="text/javascript" src="js/hoverIntent.js"></script>
+	<script type="text/javascript" src="js/superfish-modified.js"></script>	
+	<script type="text/javascript" src="js/script.js"></script>
+	
+
+	
+	
+	
+	
+</head>
+<body id="index">
+<p id="back-top"> <a href="#top"><span></span></a></p>
+
+<div id="wrapper1">
+<div id="wrapper2">
+<div id="wrapper3" class="clearfix">
+
+	<header id="header">
+		<a id="header_logo" href="index.html" title="Pets Store"><img class="logo" src="img/logo.jpg" alt="Pets Store" /></a>
+		
+		<!-- Block languages module -->
+		<div id="languages_block_top">
+			<ul id="first-languages">
+				<li class="selected_language">vn</li>
+				<li><a href="" title="">EN</a></li>
+				
+			</ul>
+		</div><!-- /Block languages module -->
+
+		<!-- Block currencies module 
+		<div id="currencies_block_top">
+			<form id="setCurrency" action="/prestashop_42154/index.php" method="post">
+				<label>Currency:</label>
+				<select onchange="setCurrency(this.value);">
+									<option  value="1" selected="selected">VND</option>
+									<option  value="2">USD</option>
+							</select>
+				<input type="hidden" name="id_currency" id="id_currency" value=""/>
+				<input type="hidden" name="SubmitCurrency" value="" />
+			</form>
+		</div><!-- /Block currencies module -->
+
+
+		<!-- Block search module TOP -->
+		<div id="search_block_top">
+			<form method="get" action="" id="searchbox">
+				<label for="search_query_top">Search</label>
+				<input type="hidden" name="controller" value="search" />
+				<input type="hidden" name="orderby" value="position" />
+				<input type="hidden" name="orderway" value="desc" />
+				<input class="search_query" type="text" id="search_query_top" name="search_query" value="Search" onFocus="if(this.value=='Search')this.value='';" onBlur="if(this.value=='')this.value='Search';" />
+				<a href="">Search</a>
+			</form>
+		</div>
+		<!-- /Block search module TOP -->
+
+		<ul id="tmheaderlinks">
+			<li><a href="" class="active">home</a></li>
+			<li><a href="">specials</a></li>
+			<li><a href="">delivery</a></li>
+			<li><a href="">contact</a></li>
+		</ul><!-- Block user information module HEADER -->
+		
+		<ul id="header_user">
+			<li id="shopping_cart">
+				<a href="" title="Your Shopping Cart">Cart:
+					<span class="hidden">0</span>
+					<span class="hidden">product</span>
+					<span class="hidden">products</span>
+					<span class="">(empty)</span>
+				</a>
+			</li>
+			
+			<li id="user_info">	Welcome(&nbsp; <a class="login" href="">Log in</a>&nbsp;)</li>
+			<li id="your_account"><a href="" title="Your Account">Your Account</a></li>
+		</ul><!-- /Block user information module HEADER -->
+
+		<!-- MODULE Block cart -->
+		<div id="cart_block" class="block exclusive">
+			<h4><a href="">Cart</a></h4>
+			
+			<div class="block_content">
+
+				<!-- block list of products -->
+				<div id="cart_block_list" class="expanded">
+					<p  id="cart_block_no_products">No products</p>
+					<div class="cart-prices">
+						<div class="cart-prices-block">
+							<span id="cart_block_shipping_cost" class="price ajax_cart_shipping_cost">$0.00</span>
+							<span>Shipping</span>
+						</div>
+						
+						<div class="cart-prices-block">
+							<span id="cart_block_total" class="price ajax_block_cart_total">$0.00</span>
+							<span>Total</span>
+						</div>
+					</div>
+						
+						<p id="cart-buttons">
+						<a href="" class="button_mini" title="Cart">Cart</a>
+						<a href="" id="button_order_cart" class="exclusive" title="Check out">Check out</a>
+					</p>
+				</div> <!-- /block list of products -->
+			</div>
+		</div><!-- /MODULE Block cart -->
+
+		<div id="topmenu">
+			<ul class="sf-menu clearfix">
+				<li><a href="category.html">Wedding</a>
+					<ul>
+						<li><a href="category.html">Lorem ipsum</a></li>
+						<li><a href="category.html">Dolore sit amet</a></li>
+						<li><a href="category.html">Denoc magna velit</a></li>
+					</ul>
+				</li>
+				<li><a href="category.html">Rings</a></li>
+				<li><a href="category.html">Necklaces</a></li>
+				<li><a href="category.html">Earrings</a></li>
+				<li><a href="category.html">Bracelets</a></li>
+				<li><a href="category.html">Watches</a></li>
+				<li><a href="category.html">Collections</a></li>
+				<li><a href="category.html">sale</a></li>
+			</ul>
+		</div>
+	</header>
+
+<div class="columns clearfix">
+	<div id="center_column" class="center_column">
+
+		<script type="text/javascript" src="js/nivo.slider.js"></script>
+		
+		<div id="tmnivoslider"> 	
+			<div id="slider">
+					<a href=""><img src="slides/slide_00.jpg" alt="" title="#htmlcaption1" /></a>
+					<a href=""><img src="slides/slide_01.jpg" alt="" title="#htmlcaption2" /></a>
+					<a href=""><img src="slides/slide_02.jpg" alt="" title="#htmlcaption3" /></a>
+			</div>
+				
+			<div id="htmlcaption1" class="nivo-html-caption">
+				<h2>best</h2>
+				<h3>prices online</h3>
+				<h4>guaranteed</h4>
+				<h5></h5>
+				<a class="slide_btn" href="">click for details</a>
+			</div>
+			
+			<div id="htmlcaption2" class="nivo-html-caption">
+				<h2>best</h2>
+				<h3>prices online</h3>
+				<h4>guaranteed</h4>
+				<h5></h5>
+				<a class="slide_btn" href="">click for details</a>
+			</div>
+			
+			<div id="htmlcaption3" class="nivo-html-caption">
+				<h2>best</h2>
+				<h3>prices online</h3>
+				<h4>guaranteed</h4>
+				<h5></h5>
+				<a class="slide_btn" href="">click for details</a>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+
+		jQuery(window).load(function() {
+			jQuery('#slider').nivoSlider({
+				effect:'fold', //Specify sets like: 'fold,fade,sliceDown'
+				slices:10,
+				animSpeed:500, //Slide transition speed
+				pauseTime:5000,
+				startSlide:0, //Set starting Slide (0 index)
+				directionNav:false, //Next & Prev
+				directionNavHide:false, //Only show on hover
+				controlNav:true, //1,2,3...
+				controlNavThumbs:false, //Use thumbnails for Control Nav
+				controlNavThumbsFromRel:false, //Use image rel for thumbs
+				controlNavThumbsSearch: '.jpg', //Replace this with...
+				controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+				keyboardNav:true, //Use left & right arrows
+				pauseOnHover:true, //Stop animation while hovering
+				manualAdvance:false, //Force manual transitions
+				captionOpacity:1.0, //Universal caption opacity
+				beforeChange: function(){},
+				afterChange: function(){},
+				slideshowEnd: function(){} //Triggers after all slides have been shown
+			});
+		});
+
+		</script>
+		
+		<div id="tmpics">
+			<ul>
+				<li>
+					<a href="">
+						<img src="slides/slide_03.jpg" alt="" title="#htmlcaption1" />
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="slides/slide_04.jpg" alt="" title="#htmlcaption2" />
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- MODULE Home Featured Products -->
+		<div id="featured_products">
+			<h4>Featured products</h4>
+
+			<div class="block_content">
+				<ul>
+					<li class="">
+						<a class="product_image" href="product.html" title="10k White Gold Black and White Diamond Ring">
+							<img src="images/1-home_default.jpg" alt="10k White Gold Black and White Diamond Ring" />
+						</a>
+						<div>
+							<!--<h5><a class="product_link" href="" title="10k White Gold Black and...">10k White Gold Black...</a></h5>-->
+							<p class="product_desc">
+								<a class="product_descr" href="product.html" title="More">Precious metals have always been a detector of prosperity and...</a>
+							</p>
+							
+							<span class="price">$116.06</span>					
+							
+							<a class="exclusive" href="" title="Add to cart">Add to cart</a>
+						</div>
+					</li>
+					
+					<li class="">
+						<a class="product_image" href="product.html" title="14k Two Tone Gold 6.0mm Wedding Band">
+							<img src="images/7-home_default.jpg" alt="14k Two Tone Gold 6.0mm Wedding Band" />
+						</a>
+						
+						<div>
+							<!--<h5><a class="product_link" href="index.php?id_product=2&controller=product&id_lang=1" title="14k Two Tone Gold 6.0mm...">14k Two Tone Gold...</a></h5>-->
+							<p class="product_desc">
+								<a class="product_descr" href="product.html" title="More">Just remember that jewelry was always a very inaccessible good...</a>
+							</p>
+							<span class="price">$628.96</span>					
+							<a class="exclusive" href="" title="Add to cart">Add to cart</a>
+						</div>
+					</li>
+					
+					<li class="">
+						<a class="product_image" href="product.html" title="14k White Gold Diamond Sapphire Ring"><img src="images/13-home_default.jpg" alt="14k White Gold Diamond Sapphire Ring" /></a>
+						
+						<div>
+							<!--<h5><a class="product_link" href="index.php?id_product=3&controller=product&id_lang=1" title="14k White Gold Diamond...">14k White Gold Diamond...</a></h5>-->
+							<p class="product_desc">
+								<a class="product_descr" href="product.html" title="More">Only kings and emperors, priests and pirates could own the...</a>
+							</p>
+							<span class="price">$386.06</span>					
+							<a class="exclusive" href="" title="Add to cart">Add to cart</a>
+						</div>
+					</li>
+					
+					<li class="">
+						<a class="product_image" href="product.html" title="14K White Gold Diamond Wedding Band">
+							<img src="images/19-home_default.jpg" alt="14K White Gold Diamond Wedding Band" />
+						</a>
+						
+						<div>
+							<!--<h5><a class="product_link" href="index.php?id_product=4&controller=product&id_lang=1" title="14K White Gold Diamond...">14K White Gold Diamond...</a></h5>-->
+							<p class="product_desc">
+								<a class="product_descr" href="product.html" title="More">Ancients believed that precious stones have always had some...</a>
+							</p>
+							<span class="price">$928.96</span>
+							<a class="exclusive" href="" title="Add to cart">Add to cart</a>
+						</div>
+					</li>
+					
+					<li class="">
+						<a class="product_image" href="product.html" title="14k Yellow Gold Cluster Ring">
+							<img src="images/25-home_default.jpg" alt="14k Yellow Gold Cluster Ring" />
+						</a>
+						<div>
+							<!--<h5><a class="product_link" href="index.php?id_product=5&controller=product&id_lang=1" title="14k Yellow Gold Cluster Ring">14k Yellow Gold...</a></h5>-->
+							<p class="product_desc">
+								<a class="product_descr" href="product.html" title="More">There are two types of jewelry - stones and metals. Obviously...</a>
+							</p>
+							<span class="price">$428.96</span>					
+							<a class="exclusive" href="" title="Add to cart">Add to cart</a>
+						</div>
+					</li>
+					
+					<li class="ajax_block_product">
+						<a class="product_image" href="product.html" title="14K Yellow Gold Green Radiant Cut CZ Ring">
+							<img src="images/31-home_default.jpg" alt="14K Yellow Gold Green Radiant Cut CZ Ring" />
+						</a>
+						<div>
+							<!--<h5><a class="product_link" href="index.php?id_product=6&controller=product&id_lang=1" title="14K Yellow Gold Green Radiant...">14K Yellow Gold Green...</a></h5>-->
+							<p class="product_desc">
+								<a class="product_descr" href="product.html" title="More">Obviously both of them are unique because of their appearance....</a>
+							</p>
+							<span class="price">$428.96</span>
+							<a class="exclusive" href="" title="Add to cart">Add to cart</a>
+						</div>
+					</li>
+					
+					<li class="">
+						<a class="product_image" href="product.html" title="14k Yellow Gold Praying Hands Charm">
+							<img src="images/37-home_default.jpg" alt="14k Yellow Gold Praying Hands Charm" />
+						</a>
+						<div>
+							<!--<h5><a class="product_link" href="index.php?id_product=7&controller=product&id_lang=1" title="14k Yellow Gold Praying Hands...">14k Yellow Gold...</a></h5>-->
+							<p class="product_desc">
+								<a class="product_descr" href="product.html" title="More">It seems that our fanatic desire to have jewelry is the result...</a>
+							</p>
+							<span class="price">$632.15</span>					
+							<a class="exclusive" href="" title="Add to cart">Add to cart</a>
+						</div>
+					</li>
+					
+					<li class="">
+						<a class="product_image" href="product.html" title="14K Yellow Gold Princess Diamond 4-Prong Stud Earrings">
+							<img src="images/43-home_default.jpg" alt="14K Yellow Gold Princess Diamond 4-Prong Stud Earrings" />
+						</a>
+						<div>
+							<!--<h5><a class="product_link" href="index.php?id_product=8&controller=product&id_lang=1" title="14K Yellow Gold Princess...">14K Yellow Gold...</a></h5>-->
+							<p class="product_desc">
+								<a class="product_descr" href="product.html" title="More">Remember that barbarians liked all shiny and bright things...</a>
+							</p>
+							<span class="price">$640.25</span>					
+							<span class="exclusive">Add to cart</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div><!-- /MODULE Home Featured Products -->
+
+	</div>
+</div>
+</div>
+
+<footer>
+	<div id="footer" class="clearfix">
+		<div>
+			<div id="tmfooterlinks"> 	
+				<div>
+					<h4>Information</h4>
+					<ul>
+						<li><a href="">Sitemap</a></li>
+						<li><a href="">Legal Notice</a></li>
+						<li><a href="">Terms and conditions</a></li>
+						<li><a href="">About us</a></li>
+						<li><a href="index.php?controller=contact">Contact</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Our offers</h4>
+					<ul>
+						<li><a href="">New products</a></li>
+						<li><a href="">Specials</a></li>
+						<li><a href="">Top sellers</a></li>
+						<li><a href="">Manufacturers</a></li>
+						<li><a href="">Suppliers</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>My account</h4>
+					<ul>
+						<li><a href="">My orders</a></li>
+						<li><a href="">My addresses</a></li>
+						<li><a href="">My personal info</a></li>
+						<li><a href="">My credit slips</a></li>
+						<li><a href="">My vouchers</a></li>
+					</ul>
+				</div>
+				
+				<p>&copy; 2012 Powered by <a href="http://www.prestashop.com">PrestaShop</a>&trade;. All rights reserved.</p>
+			</div>
+			<div id="social_block">
+				<h4>Follow us</h4>
+				<ul>
+					<li class="rss"><a href="RSS">RSS</a></li>
+					<li class="facebook"><a href="http://www.facebook.com/">Facebook</a></li>	
+					<li class="twitter"><a href="http://www.twitter.com/">Twitter</a></li>	
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+</div>
+</div>
+
+</body>
+</html>
