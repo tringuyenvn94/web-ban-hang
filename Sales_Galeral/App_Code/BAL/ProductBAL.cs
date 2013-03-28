@@ -23,13 +23,13 @@ public class ProductBAL
     }
 
     //Update and Product
-    public bool Update_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, double PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
+    public bool Update_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, int PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
     {
         return new ProductDAL().Update_Product(id, CategoryID, Name, ProductCode, PriceOriginal, PriceSale, PriceDiscount, QuantityIn, QuantityBought, Image, Description, Details, Type);
     }
 
     //Insert Product
-    public bool Insert_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, double PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
+    public bool Insert_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, int PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
     {
         return new ProductDAL().Insert_Product(id, CategoryID, Name, ProductCode, PriceOriginal, PriceSale, PriceDiscount, QuantityIn, QuantityBought, Image, Description, Details, Type);
     }
@@ -47,8 +47,8 @@ public class ProductBAL
     }
 
     //Search By Name Product
-    public DataSet Load_SearchProduct_ByName(string Name)
+    public DataSet Load_SearchProduct_ByName(int Category_ID)
     {
-        return new ProductDAL().Load_SearchProduct_ByName(Name);
+        return new ProductDAL().Load_SearchProduct_ByName(Category_ID);
     }
 }

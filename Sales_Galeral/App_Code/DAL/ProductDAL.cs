@@ -47,7 +47,7 @@ public class ProductDAL
    
 
     //Update and Product
-    public bool Update_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, double PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
+    public bool Update_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, int PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
     {
         try
         {
@@ -66,7 +66,7 @@ public class ProductDAL
                 pr_PriceOriginal.Value = PriceOriginal;
                 SqlParameter pr_PriceSale = command.Parameters.Add("@Price_Sale", SqlDbType.Float);
                 pr_PriceSale.Value = PriceSale;
-                SqlParameter pr_PriceDiscount = command.Parameters.Add("@Price_Discount", SqlDbType.Float);
+                SqlParameter pr_PriceDiscount = command.Parameters.Add("@Price_Discount", SqlDbType.Int);
                 pr_PriceDiscount.Value = PriceDiscount;
                 SqlParameter pr_QuantityIn = command.Parameters.Add("@Quantity_In", SqlDbType.Int);
                 pr_QuantityIn.Value = QuantityIn;
@@ -98,7 +98,7 @@ public class ProductDAL
     }
 
     //Insert Product
-    public bool Insert_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, double PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
+    public bool Insert_Product(int id, int CategoryID, string Name, string ProductCode, double PriceOriginal, double PriceSale, int PriceDiscount, int QuantityIn, int QuantityBought, string Image, string Description, string Details, int Type)
     {
         try
         {
@@ -117,7 +117,7 @@ public class ProductDAL
                 pr_PriceOriginal.Value = PriceOriginal;
                 SqlParameter pr_PriceSale = command.Parameters.Add("@Price_Sale", SqlDbType.Float);
                 pr_PriceSale.Value = PriceSale;
-                SqlParameter pr_PriceDiscount = command.Parameters.Add("@Price_Discount", SqlDbType.Float);
+                SqlParameter pr_PriceDiscount = command.Parameters.Add("@Price_Discount", SqlDbType.Int);
                 pr_PriceDiscount.Value = PriceDiscount;
                 SqlParameter pr_QuantityIn = command.Parameters.Add("@Quantity_In", SqlDbType.Int);
                 pr_QuantityIn.Value = QuantityIn;
@@ -200,16 +200,16 @@ public class ProductDAL
     }
 
     //Search By Name Product
-    public DataSet Load_SearchProduct_ByName(string Name)
+    public DataSet Load_SearchProduct_ByName(int Category_ID)
     {
         try
         {
             DataSet dset = new DataSet();
-            string commandText = "SP_Get_ProductByName";
+            string commandText = "SP_Get_ProductByCategory";
             SqlCommand command = new SqlCommand(commandText, conn.Connect());
             command.CommandType = CommandType.StoredProcedure;
-            SqlParameter prName = command.Parameters.Add("@Name", SqlDbType.VarChar);
-            prName.Value = Name;
+            SqlParameter prCategory_ID = command.Parameters.Add("@Category_ID", SqlDbType.Int);
+            prCategory_ID.Value = Category_ID;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(dset);
             return dset;

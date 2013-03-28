@@ -12,6 +12,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
     CategoryBAL ToolsAdmin1 = new CategoryBAL();
     Encryption Encryption = new Encryption();
     HtmlRemoval HtmlRemoval = new HtmlRemoval();
+    public int category_id = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -19,6 +20,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
             DIV_Product.Visible = true;
             Load_Grid_Products();
             Load_DDL_Category();
+            Load_DDL_SearchCategory();
             Load_DDL_Type();
             Set_Attribute();
         }
@@ -33,13 +35,13 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
     protected void Grid_Product_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         Grid_Product.PageIndex = e.NewPageIndex;
-        if (TB_SearchProduct.Text.Trim() == "")
+        if (category_id == 0)
         {
             Load_Grid_Products();
         }
         else
         {
-            Load_SearchProduct_ByName();
+            Load_SearchProduct_ByCategory();
         }
         DIV_AddEditProduct.Visible = false;
     }
@@ -70,6 +72,9 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         TB_GiamGia.Attributes["onKeyPress"] = "javascript:return EnsureNumericKeyEntry(this.id);";
         TB_SoLuongCo.Attributes["onKeyPress"] = "javascript:return EnsureNumericKeyEntry(this.id);";
         TB_SoLuongBan.Attributes["onKeyPress"] = "javascript:return EnsureNumericKeyEntry(this.id);";
+
+        TB_GiaGoc.Attributes["onChange"] = "javascript:return Calculator_GiaBan();";
+        TB_GiamGia.Attributes.Add("OnChange", "javascript:return Calculator_GiaBan();");
     }
 
     public void set_Text_Product()
@@ -135,32 +140,32 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         int CategoryID = Convert.ToInt32(DDL_TheLoai.SelectedValue.ToString());
         string NameProduct = HtmlRemoval.StripTagsRegex(TB_TenSanPham.Text.Trim());
         string ProductCode = HtmlRemoval.StripTagsRegex(TB_MaSanPham.Text.Trim());
-        double GiaGoc;
+        float GiaGoc;
         if (TB_GiaGoc.Text.Trim() == "")
         {
             GiaGoc = 0;
         }
         else
         {
-            GiaGoc = Convert.ToDouble(TB_GiaGoc.Text.Trim());
+            GiaGoc = Convert.ToInt32(TB_GiaGoc.Text.Trim());
         }
-        double GiaBan;
+        float GiaBan;
         if (TB_GiaBan.Text.Trim() == "")
         {
             GiaBan = 0;
         }
         else
         {
-            GiaBan = Convert.ToDouble(TB_GiaBan.Text.Trim());
+            GiaBan = Convert.ToInt32(TB_GiaBan.Text.Trim());
         }
-        double GiamGia;
+        int GiamGia;
         if (TB_GiamGia.Text.Trim() == "")
         {
             GiamGia = 0;
         }
         else
         {
-            GiamGia = Convert.ToDouble(TB_GiamGia.Text.Trim());
+            GiamGia = Convert.ToInt32(TB_GiamGia.Text.Trim());
         }
         int QuantityInProduct;
         if (TB_SoLuongCo.Text.Trim() == "")
@@ -206,7 +211,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
                 WebMsgBox.Show("Error Insert");
             }
         }
-        TB_SearchProduct.Text = "";
+        //TB_SearchProduct.Text = "";
         set_Hidden_DIVProduct();
     }
 
@@ -242,6 +247,17 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         DDL_TheLoai.Items[0].Value = "0";
     }
 
+    public void Load_DDL_SearchCategory()
+    {
+        DDL_SearchCategory.Items.Clear();
+        DDL_SearchCategory.DataSource = ToolsAdmin1.Load_Category().Tables[0];
+        DDL_SearchCategory.DataValueField = "ID";
+        DDL_SearchCategory.DataTextField = "Category_Name";
+        DDL_SearchCategory.DataBind();
+        DDL_SearchCategory.Items.Insert(0, "");
+        DDL_SearchCategory.Items[0].Value = "0";
+    }
+
     public void Load_DDL_Type()
     {
         //DDL_Type.Items.Clear();
@@ -261,13 +277,20 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Load_SearchProduct_ByName();
+        category_id = Convert.ToInt32(DDL_SearchCategory.SelectedValue);
+        if (category_id == 0)
+        {
+            Load_Grid_Products();
+        }
+        else
+        {
+            Load_SearchProduct_ByCategory();
+        }
     }
 
-    public void Load_SearchProduct_ByName()
+    public void Load_SearchProduct_ByCategory()
     {
-        string name = TB_SearchProduct.Text;
-        Grid_Product.DataSource = ToolsAdmin.Load_SearchProduct_ByName(name).Tables[0];
+        Grid_Product.DataSource = ToolsAdmin.Load_SearchProduct_ByName(category_id).Tables[0];
         Grid_Product.DataBind();
     }
 }

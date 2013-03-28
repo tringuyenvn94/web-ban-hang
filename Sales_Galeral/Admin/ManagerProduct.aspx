@@ -63,6 +63,45 @@
                 }
             }
         }
+
+        function FormatCurrencyNew(thisField, number_of_decimal_places) {
+            num = thisField.value;
+            if (num.indexOf('.') == 0) { num = "0" + num; }
+            if (num.indexOf('-.') == 0) { num = num.replace("-.", "-0."); }
+            if (num == "") { thisField.value = ""; return; }
+            num = make2Number(num);
+            num = FormatNumber(num, number_of_decimal_places, true, false, true);
+            if (num.indexOf('.') < 0) {
+                if (number_of_decimal_places > 0) {
+                    num = num + ".";
+                    for (i = 0; i < number_of_decimal_places; i++) { num = num + "0"; }
+                }
+            }
+            thisField.value = "$" + num;
+        }
+
+        function formatCurrency(num) {
+            num = num.toString().replace(/\$|\,/g,'');
+            if(isNaN(num))
+            num = "0";
+            sign = (num == (num = Math.abs(num)));
+            num = Math.floor(num*100+0.50000000001);
+            cents = num%100;
+            num = Math.floor(num/100).toString();
+            if(cents<10)
+            cents = "0" + cents;
+            for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+            num = num.substring(0,num.length-(4*i+3))+','+
+            num.substring(num.length-(4*i+3));
+            return (((sign)?'':'-') + '$' + num + '.' + cents);
+        }
+
+        function Calculator_GiaBan() {
+            var x = parseFloat(document.getElementById("ContentPlaceHolder_TB_GiamGia").value);
+            var y = parseFloat(document.getElementById("ContentPlaceHolder_TB_GiaGoc").value);
+            document.getElementById("ContentPlaceHolder_TB_GiaBan").value = parseFloat(y - parseFloat(x * y) / 100);
+        }
+
     </script>
     <div id="DIV_Product" style="width:100%;border:0px solid #c0c0c0;padding-bottom:30px;" visible="false" align="center" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -70,10 +109,11 @@
         <div style="color:Red;padding-top:15px;padding-bottom:15px;padding-left:2px;padding-right:2px;font-size:20px;font-weight:bold">
             Quản lý dữ liệu Sản Phẩm
         </div>
-        <div style="width:95%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
+        <div style="width:99%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
         border-left:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0;">
             <div align="left" style="padding-bottom:15px;">
-			    <b>Tìm kiếm bằng tên sản phẩm : </b>&nbsp;<asp:TextBox ID="TB_SearchProduct" runat="server"></asp:TextBox>&nbsp;
+			    <b>Chọn thể loại sản phẩm : </b>&nbsp;
+                <asp:DropDownList ID="DDL_SearchCategory" runat="server" Width="155px"></asp:DropDownList>
                 <asp:Button ID="Button1" runat="server" CausesValidation="false" CssClass="ButtonText" Text="Tìm Kiếm" 
                     onclick="Button1_Click" />
 		    </div>
@@ -105,12 +145,19 @@
                                     <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="10%" />
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="STT" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBL_STTItem" runat="server" Text='<%# Bind("STT") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver"/>
+                                    <ItemStyle Width="10%" />
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Tên SP" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_NameItem" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
-                                    <ItemStyle Width="35%" />
+                                    <ItemStyle Width="30%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Mã SP" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
@@ -121,14 +168,14 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Giá gốc" ItemStyle-HorizontalAlign="Center" ControlStyle-ForeColor="Red">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original")+",000" %>'></asp:Label>
+                                        <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original")+".000" %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
                                     <ItemStyle Width="9%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Giá Bán" ItemStyle-HorizontalAlign="Center" ControlStyle-ForeColor="Red">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBL_PriceSaleItem" runat="server" Text='<%# Eval("Price_Sale")+",000" %>'></asp:Label>
+                                        <asp:Label ID="LBL_PriceSaleItem" runat="server" Text='<%# Eval("Price_Sale")+".000" %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="9%" />
@@ -262,22 +309,22 @@
             <div style="width:150px;padding:2px;float:left;">
                 Giá gốc : 
             </div>
-            <div style="width:350px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_GiaGoc" runat="server" Width="150px" MaxLength="12"></asp:TextBox>
-            </div>
-            <div style="clear:left;"></div>
-            <div style="width:150px;padding:2px;float:left;">
-                Giá bán : 
-            </div>
-            <div style="width:350px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_GiaBan" runat="server" Width="150px" MaxLength="12"></asp:TextBox>
+            <div style="width:350px;padding:2px;float:left;color:Red;">
+                <asp:TextBox ID="TB_GiaGoc" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>nghìn
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
                 % Giảm giá : 
             </div>
             <div style="width:350px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_GiamGia" runat="server" Width="150px" MaxLength="12"></asp:TextBox>
+                <asp:TextBox ID="TB_GiamGia" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>
+            </div>
+            <div style="clear:left;"></div>
+            <div style="width:150px;padding:2px;float:left;">
+                Giá bán : 
+            </div>
+            <div style="width:350px;padding:2px;float:left;">
+                <asp:TextBox ID="TB_GiaBan" runat="server" Width="150px" MaxLength="12" ReadOnly="true" CssClass="ReadonlyTextRight"></asp:TextBox>
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
