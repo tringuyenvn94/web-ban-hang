@@ -26,7 +26,7 @@ public class BillDAL
         try
         {
             DataSet dset = new DataSet();
-            string commandText = "SP_GetList_Bill";
+            string commandText = "SP_GetList_Bill_Info";
             SqlCommand command = new SqlCommand(commandText, conn.Connect());
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -53,7 +53,7 @@ public class BillDAL
             string commandText = "SP_GetList_ShopCart_ByClickBillID";
             SqlCommand command = new SqlCommand(commandText, conn.Connect());
             command.CommandType = CommandType.StoredProcedure;
-            SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
+            SqlParameter pr_ID = command.Parameters.Add("@Bill_ID", SqlDbType.Int);
             pr_ID.Value = ID;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(dset);
@@ -90,6 +90,32 @@ public class BillDAL
             pr_TotalQuantity.Value = TotalQuantity;
             SqlParameter pr_TotalMoney = command.Parameters.Add("@TotalMoney", SqlDbType.Float);
             pr_TotalMoney.Value = TotalMoney;
+            SqlParameter pr_Status_Payment = command.Parameters.Add("@Status_Payment", SqlDbType.Bit);
+            pr_Status_Payment.Value = Status_Payment;
+            SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
+            pr_ID.Value = ID;
+            int row = command.ExecuteNonQuery();
+            return true;
+        }
+        catch (SqlException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            conn.Close_Connection();
+        }
+        return false;
+    }
+
+    //Update Status Payment for Bill
+    public bool Update_Status_Payment(int ID, bool Status_Payment)
+    {
+        try
+        {
+            string commandText = "SP_Update_StatusPayment";
+            SqlCommand command = new SqlCommand(commandText, conn.Connect());
+            command.CommandType = CommandType.StoredProcedure;
             SqlParameter pr_Status_Payment = command.Parameters.Add("@Status_Payment", SqlDbType.Bit);
             pr_Status_Payment.Value = Status_Payment;
             SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);

@@ -9,7 +9,7 @@
         <div style="color:Red;padding-top:15px;padding-bottom:15px;font-size:20px;font-weight:bold">
             Quản lý dữ liệu Hỗ trợ Online
         </div>
-        <div style="width:50%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
+        <div style="width:60%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
         border-left:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0;">
 		    <div class="DataGridTitleBar">
 			    Quản lý Hỗ trợ Online
@@ -32,6 +32,13 @@
                                     <HeaderStyle BackColor="Silver"/>
                                     <ItemStyle Width="10%" />
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="STT" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBL_STTItem" runat="server" Text='<%# Bind("STT") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver"/>
+                                    <ItemStyle Width="10%" />
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Tên" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_NameItem" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
@@ -50,19 +57,21 @@
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_PhoneSuppotItem" runat="server" Text='<%# Eval("PhoneSuppot") %>'></asp:Label>
                                     </ItemTemplate>
-                                    <HeaderStyle BackColor="Silver" />
+                                    <HeaderStyle BackColor="#D2B48C" />
                                     <ItemStyle Width="40%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:Button ID="BT_SelectSupportOnline" CausesValidation="false" CssClass="ButtonText" Text="Cập Nhật" runat="server" CommandName="Select"/>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="5%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:Button ID="BT_DeleteSupportOnline" CssClass="ButtonText" runat="server" CommandName="Delete" Text="Xóa"/>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="5%"/>
                                 </asp:TemplateField>
                             </Columns>

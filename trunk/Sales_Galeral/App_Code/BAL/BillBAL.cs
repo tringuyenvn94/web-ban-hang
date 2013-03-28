@@ -34,6 +34,12 @@ public class BillBAL
         return new BillDAL().Update_Bill(ID, Customer_ID, Type_Payment_ID, Date_Purcharse, TotalNameProduct, TotalQuantity, TotalMoney, Status_Payment);
     }
 
+    //Update Status Payment for Bill
+    public bool Update_Status_Payment(int ID, bool Status_Payment)
+    {
+        return new BillDAL().Update_Status_Payment(ID, Status_Payment);
+    }
+
     //When Delete Bill,need delete Shop Cart
     public bool Delete_Bill(int ID)
     {

@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
     <div id="DIV_Logo" style="width:100%;border:0px solid #c0c0c0;padding-top:5px;padding-bottom:15px;" align="center" runat="server">
         <div style="color:Red;padding-top:3px;">
-            <h2>Chào mừng bạn đã đến với Quản trị Website</h2>
+            <h2>Chào mừng bạn đã đến với Quản trị Website ThaiDeal</h2>
         </div>
         <div style="float:left;padding-left:100px;padding-top:20px;color:Red;">
             <a href="ManagerAdmin.aspx?"><img alt="" src="ImageAdmin/ManagerAdmin.jpg" width="150px" height="120px"/></a>

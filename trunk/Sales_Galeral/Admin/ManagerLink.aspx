@@ -9,7 +9,7 @@
         <div style="color:Red;padding-top:15px;padding-bottom:15px;font-size:20px;font-weight:bold">
             Quản lý dữ liệu Liên Kết
         </div>
-        <div style="width:80%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
+        <div style="width:90%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
         border-left:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0;">
 		    <div class="DataGridTitleBar">
 			    Quản lý Liên Kết
@@ -32,6 +32,13 @@
                                     <HeaderStyle BackColor="Silver"/>
                                     <ItemStyle Width="10%" />
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="STT" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBL_STTItem" runat="server" Text='<%# Bind("STT") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver"/>
+                                    <ItemStyle Width="10%" />
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Liên Kết" ShowHeader="true" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBL_LinkLinkItem" runat="server" Text='<%# Eval("Link") %>'></asp:Label>
@@ -43,12 +50,14 @@
                                     <ItemTemplate>
                                         <asp:Button ID="BT_SelectLink" CausesValidation="false" CssClass="ButtonText" Text="Cập Nhật" runat="server" CommandName="Select"/>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="5%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:Button ID="BT_DeleteLink" CssClass="ButtonText" runat="server" CommandName="Delete" Text="Xóa"/>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="5%"/>
                                 </asp:TemplateField>
                             </Columns>
