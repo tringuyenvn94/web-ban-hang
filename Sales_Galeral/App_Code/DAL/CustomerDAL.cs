@@ -44,6 +44,32 @@ public class CustomerDAL
         return null;
     }
 
+    //Search By Name Customer
+    public DataSet Load_SearchCustomer_ByName(string name)
+    {
+        try
+        {
+            DataSet dset = new DataSet();
+            string commandText = "SP_GetList_Customer_ByName";
+            SqlCommand command = new SqlCommand(commandText, conn.Connect());
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter prCategory_ID = command.Parameters.Add("@Name", SqlDbType.NVarChar);
+            prCategory_ID.Value = name;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(dset);
+            return dset;
+        }
+        catch (SqlException e)
+        {
+            WebMsgBox.Show(e.Message);
+        }
+        finally
+        {
+            conn.Close_Connection();
+        }
+        return null;
+    }
+
     //Update Customer
     public bool Update_Customer(int id, string usename, string pass, string name, bool gender, string phone, string address, string email)
     {

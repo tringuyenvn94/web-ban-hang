@@ -35,7 +35,7 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
     protected void Grid_Product_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         Grid_Product.PageIndex = e.NewPageIndex;
-        if (category_id == 0)
+        if (Convert.ToInt32(HD_Select_CategoryID.Value) == 0)
         {
             Load_Grid_Products();
         }
@@ -52,7 +52,14 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         if (ToolsAdmin.Delete_Product(ID))
         {
             DIV_AddEditProduct.Visible = false;
-            Load_Grid_Products();
+            if (Convert.ToInt32(HD_Select_CategoryID.Value) == 0)
+            {
+                Load_Grid_Products();
+            }
+            else
+            {
+                Load_SearchProduct_ByCategory();
+            }
         }
         else
         {
@@ -133,86 +140,123 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         HD_ID_Product.Value = "0";
         DIV_AddEditProduct.Visible = true;
         set_Text_Product();
+
+        DDL_TheLoai.SelectedValue = Convert.ToString(HD_Select_CategoryID.Value);
+        //WebMsgBox.Show(Convert.ToString(category_id));
     }
 
     protected void BT_SubmitProduct_Click(object sender, EventArgs e)
     {
         int CategoryID = Convert.ToInt32(DDL_TheLoai.SelectedValue.ToString());
-        string NameProduct = HtmlRemoval.StripTagsRegex(TB_TenSanPham.Text.Trim());
-        string ProductCode = HtmlRemoval.StripTagsRegex(TB_MaSanPham.Text.Trim());
-        float GiaGoc;
-        if (TB_GiaGoc.Text.Trim() == "")
+        if (CategoryID == 0)
         {
-            GiaGoc = 0;
+            WebMsgBox.Show("Bạn phải chọn thể loại sản phẩm");
+            LBL_Cate.Visible = true;
+            DDL_TheLoai.SelectedValue = "0";
         }
         else
         {
-            GiaGoc = Convert.ToInt32(TB_GiaGoc.Text.Trim());
-        }
-        float GiaBan;
-        if (TB_GiaBan.Text.Trim() == "")
-        {
-            GiaBan = 0;
-        }
-        else
-        {
-            GiaBan = Convert.ToInt32(TB_GiaBan.Text.Trim());
-        }
-        int GiamGia;
-        if (TB_GiamGia.Text.Trim() == "")
-        {
-            GiamGia = 0;
-        }
-        else
-        {
-            GiamGia = Convert.ToInt32(TB_GiamGia.Text.Trim());
-        }
-        int QuantityInProduct;
-        if (TB_SoLuongCo.Text.Trim() == "")
-        {
-            QuantityInProduct = 0;
-        }
-        else
-        {
-            QuantityInProduct = Convert.ToInt32(TB_SoLuongCo.Text.Trim());
-        }
-        int QuantitySalesProduct = 0;
-        if (TB_SoLuongBan.Text.Trim() == "")
-        {
-            QuantitySalesProduct = 0;
-        }
-        else
-        {
-            QuantitySalesProduct = Convert.ToInt32(TB_SoLuongBan.Text.Trim());
-        }
-        string PartImage = TB_PartImage.Value.Trim();
-        string DescriptionProduct = TB_MoTa.Text.Trim();
-        string Details = FCKeditor.Value.Trim();
-        int Type = Convert.ToInt32(DDL_Type.SelectedValue.ToString());
-        if (Convert.ToInt32(HD_ID_Product.Value) != 0)
-        {
-            if (ToolsAdmin.Update_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, GiaGoc, GiaBan, GiamGia, QuantityInProduct, QuantitySalesProduct, PartImage, DescriptionProduct, Details, Type))
+            LBL_Cate.Visible = false;
+            string NameProduct = HtmlRemoval.StripTagsRegex(TB_TenSanPham.Text.Trim());
+            string ProductCode = HtmlRemoval.StripTagsRegex(TB_MaSanPham.Text.Trim());
+            double GiaGoc;
+            if (TB_GiaGoc.Text.Trim() == "")
             {
-                Load_Grid_Products();
+                GiaGoc = 0;
             }
             else
             {
-                WebMsgBox.Show("Error Update");
+                GiaGoc = Convert.ToDouble(TB_GiaGoc.Text.Trim());
             }
-        }
-        else if (Convert.ToInt32(HD_ID_Product.Value) == 0)
-        {
-            if (ToolsAdmin.Insert_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, GiaGoc, GiaBan, GiamGia, QuantityInProduct, QuantitySalesProduct, PartImage, DescriptionProduct, Details, Type))
+            double GiaBan;
+            if (TB_GiaBan.Text.Trim() == "")
             {
-                Load_Grid_Products();
+                GiaBan = 0;
             }
             else
             {
-                WebMsgBox.Show("Error Insert");
+                GiaBan = Convert.ToDouble(TB_GiaBan.Text.Trim());
             }
+            int GiamGia;
+            if (TB_GiamGia.Text.Trim() == "")
+            {
+                GiamGia = 0;
+            }
+            else
+            {
+                GiamGia = Convert.ToInt32(TB_GiamGia.Text.Trim());
+            }
+            int QuantityInProduct;
+            if (TB_SoLuongCo.Text.Trim() == "")
+            {
+                QuantityInProduct = 0;
+            }
+            else
+            {
+                QuantityInProduct = Convert.ToInt32(TB_SoLuongCo.Text.Trim());
+            }
+            int QuantitySalesProduct = 0;
+            if (TB_SoLuongBan.Text.Trim() == "")
+            {
+                QuantitySalesProduct = 0;
+            }
+            else
+            {
+                QuantitySalesProduct = Convert.ToInt32(TB_SoLuongBan.Text.Trim());
+            }
+            string PartImage = TB_PartImage.Value.Trim();
+            string DescriptionProduct = TB_MoTa.Text.Trim();
+            string Details = FCKeditor.Value.Trim();
+            int Type = Convert.ToInt32(DDL_Type.SelectedValue.ToString());
+            if (Convert.ToInt32(HD_ID_Product.Value) != 0)
+            {
+                if (ToolsAdmin.Update_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, GiaGoc, GiaBan, GiamGia, QuantityInProduct, QuantitySalesProduct, PartImage, DescriptionProduct, Details, Type))
+                {
+                    HD_Select_CategoryID.Value = DDL_SearchCategory.SelectedValue;
+                    if (Convert.ToInt32(HD_Select_CategoryID.Value) == 0)
+                    {
+                        set_Text_Product();
+                        DIV_AddEditProduct.Visible = false;
+                        Load_Grid_Products();
+                    }
+                    else
+                    {
+                        set_Text_Product();
+                        DIV_AddEditProduct.Visible = false;
+                        Load_SearchProduct_ByCategory();
+                    }
+                }
+                else
+                {
+                    WebMsgBox.Show("Error Update");
+                }
+            }
+            else if (Convert.ToInt32(HD_ID_Product.Value) == 0)
+            {
+                if (ToolsAdmin.Insert_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, GiaGoc, GiaBan, GiamGia, QuantityInProduct, QuantitySalesProduct, PartImage, DescriptionProduct, Details, Type))
+                {
+                    HD_Select_CategoryID.Value = DDL_SearchCategory.SelectedValue;
+                    if (Convert.ToInt32(HD_Select_CategoryID.Value) == 0)
+                    {
+                        set_Text_Product();
+                        DIV_AddEditProduct.Visible = false;
+                        Load_Grid_Products();
+                    }
+                    else
+                    {
+                        set_Text_Product();
+                        DIV_AddEditProduct.Visible = false;
+                        Load_SearchProduct_ByCategory();
+                    }
+                }
+                else
+                {
+                    WebMsgBox.Show("Error Insert");
+                }
+            }
+            //TB_SearchProduct.Text = "";
+            set_Hidden_DIVProduct();
         }
-        //TB_SearchProduct.Text = "";
-        set_Hidden_DIVProduct();
     }
 
     protected void BT_Upload_Click(object sender, EventArgs e)
@@ -277,20 +321,24 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        category_id = Convert.ToInt32(DDL_SearchCategory.SelectedValue);
-        if (category_id == 0)
+        HD_Select_CategoryID.Value = DDL_SearchCategory.SelectedValue;
+        if (Convert.ToInt32(HD_Select_CategoryID.Value) == 0)
         {
+            set_Text_Product();
+            DIV_AddEditProduct.Visible = false;
             Load_Grid_Products();
         }
         else
         {
+            set_Text_Product();
+            DIV_AddEditProduct.Visible = false;
             Load_SearchProduct_ByCategory();
         }
     }
 
     public void Load_SearchProduct_ByCategory()
     {
-        Grid_Product.DataSource = ToolsAdmin.Load_SearchProduct_ByName(category_id).Tables[0];
+        Grid_Product.DataSource = ToolsAdmin.Load_SearchProduct_ByName(Convert.ToInt32(HD_Select_CategoryID.Value)).Tables[0];
         Grid_Product.DataBind();
     }
 }

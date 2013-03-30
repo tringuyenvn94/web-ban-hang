@@ -44,6 +44,34 @@ public class BillDAL
         return null;
     }
 
+    //Search By Date Bill
+    public DataSet Load_SearchBill_ByDate(string datefrom, string dateto)
+    {
+        try
+        {
+            DataSet dset = new DataSet();
+            string commandText = "SP_GetList_Bill_ByDate";
+            SqlCommand command = new SqlCommand(commandText, conn.Connect());
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter prdatefrom = command.Parameters.Add("@Date_From", SqlDbType.DateTime);
+            prdatefrom.Value = datefrom;
+            SqlParameter prdateto = command.Parameters.Add("@Date_To", SqlDbType.DateTime);
+            prdateto.Value = dateto;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(dset);
+            return dset;
+        }
+        catch (SqlException e)
+        {
+            WebMsgBox.Show(e.Message);
+        }
+        finally
+        {
+            conn.Close_Connection();
+        }
+        return null;
+    }
+
     //Load Data Shop Cart By Click Bill ID
     public DataSet Load_ShopCart_ByClickBillID(int ID)
     {

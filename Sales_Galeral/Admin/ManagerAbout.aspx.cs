@@ -20,14 +20,14 @@ public partial class Admin_ManagerAbout : System.Web.UI.Page
 
     public void Load_About()
     {
-        TB_TieuDe.Text = ToolsAdmin.Load_About().Tables[0].Rows[0][1].ToString();
-        FCKeditor.Value = ToolsAdmin.Load_About().Tables[0].Rows[0][2].ToString();
+        TB_TieuDe.Text = ToolsAdmin.Load_About().Tables[0].Rows[0][2].ToString();
+        FCKeditor.Value = ToolsAdmin.Load_About().Tables[0].Rows[0][3].ToString();
     }
 
     protected void BT_SubmitAbout_Click(object sender, EventArgs e)
     {
         string tieude = HtmlRemoval.StripTagsRegex(TB_TieuDe.Text.Trim());
-        string noidung = FCKeditor.Value.Trim();
+        string noidung = FCKeditor.Value;
         if (ToolsAdmin.Update_About(1, tieude, noidung))
         {
             Load_About();

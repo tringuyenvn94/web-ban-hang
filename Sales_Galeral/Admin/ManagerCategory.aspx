@@ -22,7 +22,7 @@
                         OnRowDeleting="On_RowDelete" OnRowDataBound="OnRowData_Category" OnSelectedIndexChanged="OnRowSelected_Category" 
                         OnPageIndexChanging="Grid_Category_PageIndexChanging" Width="100%" 
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
+                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" ShowHeader="true" Visible="false">
@@ -103,7 +103,7 @@
             <div style="width:200px;padding:2px;float:left;">
                 <asp:TextBox ID="TB_CategoryName" runat="server" Width="150px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RFV_TB_CategoryName" runat="server" Display="Dynamic" ControlToValidate="TB_CategoryName"
-				ErrorMessage="Category Name must be enter."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
+				ErrorMessage="Phải nhập Tên thể loại."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
             </div>
             <div style="clear:left;"></div>
             <div style="width:310px;padding-top:20px;padding-bottom:10px;" align="center">

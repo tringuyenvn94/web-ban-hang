@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" EnableEventValidation="true" ValidateRequest="false" AutoEventWireup="true" CodeFile="ManagerProduct.aspx.cs" Inherits="Admin_ManagerProduct" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" MaintainScrollPositionOnPostback="true" EnableEventValidation="true" ValidateRequest="false" AutoEventWireup="true" CodeFile="ManagerProduct.aspx.cs" Inherits="Admin_ManagerProduct" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
 
@@ -123,12 +123,12 @@
 		    <div style="width:100%;vertical-align:top;">
 				<div style="border-collapse:collapse;border-color:#c0c0c0;width:100%;border::1px solid #c0c0c0;">
 					<div style="width:100%;vertical-align:top">
-                        <asp:GridView ID="Grid_Product" runat="server" AllowPaging="True" PageSize="5"
+                        <asp:GridView ID="Grid_Product" runat="server" AllowPaging="True" PageSize="10"
                         AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDeleting="On_DeleteProducts"
                         OnRowDataBound="OnRowData_Product" OnSelectedIndexChanged="OnRowSelected_Product"
                         onpageindexchanging="Grid_Product_PageIndexChanging" Width="100%" 
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
+                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" Visible="false">
@@ -168,24 +168,24 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Giá gốc" ItemStyle-HorizontalAlign="Center" ControlStyle-ForeColor="Red">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original")+".000" %>'></asp:Label>
+                                        <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
-                                    <ItemStyle Width="9%" />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Giá Bán" ItemStyle-HorizontalAlign="Center" ControlStyle-ForeColor="Red">
-                                    <ItemTemplate>
-                                        <asp:Label ID="LBL_PriceSaleItem" runat="server" Text='<%# Eval("Price_Sale")+".000" %>'></asp:Label>
-                                    </ItemTemplate>
-                                    <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="9%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="% giảm giá" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBL_PriceDiscountItem" runat="server" Text='<%# Eval("Price_Discount")+"%" %>'></asp:Label>
+                                        <asp:Label ID="LBL_PriceDiscountItem" runat="server" Text='<%# Eval("Price_Discount") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver" />
+                                    <ItemStyle Width="8%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Giá Bán" ItemStyle-HorizontalAlign="Center" ControlStyle-ForeColor="Red">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBL_PriceSaleItem" runat="server" Text='<%# Eval("Price_Sale") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
-                                    <ItemStyle Width="8%" />
+                                    <ItemStyle Width="9%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Số lượng hiện có" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
@@ -285,7 +285,8 @@
             <div style="width:350px;padding:2px;float:left;">
                 <asp:DropDownList ID="DDL_TheLoai" runat="server" Width="155px"></asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RFV_DDL_CategoryName" runat="server" Display="Dynamic" ControlToValidate="DDL_TheLoai"
-				ErrorMessage="Category Name must be select."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
+				ErrorMessage="Chọn thể loại sản phẩm"><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
+                <asp:Label ID="LBL_Cate" Text="(*)" ForeColor="Red" Visible="false" runat="server"></asp:Label>
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
@@ -294,7 +295,7 @@
             <div style="width:350px;padding:2px;float:left;">
                 <asp:TextBox ID="TB_TenSanPham" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RFV_TB_NameProduct" runat="server" Display="Dynamic" ControlToValidate="TB_TenSanPham"
-				ErrorMessage="User Name must be entered."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
+				ErrorMessage="Nhập tên sản phẩm"><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
@@ -303,28 +304,28 @@
             <div style="width:350px;padding:2px;float:left;">
                 <asp:TextBox ID="TB_MaSanPham" runat="server" Width="150px" MaxLength="50"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RFV_TB_ProductCode" runat="server" Display="Dynamic" ControlToValidate="TB_MaSanPham"
-				ErrorMessage="Product Code must be entered." ><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
+				ErrorMessage="Nhập mã sản phẩm" ><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
                 Giá gốc : 
             </div>
-            <div style="width:350px;padding:2px;float:left;color:Red;">
-                <asp:TextBox ID="TB_GiaGoc" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>nghìn
+            <div style="width:350px;padding:2px;float:left;color:Blue;">
+                <asp:TextBox ID="TB_GiaGoc" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>VNĐ
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
                 % Giảm giá : 
             </div>
-            <div style="width:350px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_GiamGia" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>
+            <div style="width:350px;padding:2px;float:left;color:Blue;">
+                <asp:TextBox ID="TB_GiamGia" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>%
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
                 Giá bán : 
             </div>
-            <div style="width:350px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_GiaBan" runat="server" Width="150px" MaxLength="12" ReadOnly="true" CssClass="ReadonlyTextRight"></asp:TextBox>
+            <div style="width:350px;padding:2px;float:left;color:Blue;">
+                <asp:TextBox ID="TB_GiaBan" runat="server" Width="150px" MaxLength="12" CssClass="ReadonlyTextRight"></asp:TextBox>VNĐ
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
@@ -402,5 +403,6 @@
         <input id="HD_CategoryID_Product" type="hidden" runat="server" value="0"/>
         <input id="HD_TypeID_Product" type="hidden" runat="server" value="0"/>
         <input id="TB_PartImage" type="hidden" runat="server" value=""/>
+        <input id="HD_Select_CategoryID" type="hidden" runat="server" value="0"/>
     </div>
 </asp:Content>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" EnableEventValidation="true" ValidateRequest="false" AutoEventWireup="true" CodeFile="ManagerBill.aspx.cs" Inherits="Admin_ManagerBill" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -11,6 +12,16 @@
         </div>
         <div style="width:95%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
         border-left:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0;">
+            <div align="left" style="padding-bottom:15px;">
+			    <b>Từ ngày : </b>&nbsp;
+                <asp:TextBox ID="TB_DateFrom" runat="server" Width="155px" MaxLength="200"></asp:TextBox>
+                <cc1:CalendarExtender ID="CalendarExtender1" TargetControlID="TB_DateFrom" runat="server" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                <b>Đến ngày : </b>&nbsp;
+                <asp:TextBox ID="TB_DateTo" runat="server" Width="155px" MaxLength="200"></asp:TextBox>
+                <cc1:CalendarExtender ID="CalendarExtender2" TargetControlID="TB_DateTo" runat="server" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                <asp:Button ID="Button1" runat="server" CausesValidation="false" 
+                    CssClass="ButtonText" Text="Tìm Kiếm" onclick="Button1_Click"/>
+		    </div>
 		    <div class="DataGridTitleBar">
 			    Quản lý hóa đơn
 		    </div>
@@ -22,7 +33,7 @@
                         onpageindexchanging="Grid_Bill_PageIndexChanging" OnRowDataBound="OnRowData_Bill" 
                         OnSelectedIndexChanged="OnRowSelected_Bill"
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
+                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" Visible="false">
@@ -147,7 +158,7 @@
 		    </div>
         </div>
         <div style="width:100%;vertical-align:middle;">
-            <div style="width:52%;vertical-align:middle;padding-left:280px;float:left;" align="right">
+            <div style="width:52%;vertical-align:middle;padding-left:300px;float:left;" align="right">
                 <asp:Button ID="BT_UpdateStatusPayment" runat="server" 
                     Text="Cập nhật trạng thái thanh toán" Width="200px"
                     onclick="BT_UpdateStatusPayment_Click"/>
@@ -190,7 +201,7 @@
                         AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID"
                         onpageindexchanging="Grid_ShopCart_PageIndexChanging" OnRowDataBound="OnRowData_ShopCart" 
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None">
+                        CellPadding="2" ForeColor="Black"  GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" Visible="false">
@@ -250,7 +261,7 @@
 				</div>
 		    </div>
         </div>
-        <div style="color:Red;padding-left:330px;width:80%;">
+        <div style="color:Red;padding-left:395px;width:80%;">
             <h2><asp:Label ID="LBL_TONG" runat="server" Text="Label"></asp:Label></h2>
         </div>
         <div style="width:100%;padding-top:10px;padding-bottom:5px;" align="center">
@@ -264,6 +275,8 @@
         <input id="HD_ID_Bill" type="hidden" runat="server" value="0"/>
         <input id="HD_ID_ShopCart" type="hidden" runat="server" value="0"/>
         <input id="HD_AccountID_ShopCart" type="hidden" runat="server" value="0"/>
+        <input id="HD_DateFrom" type="hidden" runat="server" value=""/>
+        <input id="HD_DateTo" type="hidden" runat="server" value=""/>
     </div>
     </ContentTemplate>
     </asp:UpdatePanel>

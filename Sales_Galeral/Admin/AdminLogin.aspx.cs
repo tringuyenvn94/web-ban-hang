@@ -24,7 +24,7 @@ public partial class Admin_AdminLogin : System.Web.UI.Page
         bool flag = false;
         for (int i = 0; i < dtable.Rows.Count; i++)
         {
-            if (EncryptionPass.Equals(dtable.Rows[i][2].ToString()) && usename.Equals(dtable.Rows[i][1].ToString()))
+            if (EncryptionPass.Equals(dtable.Rows[i][3].ToString()) && usename.Equals(dtable.Rows[i][2].ToString()))
             {
                 flag = true;
             }

@@ -30,7 +30,14 @@ public partial class Admin_ManagerCustomer : System.Web.UI.Page
     protected void Grid_Account_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         Grid_Account.PageIndex = e.NewPageIndex;
-        Load_Grid_Account();
+        if (HD_Name.Value == "")
+        {
+            Load_Grid_Account();
+        }
+        else
+        {
+            Load_SearchAccount_ByName();
+        }
     }
 
     protected void On_RowDeleteAccount(object sender, GridViewDeleteEventArgs e)
@@ -40,7 +47,14 @@ public partial class Admin_ManagerCustomer : System.Web.UI.Page
         ToolsAdmin.Delete_BillWhenDeleteCustomer(ID);
         if (ToolsAdmin.Delete_Customer(ID))
         {
-            Load_Grid_Account();
+            if (HD_Name.Value == "")
+            {
+                Load_Grid_Account();
+            }
+            else
+            {
+                Load_SearchAccount_ByName();
+            }
         }
         else
         {
@@ -74,5 +88,24 @@ public partial class Admin_ManagerCustomer : System.Web.UI.Page
     protected void OnRowSelected_Account(object sender, EventArgs e)
     {
         HD_ID_Account.Value = ((Label)Grid_Account.SelectedRow.FindControl("LBL_AccountItem")).Text;
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        HD_Name.Value = TB_SearchName.Text;
+        if (HD_Name.Value == "")
+        {
+            Load_Grid_Account();
+        }
+        else
+        {
+            Load_SearchAccount_ByName();
+        }
+    }
+
+    public void Load_SearchAccount_ByName()
+    {
+        Grid_Account.DataSource = ToolsAdmin.Load_SearchCustomer_ByName(HD_Name.Value).Tables[0];
+        Grid_Account.DataBind();
     }
 }

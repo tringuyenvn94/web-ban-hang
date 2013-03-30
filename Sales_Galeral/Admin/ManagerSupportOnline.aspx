@@ -22,7 +22,7 @@
                         OnRowDeleting="On_RowDelete" OnRowDataBound="OnRowData_SupportOnline" OnSelectedIndexChanged="OnRowSelected_SupportOnline" 
                         OnPageIndexChanging="Grid_SupportOnline_PageIndexChanging" Width="100%" 
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
+                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" ShowHeader="true" Visible="false">
@@ -129,7 +129,7 @@
                 Điện thoại hỗ trợ : 
             </div>
             <div style="width:200px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_PhoneSupport" runat="server" Width="150px"></asp:TextBox>
+                <asp:TextBox ID="TB_PhoneSupport" runat="server" Width="150px" MaxLength="30"></asp:TextBox>
             </div>
             <div style="clear:left;"></div>
             <div style="width:310px;padding-top:20px;padding-bottom:10px;" align="center">

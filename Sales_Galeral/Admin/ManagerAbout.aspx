@@ -20,25 +20,20 @@
                 </asp:UpdateProgress>
             </div>
             <div id="DIV_AddEditAbout" style="width:100%;border:0px solid #c0c0c0;padding-top:5px;padding-bottom:30px;" align="center" runat="server">
-                <div style="width:90%;" align="left">
-                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"/>
-                </div>
                 <div id="Div1" style="width:90%;border:1px solid #c0c0c0;" align="left" runat="server">
                     <div style="width:100%;" class="DataGridTitleBar">
 			            Cập nhật Giới thiệu
 		            </div>
                     <div style="height:10px;"></div>
                     <div style="width:100px;padding:2px;float:left;">
-                        Tiêu đề giới thiệu : 
+                        Tiêu đề giới thiệu
                     </div>
                     <div style="width:200px;padding:2px;float:left;">
                         <asp:TextBox ID="TB_TieuDe" runat="server" Width="400px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RFV_TB_UseName" runat="server" Display="Dynamic" ControlToValidate="TB_TieuDe"
-				        ErrorMessage="Use Name must be enter."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
                     </div>
                     <div style="clear:left;"></div>
                     <div style="width:700px;padding-right:10px;">
-                        <div>Nội dung :</div>
+                        <div>&nbsp;Nội dung :</div>
                         <div style="border-bottom:1px solid black;">
                             <FCKeditorV2:FCKeditor ID="FCKeditor" BasePath="./fckeditor/" runat="server">
                             </FCKeditorV2:FCKeditor>
