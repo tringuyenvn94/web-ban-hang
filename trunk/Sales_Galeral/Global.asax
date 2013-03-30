@@ -25,7 +25,8 @@
         // Code that runs when a new session is started
         Session["UserClient"] = "";
         Session["ShopCart"] = new ShopCart();
-
+        //admin
+        Session["UseName"] = "";
     }
 
     void Session_End(object sender, EventArgs e) 
@@ -36,6 +37,8 @@
         // or SQLServer, the event is not raised.
         Session["UserClient"] = "";
         Session["ShopCart"] = null;
+        //admin
+        Session["UseName"] = null;
     }
        
 </script>

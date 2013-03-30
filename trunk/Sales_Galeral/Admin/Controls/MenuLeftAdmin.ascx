@@ -48,5 +48,5 @@
         <div class="div3" ></div>
         <a href="ManagerTypePayment.aspx?" class="link2" target="_parent" >Quản lý Thanh toán</a>
     </div>
-    <div style="height:758px;"></div>
+    <div style="height:1000px;"></div>
  </div>

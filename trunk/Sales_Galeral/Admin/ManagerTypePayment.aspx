@@ -18,11 +18,11 @@
 				<div style="border-collapse:collapse;border-color:#c0c0c0;width:100%;border::1px solid #c0c0c0;">
 					<div style="width:100%;vertical-align:top">
                         <asp:GridView ID="Grid_TypePayment" runat="server" AllowPaging="True" PageSize="10"
-                        AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" 
+                        AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDeleting="On_RowDelete"
                         OnRowDataBound="OnRowData_TypePayment" OnSelectedIndexChanged="OnRowSelected_TypePayment" 
                         OnPageIndexChanging="Grid_TypePayment_PageIndexChanging" Width="100%" 
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
+                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" ShowHeader="true" ItemStyle-HorizontalAlign="Center" Visible="false">
@@ -58,6 +58,13 @@
                                         <asp:Button ID="BT_SelectTypePayment" CausesValidation="false" CssClass="ButtonText" Text="Cập Nhật" runat="server" CommandName="Select"/>
                                     </ItemTemplate>
                                     <ItemStyle Width="5%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:Button ID="BT_DeleteTypePayment" CssClass="ButtonText" runat="server" CommandName="Delete" Text="Xóa"/>
+                                    </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver" />
+                                    <ItemStyle Width="5%"/>
                                 </asp:TemplateField>
                             </Columns>
                             <EmptyDataRowStyle ForeColor="Red" HorizontalAlign="Center" />

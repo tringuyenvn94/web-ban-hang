@@ -22,7 +22,7 @@
                         OnRowDeleting="On_RowDelete" OnRowDataBound="OnRowData_Admin" OnSelectedIndexChanged="OnRowSelected_Admin" 
                         OnPageIndexChanging="Grid_Admin_PageIndexChanging" Width="100%" 
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
+                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" ShowHeader="true" Visible="false">
@@ -108,7 +108,7 @@
             <div style="width:200px;padding:2px;float:left;">
                 <asp:TextBox ID="TB_UseNameAdmin" runat="server" Width="150px" MaxLength="10"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RFV_TB_UseName" runat="server" Display="Dynamic" ControlToValidate="TB_UseNameAdmin"
-				ErrorMessage="Use Name must be enter."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
+				ErrorMessage="Phải nhập Use Name."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
             </div>
             <div style="clear:left;"></div>
             <div style="width:100px;padding:2px;float:left;">
@@ -117,7 +117,7 @@
             <div style="width:200px;padding:2px;float:left;">
                 <asp:TextBox ID="TB_PassAdmin" runat="server" Width="150px" MaxLength="50" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RFV_TB_PassAdmin" runat="server" Display="Dynamic" ControlToValidate="TB_PassAdmin"
-				ErrorMessage="Password must be enter."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
+				ErrorMessage="Phải nhập Password."><span style="color:Red;">(*)</span></asp:RequiredFieldValidator>
             </div>
             <div style="clear:left;"></div>
             <div style="width:310px;padding-top:20px;padding-bottom:10px;" align="center">

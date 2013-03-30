@@ -27,4 +27,10 @@ public class TypePaymentBAL
     {
         return new TypePaymentDAL().Update_TypePayment(id, titleinfo, Info);
     }
+
+    //Delete Type Payment By ID
+    public bool Delete_TypePayment(int ID)
+    {
+        return new TypePaymentDAL().Delete_TypePayment(ID);
+    }
 }

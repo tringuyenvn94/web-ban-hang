@@ -22,6 +22,12 @@ public class CustomerBAL
         return new CustomerDAL().Load_Customer();
     }
 
+    //Search By Name Customer
+    public DataSet Load_SearchCustomer_ByName(string name)
+    {
+        return new CustomerDAL().Load_SearchCustomer_ByName(name);
+    }
+
     //Update Customer
     public bool Update_Customer(int id, string usename, string pass, string name, bool gender, string phone, string address, string email)
     {

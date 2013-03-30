@@ -8,6 +8,6 @@
         <asp:Label ID="Label2" runat="server" Text="Sales Online : Sales Geleral Management" 
         ForeColor="Black"></asp:Label>
         <br />
-        <asp:Label ID="Label3" runat="server" Text="Số 51, Chùa Hàng - TP. Hà Nội - Tel/Fax: 0313.956.186 - 0313.956.188 | Email: haiphong@ohrequa.com"
+        <asp:Label ID="Label3" runat="server" Text="Địa chỉ  số 7 tổ  6 ngõ 105 Đường Lương Ngọc Quyến  TP Thai Nguyên | Email: loveyou_is_loveme_1501@yahoo.com"
         ForeColor="Black"></asp:Label>
 </div>

@@ -22,7 +22,7 @@
                         OnRowDeleting="On_RowDelete" OnRowDataBound="OnRowData_Link" OnSelectedIndexChanged="OnRowSelected_Link" 
                         OnPageIndexChanging="Grid_Link_PageIndexChanging" Width="100%" 
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
+                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" ShowHeader="true" Visible="false">
@@ -89,27 +89,27 @@
         </asp:UpdateProgress>
     </div>
     <div id="DIV_AddEditLink" style="width:100%;border:0px solid #c0c0c0;padding-top:30px;padding-bottom:30px;" visible="false" align="center" runat="server">
-        <div style="width:310px;" align="left">
+        <div style="width:410px;" align="left">
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"/>
         </div>
-        <div id="Div1" style="width:310px;border:1px solid #c0c0c0;" align="left" runat="server">
-            <div style="width:310px;" class="DataGridTitleBar">
+        <div id="Div1" style="width:410px;border:1px solid #c0c0c0;" align="left" runat="server">
+            <div style="width:410px;" class="DataGridTitleBar">
 			    Thêm/Cập Nhật Liên Kết
 		    </div>
             <div style="height:10px;"></div>
-            <div style="width:100px;padding:2px;float:left;">
+            <div style="width:70px;padding:2px;float:left;">
                 Liên Kết : 
             </div>
-            <div style="width:200px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_LienKet" runat="server" Width="150px"></asp:TextBox>
+            <div style="width:330px;padding:2px;float:left;">
+                <asp:TextBox ID="TB_LienKet" runat="server" TextMode="MultiLine" Rows="3" Width="300px"></asp:TextBox>
             </div>
             <div style="clear:left;"></div>
-            <div style="width:310px;padding-top:20px;padding-bottom:10px;" align="center">
-                <div style="width:155px;float:left;" align="right">
+            <div style="width:410px;padding-top:20px;padding-bottom:10px;" align="center">
+                <div style="width:205px;float:left;" align="right">
                     <asp:Button ID="BT_SubmitLink" runat="server" CssClass="ButtonText" 
                     Text="Chấp nhận" onclick="BT_SubmitLink_Click" />
                 </div>
-                <div style="width:155px;float:left;" align="left">
+                <div style="width:205px;float:left;" align="left">
                     <asp:Button ID="BT_Cancel" runat="server" CssClass="ButtonText" Width="75px"
                     CausesValidation="false" Text="Thoát" onclick="BT_Cancel_Click"/>
                 </div>

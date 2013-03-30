@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Globalization;
 
 public partial class Admin_ManagerBill : System.Web.UI.Page
 {
@@ -30,7 +31,18 @@ public partial class Admin_ManagerBill : System.Web.UI.Page
     protected void Grid_Bill_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         Grid_Bill.PageIndex = e.NewPageIndex;
-        Load_Grid_Bill();
+        if (HD_DateFrom.Value == "" || HD_DateTo.Value == "")
+        {
+            Load_Grid_Bill();
+        }
+        if (HD_DateFrom.Value != "" || HD_DateTo.Value != "")
+        {
+            Load_Grid_Bill();
+        }
+        if (HD_DateFrom.Value != "" && HD_DateTo.Value != "")
+        {
+            Load_SearchBill_Date();
+        }
     }
 
     protected void On_DeleteBill(object sender, GridViewDeleteEventArgs e)
@@ -40,7 +52,18 @@ public partial class Admin_ManagerBill : System.Web.UI.Page
         if (ToolsAdmin.Delete_Bill(ID))
         {
             DIV_ShopCart.Visible = false;
-            Load_Grid_Bill();
+            if (HD_DateFrom.Value == "" || HD_DateTo.Value == "")
+            {
+                Load_Grid_Bill();
+            }
+            if (HD_DateFrom.Value != "" || HD_DateTo.Value != "")
+            {
+                Load_Grid_Bill();
+            }
+            if (HD_DateFrom.Value != "" && HD_DateTo.Value != "")
+            {
+                Load_SearchBill_Date();
+            }
         }
         else
         {
@@ -65,7 +88,7 @@ public partial class Admin_ManagerBill : System.Web.UI.Page
             Label Date = (Label)e.Row.FindControl("LBL_BillDatePurcharseItem");
             DataRowView dtr = (DataRowView)e.Row.DataItem;
             DateTime nt = (DateTime)dtr["Date_Purcharse"];
-            Date.Text = nt.ToShortDateString();
+            Date.Text = nt.ToString("dd/MM/yyyy");
         }
     }
 
@@ -132,6 +155,44 @@ public partial class Admin_ManagerBill : System.Web.UI.Page
         DIV_ShopCart.Visible = false;
         LBL_Display.Visible = true;
         LBL_Display.Text = "Update Success";
-        Load_Grid_Bill();
+        if (HD_DateFrom.Value == "" || HD_DateTo.Value == "")
+        {
+            Load_Grid_Bill();
+        }
+        if (HD_DateFrom.Value != "" || HD_DateTo.Value != "")
+        {
+            Load_Grid_Bill();
+        }
+        if (HD_DateFrom.Value != "" && HD_DateTo.Value != "")
+        {
+            Load_SearchBill_Date();
+        }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        HD_DateFrom.Value = TB_DateFrom.Text.Trim();
+        HD_DateTo.Value = TB_DateTo.Text.Trim();
+
+        if (HD_DateFrom.Value == "" || HD_DateTo.Value == "")
+        {
+            Load_Grid_Bill();
+        }
+        if (HD_DateFrom.Value != "" || HD_DateTo.Value != "")
+        {
+            Load_Grid_Bill();
+        }
+        if (HD_DateFrom.Value != "" && HD_DateTo.Value != "")
+        {
+            Load_SearchBill_Date();
+        }
+    }
+
+    public void Load_SearchBill_Date()
+    {
+        DateTime nt = Convert.ToDateTime(HD_DateFrom.Value);
+        DateTime nt1 = Convert.ToDateTime(HD_DateTo.Value);
+        Grid_Bill.DataSource = ToolsAdmin.Load_SearchBill_ByDate(nt.ToString("yyyy/dd/MM"), nt1.ToString("yyyy/dd/MM")).Tables[0];
+        Grid_Bill.DataBind();
     }
 }

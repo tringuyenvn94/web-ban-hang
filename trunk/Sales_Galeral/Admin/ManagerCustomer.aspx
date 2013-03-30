@@ -19,18 +19,24 @@
         </div>
         <div style="width:95%;border-right:1px solid #c0c0c0;border-top:1px solid #c0c0c0;
         border-left:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0;">
+            <div align="left" style="padding-bottom:15px;">
+			    <b>Tìm kiếm theo tên khách hàng : </b>&nbsp;
+                <asp:TextBox ID="TB_SearchName" runat="server" Width="155px" MaxLength="200"></asp:TextBox>
+                <asp:Button ID="Button1" runat="server" CausesValidation="false" 
+                    CssClass="ButtonText" Text="Tìm Kiếm" onclick="Button1_Click"/>
+		    </div>
 		    <div class="DataGridTitleBar">
 			    Quản lý Khách Hàng
 		    </div>
 		    <div style="width:100%;vertical-align:top;">
 				<div style="border-collapse:collapse;border-color:#c0c0c0;width:100%;border::1px solid #c0c0c0;">
 					<div style="width:100%;vertical-align:top">
-                        <asp:GridView ID="Grid_Account" runat="server" AllowPaging="True" PageSize="20"
+                        <asp:GridView ID="Grid_Account" runat="server" AllowPaging="True" PageSize="40"
                         AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDeleting="On_RowDeleteAccount"
                         OnRowDataBound="OnRowData_Account" OnRowSelected="OnRowSelected_Account"
                         onpageindexchanging="Grid_Account_PageIndexChanging" Width="100%" 
                         BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Do not have any record" EmptyDataRowStyle-ForeColor="red">
+                        CellPadding="2" ForeColor="Black" GridLines="None" EmptyDataText="Không có bản ghi nào" EmptyDataRowStyle-ForeColor="red">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID" ShowHeader="true" Visible="false">
@@ -128,6 +134,7 @@
     </div>
     <div visible="false">
         <input id="HD_ID_Account" type="hidden" runat="server" value="0"/>
+        <input id="HD_Name" type="hidden" runat="server" value=""/>
     </div>
     </ContentTemplate>
     </asp:UpdatePanel>

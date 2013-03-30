@@ -22,6 +22,12 @@ public class BillBAL
         return new BillDAL().Load_Bill();
     }
 
+    //Search By Date Bill
+    public DataSet Load_SearchBill_ByDate(string datefrom, string dateto)
+    {
+        return new BillDAL().Load_SearchBill_ByDate(datefrom, dateto);
+    }
+
     //Load Data Shop Cart By Click Bill ID
     public DataSet Load_ShopCart_ByClickBillID(int ID)
     {

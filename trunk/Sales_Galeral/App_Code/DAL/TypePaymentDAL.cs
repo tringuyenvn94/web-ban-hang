@@ -89,4 +89,31 @@ public class TypePaymentDAL
         }
         return false;
     }
+
+    //Delete Type Payment By ID
+    public bool Delete_TypePayment(int ID)
+    {
+        try
+        {
+            string commandText = "SP_Delete_Type_Payment";
+            SqlCommand command = new SqlCommand(commandText, conn.Connect());
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter prID = command.Parameters.Add("@ID", SqlDbType.Int);
+            prID.Value = ID;
+            int row = command.ExecuteNonQuery();
+            if (row > 0)
+            {
+                return true;
+            }
+        }
+        catch (SqlException e)
+        {
+            WebMsgBox.Show(e.Message);
+        }
+        finally
+        {
+            conn.Close_Connection();
+        }
+        return false;
+    }
 }

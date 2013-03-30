@@ -32,6 +32,20 @@ public partial class Admin_ManagerTypePayment : System.Web.UI.Page
         DIV_AddEditTypePayment.Visible = false;
     }
 
+    protected void On_RowDelete(object sender, GridViewDeleteEventArgs e)
+    {
+        int ID = Convert.ToInt32(Grid_TypePayment.DataKeys[e.RowIndex].Value.ToString());
+        if (ToolsAdmin.Delete_TypePayment(ID))
+        {
+            DIV_AddEditTypePayment.Visible = false;
+            Load_Grid_TypePayment();
+        }
+        else
+        {
+            WebMsgBox.Show("Error Delete");
+        }
+    }
+
     public void set_Hidden_DIVTypePayment()
     {
         DIV_AddEditTypePayment.Visible = false;

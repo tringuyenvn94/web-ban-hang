@@ -23,6 +23,8 @@
 
 .link2{ line-height:29px; color:Black; font-weight:bold; text-decoration:none; }
 .link2:hover{ color:Red}
+.link2:visited{ color:Red}
+.link2:active{ color:Red}
 
 /*-----------------------------Style for Page link----------------------------*/
 .PageLink:link 
