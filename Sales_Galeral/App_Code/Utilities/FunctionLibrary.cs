@@ -17,7 +17,9 @@ public static class FunctionLibrary
     ///  <returns></returns>
     public static string DisplayPrice(double _price)
     {
-        return String.Format("{0:0.000} đ", _price);
+        //return String.Format("{0:0.000} đ", _price);
+
+        return String.Format("{0:#,###.##}đ", _price);
     }
 
     /// <summary>
