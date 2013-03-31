@@ -138,5 +138,14 @@ public class ClientProductDAL
         return this.FillData(command);
 
     }
-    
+
+    public DataTable GetTypePayment()
+    {
+
+        DataTable dtlTemp = new DataTable();
+        SqlCommand command = new SqlCommand("SP_GetList_Type_Payment", connectDatabase.Connection());
+        command.CommandType = CommandType.StoredProcedure;
+        return dtlTemp = this.FillData(command);
+    }
+
 }
