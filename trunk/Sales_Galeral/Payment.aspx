@@ -17,7 +17,7 @@
                     <asp:AccordionPane ID="accoPnlLogin" runat="server">
                         <Header>
                             <a href="" class="accordionLink">
-                                <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;">
+                                <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;color:Blue;">
                                     Bạn đã có tài khoản? Xin mời đăng nhập!
                                 </h4>
                             </a>
@@ -73,7 +73,7 @@
                     <asp:AccordionPane ID="AccordionPane1" runat="server">
                         <Header>
                             <a href="" class="accordionLink">
-                                <h4 style="font-family: Arial; font-weight: bold; font-size: 1.2em;">
+                                <h4 style="font-family: Arial; font-weight: bold; font-size: 1.2em;color:Blue;">
                                     Click vào đây nếu chưa có tài khoản
                                 </h4>
                             </a>
@@ -391,10 +391,14 @@
     <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;">Vui lòng chọn một cách thanh toán</h4>
     <strong style="margin-left:10px;">Thanh Toán</strong>
     <ul>
-        <li style="color:#FFFFFF; margin-top:10px;">
-            <asp:RadioButton ID="rdoBank" GroupName="typePay" Text="Chuyển khoản trực tiếp qua ngân hàng" runat="server" /> </li>
-            <li style="color:#FFFFFF; margin-top:10px;"> 
-                <asp:RadioButton ID="rdoCash" GroupName="typePay" Text="Thanh toán cho người giao hàng" runat="server" /></li>
+    
+    <li style="color:#FFFFFF; margin-top:10px;">
+        <asp:RadioButtonList ID="rdobtList" runat="server" 
+            onselectedindexchanged="rdobtList_SelectedIndexChanged">
+        </asp:RadioButtonList>
+    </li>
+
+    
     </ul>
       <div style=" margin-left: 728px; margin-top: 15px;">
             <asp:Button ID="btnContinuos" CssClass="mouseButton1" runat="server" 

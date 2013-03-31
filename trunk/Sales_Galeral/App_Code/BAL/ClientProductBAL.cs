@@ -84,4 +84,9 @@ public class ClientProductBAL
         }
         return -1;
     }
+
+    public System.Data.DataTable GetTypePayment()
+    {
+        return productDAL.GetTypePayment();
+    }
 }

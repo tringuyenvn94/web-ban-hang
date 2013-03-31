@@ -27,8 +27,21 @@ public partial class Payment : System.Web.UI.Page
         }
        
             loadDatabse();
+            bindRdioList();
       
     }
+
+    private void bindRdioList()
+    {
+        rdobtList.DataSource = productBAL.GetTypePayment();
+        rdobtList.DataTextField = "Title_Info";
+        rdobtList.DataValueField = "ID";
+        rdobtList.DataBind();
+        if (rdobtList.Items.Count > 0) {
+            rdobtList.Items[0].Selected = true;
+        }
+    }
+
     protected void btnLogg_Click(object sender, EventArgs e)
     {
         string userName = tbxUsername.Text;
@@ -203,14 +216,29 @@ public partial class Payment : System.Web.UI.Page
     }
     protected void btnContinuos_Click(object sender, EventArgs e)
     {
-        if (rdoBank.Checked)
+
+
+        if (selectRDO.Equals("1"))
         {
             Response.Redirect("PaymentCtt.aspx?type=bank");
         }
-        else if (rdoCash.Checked)
+        if (selectRDO.Equals("2"))
         {
             Response.Redirect("PaymentCtt.aspx?type=cash");
         }
         
+    }
+
+    static string selectRDO="";
+    protected void rdobtList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (rdobtList.SelectedIndex == 0)
+        {
+            selectRDO="1";
+        }
+        if (rdobtList.SelectedIndex == 1)
+        {
+            selectRDO = "2";
+        }
     }
 }
