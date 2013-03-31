@@ -503,7 +503,7 @@ input.exclusive:hover, a.exclusive:hover, input.exclusive_large:hover, a.exclusi
 #center_column {float:left;width:700px;margin-right:20px}
 body#index #center_column {float:left;width:100%;margin-right:0px}
 
-#right_column {float:left;width:220px}
+#right_column {float:right;width:220px}
 
 
 
@@ -2021,3 +2021,23 @@ p.error404 img {margin:0 10px 0 0;}
 #back-top a:hover {color:#79ec3e;}
 #back-top span {width:35px;height:20px;display: block;margin-bottom:7px;background:url(../img/up-arrow.png) no-repeat left 0px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader() !important;}
 #back-top a:hover span {background-position:left -34px;}
+
+
+/*===================================Detail product==============================*/
+
+div.itemFullText {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 0 dotted #C8DEF0;
+    padding: 5px 20px 20px;
+    position: relative;
+}
+#detail {
+	background: url("../img_product/bg-title-2.png") no-repeat scroll left top transparent;
+    color: #666666;
+    font-size: 1.3em;
+    height: 50px;
+    line-height: 34px;
+    padding: 0 10px;
+}
+div.itemBody { margin: 0; padding: 0;position: relative;margin-bottom:16px; width:990px; left:-30px;}
+div.itemBody {  background: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
