@@ -191,7 +191,7 @@
 				            <div align="center">
 					            <h4>Thai Deals</h4>
 					            <ul>
-						            <li><a href="">Giới thiệu</a></li>
+						            <li><a href="About.aspx">Giới thiệu</a></li>
 					            </ul>
 				            </div>
 				            <div align="center">
@@ -203,7 +203,7 @@
 				            <div align="center">
 					            <h4>Thanh Toán</h4>
 					            <ul>
-						            <li><a href="">Thông tin thanh toán</a></li>
+						            <li><a href="PaymentInfo.aspx">Thông tin thanh toán</a></li>
 					            </ul>
 				            </div>
 				            <%--<p>Địa chỉ số 7 tổ 6 ngõ 105 Đường Lương Ngọc Quyến TP Thai Nguyên | Email: loveyou_is_loveme_1501@yahoo.com.</p>--%>
@@ -219,7 +219,7 @@
 		            </div>
 	            </div>
                 <div style="clear:left;padding-top:20px;background-color:#272727;color:White;padding-bottom:15px;" align="center">
-                    <p>Địa chỉ số 7 tổ 6 ngõ 105 Đường Lương Ngọc Quyến TP Thai Nguyên | Email: loveyou_is_loveme_1501@yahoo.com
+                    <p>Địa chỉ số 7 tổ 6 ngõ 105 Đường Lương Ngọc Quyến TP Thái Nguyên | Email: loveyou_is_loveme_1501@yahoo.com
                     <br />Phone : 0983165163</p>
                 </div>
             </footer>

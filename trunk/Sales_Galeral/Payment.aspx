@@ -394,7 +394,7 @@
     
     <li style="color:#FFFFFF; margin-top:10px;">
         <asp:RadioButtonList ID="rdobtList" runat="server" 
-            onselectedindexchanged="rdobtList_SelectedIndexChanged">
+           >
         </asp:RadioButtonList>
     </li>
 
