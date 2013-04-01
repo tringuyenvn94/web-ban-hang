@@ -26,7 +26,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
       
         DataListMenu.DataSource = productBAL.GetAllCategory();
         DataListMenu.DataBind();
-        if (Session["UserClient"] != "")
+        if (Session["UserClient"] != "" && Session["UserClient"] !=null)
         {
             MultiView1.ActiveViewIndex = 1;
             lbtn_Account.Text = Session["UserClient"].ToString();

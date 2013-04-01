@@ -837,6 +837,10 @@ div.column div.block ul.bullet li {padding:4px 0 0 12px;background:url(../img/bu
 .column #cart_block .cart-prices #cart_block_total,
 .column #cart_block .cart-prices #cart_block_wrapping_cost,
 .column #cart_block .cart-prices #cart_block_tax_cost {float:right;padding:0 7px 0 0;font-weight:400;color:#000000;}
+.column #cart_block .cart-prices #ContentPlaceHolder1_cart_block_shipping_cost,
+.column #cart_block .cart-prices #ContentPlaceHolder1_cart_block_total,
+.column #cart_block .cart-prices #ContentPlaceHolder1_cart_block_wrapping_cost,
+.column #cart_block .cart-prices #ContentPlaceHolder1_cart_block_tax_cost {float:right;padding:0 7px 0 0;font-weight:400;color:#000000;}
 
 /* cart prices � 4-line view 
 .column #cart_block .cart-prices {border-top:1px solid #ccc;}
@@ -1350,6 +1354,8 @@ span#wrapResetImages div {width:306px;margin:0 0 -3px 0;padding:17px 0 10px 20px
 /* right block */
 #primary_block #pb-left-column {width:374px;float:left;padding:0 0 0 20px;}
 #primary_block #pb-left-column h1 {margin:-4px 0 0 0;padding:0;background:none;border:none;font-size:24px;color:#333;text-transform:none;font-family:  'Kreon', serif;font-weight:400}
+#primary_block #pb-left-column span.lblnameproduct {margin:-4px 0 0 0;padding:0;background:none;border:none;font-size:24px;color:#333;text-transform:none;font-family:  'Kreon', serif;font-weight:400}
+
 
 #buy_block {margin:20px 0 0 0;border-width:1px 0 0 0;border-style:solid;}
 #buy_block p {}
@@ -1360,6 +1366,7 @@ span#wrapResetImages div {width:306px;margin:0 0 -3px 0;padding:17px 0 10px 20px
 
 #buy_block span.our_price_display {height:27px;display:block;float:left;}
 #buy_block span#our_price_display {display:block;float:left;padding:1px 0 0 0;font-family: 'Droid Sans',sans-serif;font-size: 24px;font-weight: normal !important;}
+#buy_block span#ContentPlaceHolder1_our_price_display {display:block;float:left;padding:1px 0 0 0;font-family: 'Droid Sans',sans-serif;font-size: 24px;font-weight: normal !important;}
 
 #buy_block span.our_price_display_tax {display:block;float:left;padding:6px 0 0 5px;}
 
@@ -1368,6 +1375,7 @@ span#wrapResetImages div {width:306px;margin:0 0 -3px 0;padding:17px 0 10px 20px
 #buy_block #quantity_wanted_p {float:right;padding:0 10px 0 0;}
 #buy_block #quantity_wanted_p label {float:right;padding:6px 7px 0 0;text-align:right;}
 #buy_block #quantity_wanted_p #quantity_wanted {width:20px;height:15px;float:right;padding:5px;text-align:center;}
+#buy_block #quantity_wanted_p #ContentPlaceHolder1_tbxQtt {width:20px;height:15px;float:right;padding:5px;text-align:center;}
 
 
 /* add to cart */

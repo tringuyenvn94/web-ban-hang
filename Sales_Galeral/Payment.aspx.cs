@@ -216,29 +216,18 @@ public partial class Payment : System.Web.UI.Page
     }
     protected void btnContinuos_Click(object sender, EventArgs e)
     {
+        RadioButtonList rbl = (RadioButtonList)Page.FindControl("rdobtList");
 
-
-        if (selectRDO.Equals("1"))
+        if (rbl.SelectedValue.Equals("1"))
         {
             Response.Redirect("PaymentCtt.aspx?type=bank");
         }
-        if (selectRDO.Equals("2"))
+        if (rbl.SelectedValue.Equals("2"))
         {
             Response.Redirect("PaymentCtt.aspx?type=cash");
         }
         
     }
 
-    static string selectRDO="";
-    protected void rdobtList_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        if (rdobtList.SelectedIndex == 0)
-        {
-            selectRDO="1";
-        }
-        if (rdobtList.SelectedIndex == 1)
-        {
-            selectRDO = "2";
-        }
-    }
+  
 }

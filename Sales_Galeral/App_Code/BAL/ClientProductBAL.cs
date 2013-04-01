@@ -89,4 +89,15 @@ public class ClientProductBAL
     {
         return productDAL.GetTypePayment();
     }
+
+
+    /// <summary>
+    /// Get record Product by ID
+    /// </summary>
+    /// <param name="idProduct"></param>
+    /// <returns></returns>
+    public DataTable GetProductByID(int idProduct)
+    {
+        return productDAL.GetProductByID(idProduct);
+    }
 }
