@@ -35,7 +35,11 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
     protected void Grid_Product_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         Grid_Product.PageIndex = e.NewPageIndex;
+<<<<<<< .mine
+        if (category_id == 0)
+=======
         if (Convert.ToInt32(HD_Select_CategoryID.Value) == 0)
+>>>>>>> .r27
         {
             Load_Grid_Products();
         }
@@ -148,7 +152,14 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
     protected void BT_SubmitProduct_Click(object sender, EventArgs e)
     {
         int CategoryID = Convert.ToInt32(DDL_TheLoai.SelectedValue.ToString());
+<<<<<<< .mine
+        string NameProduct = HtmlRemoval.StripTagsRegex(TB_TenSanPham.Text.Trim());
+        string ProductCode = HtmlRemoval.StripTagsRegex(TB_MaSanPham.Text.Trim());
+        float GiaGoc;
+        if (TB_GiaGoc.Text.Trim() == "")
+=======
         if (CategoryID == 0)
+>>>>>>> .r27
         {
             WebMsgBox.Show("Bạn phải chọn thể loại sản phẩm");
             LBL_Cate.Visible = true;
@@ -156,11 +167,59 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
         }
         else
         {
+<<<<<<< .mine
+            GiaGoc = Convert.ToInt32(TB_GiaGoc.Text.Trim());
+        }
+        float GiaBan;
+        if (TB_GiaBan.Text.Trim() == "")
+        {
+            GiaBan = 0;
+        }
+        else
+        {
+            GiaBan = Convert.ToInt32(TB_GiaBan.Text.Trim());
+        }
+        int GiamGia;
+        if (TB_GiamGia.Text.Trim() == "")
+        {
+            GiamGia = 0;
+        }
+        else
+        {
+            GiamGia = Convert.ToInt32(TB_GiamGia.Text.Trim());
+        }
+        int QuantityInProduct;
+        if (TB_SoLuongCo.Text.Trim() == "")
+        {
+            QuantityInProduct = 0;
+        }
+        else
+        {
+            QuantityInProduct = Convert.ToInt32(TB_SoLuongCo.Text.Trim());
+        }
+        int QuantitySalesProduct = 0;
+        if (TB_SoLuongBan.Text.Trim() == "")
+        {
+            QuantitySalesProduct = 0;
+        }
+        else
+        {
+            QuantitySalesProduct = Convert.ToInt32(TB_SoLuongBan.Text.Trim());
+        }
+        string PartImage = TB_PartImage.Value.Trim();
+        string DescriptionProduct = TB_MoTa.Text.Trim();
+        string Details = FCKeditor.Value.Trim();
+        int Type = Convert.ToInt32(DDL_Type.SelectedValue.ToString());
+        if (Convert.ToInt32(HD_ID_Product.Value) != 0)
+        {
+            if (ToolsAdmin.Update_Product(Convert.ToInt32(HD_ID_Product.Value), CategoryID, NameProduct, ProductCode, GiaGoc, GiaBan, GiamGia, QuantityInProduct, QuantitySalesProduct, PartImage, DescriptionProduct, Details, Type))
+=======
             LBL_Cate.Visible = false;
             string NameProduct = HtmlRemoval.StripTagsRegex(TB_TenSanPham.Text.Trim());
             string ProductCode = HtmlRemoval.StripTagsRegex(TB_MaSanPham.Text.Trim());
             double GiaGoc;
             if (TB_GiaGoc.Text.Trim() == "")
+>>>>>>> .r27
             {
                 GiaGoc = 0;
             }
@@ -257,6 +316,11 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
             //TB_SearchProduct.Text = "";
             set_Hidden_DIVProduct();
         }
+<<<<<<< .mine
+        //TB_SearchProduct.Text = "";
+        set_Hidden_DIVProduct();
+=======
+>>>>>>> .r27
     }
 
     protected void BT_Upload_Click(object sender, EventArgs e)
@@ -321,6 +385,17 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+<<<<<<< .mine
+        category_id = Convert.ToInt32(DDL_SearchCategory.SelectedValue);
+        if (category_id == 0)
+        {
+            Load_Grid_Products();
+        }
+        else
+        {
+            Load_SearchProduct_ByCategory();
+        }
+=======
         HD_Select_CategoryID.Value = DDL_SearchCategory.SelectedValue;
         if (Convert.ToInt32(HD_Select_CategoryID.Value) == 0)
         {
@@ -334,11 +409,16 @@ public partial class Admin_ManagerProduct : System.Web.UI.Page
             DIV_AddEditProduct.Visible = false;
             Load_SearchProduct_ByCategory();
         }
+>>>>>>> .r27
     }
 
     public void Load_SearchProduct_ByCategory()
     {
+<<<<<<< .mine
+        Grid_Product.DataSource = ToolsAdmin.Load_SearchProduct_ByName(category_id).Tables[0];
+=======
         Grid_Product.DataSource = ToolsAdmin.Load_SearchProduct_ByName(Convert.ToInt32(HD_Select_CategoryID.Value)).Tables[0];
+>>>>>>> .r27
         Grid_Product.DataBind();
     }
 }
