@@ -26,6 +26,57 @@ public partial class Admin_ManagerCustomer : System.Web.UI.Page
         Grid_Account.DataSource = ToolsAdmin.Load_Customer().Tables[0];
         Grid_Account.DataBind();
     }
+<<<<<<< .mine
+
+    protected void Grid_Account_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        Grid_Account.PageIndex = e.NewPageIndex;
+        Load_Grid_Account();
+    }
+
+    protected void On_RowDeleteAccount(object sender, GridViewDeleteEventArgs e)
+    {
+        int ID = Convert.ToInt32(Grid_Account.DataKeys[e.RowIndex].Value.ToString());
+        ToolsAdmin.Delete_ShopCartWhenDeleteBill(ID);
+        ToolsAdmin.Delete_BillWhenDeleteCustomer(ID);
+        if (ToolsAdmin.Delete_Customer(ID))
+        {
+            Load_Grid_Account();
+        }
+        else
+        {
+            WebMsgBox.Show("Error Delete");
+        }
+    }
+
+    protected void OnRowData_Account(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            Button BT_Delete = (Button)e.Row.FindControl("BT_DeleteAccount");
+            BT_Delete.Attributes.Add("onclick", "javascript:return confirm('Bạn có chắc chắn muốn xóa bản ghi này không?');");
+            e.Row.Attributes.Add("onmouseover", "this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#D3EDBA'");
+            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalstyle;");
+
+            Label Gender = (Label)e.Row.FindControl("LBL_AccountGender");
+            DataRowView dtr = (DataRowView)e.Row.DataItem;
+            bool nt = (bool)dtr["Gender"];
+            if (nt == true)
+            {
+                Gender.Text = "Nam";
+            }
+            else
+            {
+                Gender.Text = "Nữ";
+            }
+        }
+    }
+
+    protected void OnRowSelected_Account(object sender, EventArgs e)
+    {
+        HD_ID_Account.Value = ((Label)Grid_Account.SelectedRow.FindControl("LBL_AccountItem")).Text;
+    }
+=======
 
     protected void Grid_Account_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -108,4 +159,5 @@ public partial class Admin_ManagerCustomer : System.Web.UI.Page
         Grid_Account.DataSource = ToolsAdmin.Load_SearchCustomer_ByName(HD_Name.Value).Tables[0];
         Grid_Account.DataBind();
     }
+>>>>>>> .r27
 }
