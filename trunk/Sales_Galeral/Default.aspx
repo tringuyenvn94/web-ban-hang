@@ -1,11 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true"
     CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <%-- <link href="client/css/k2.css" rel="stylesheet" type="text/css" />
-    <link href="client/css/StyleShowProduct.css" rel="stylesheet" type="text/css" />--%>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+  
+
     <%--  <script src="client/js/roundabout.js" type="text/javascript"></script>
                         <script src="client/js/roundabout_shapes.js" type="text/javascript"></script>
                         <script src="client/js/script_slider.js" type="text/javascript"></script>--%>
@@ -146,21 +149,7 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="clr">
                                         </div>
                                     </div>
-                                    <!-- Item introtext -->
-                                    <%--    <div class="catItemIntroText">
-                                Áo Thun Body Cổ Tim chất liệu co giãn, thiết kế trẻ trung, nam tính, giúp chàng
-                                khoe trọn thể...
-                                <div class="itemLinks">
-                                    <div class="itemHitsTwitter">
-                                        <div class="clr">
-                                        </div>
-                                    </div>
-                                    <!-- Item social links -->
-                                 
-                                    <div class="clr">
-                                    </div>
-                                </div>
-                            </div>--%>
+                                
                                     <div class="clr">
                                     </div>
                                     <!-- Plugins: AfterDisplayContent -->
@@ -188,9 +177,7 @@
                                       
                                         <asp:LinkButton ID="lbtnAdd" runat="server" OnClick="lbtnAdd_Click"
                                                         CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
-                                      
-                                       <%-- <a href="#">
-                                            <img style="margin-left: 40px;" src="client/img_product/buy-now-button-image-yellow.png" /></a>--%>
+                                    
                                     </div>
                                     <div class="clr">
                                     </div>
@@ -266,20 +253,7 @@
                                         </div>
                                     </div>
                                     <!-- Item introtext -->
-                                    <%--    <div class="catItemIntroText">
-                                Áo Thun Body Cổ Tim chất liệu co giãn, thiết kế trẻ trung, nam tính, giúp chàng
-                                khoe trọn thể...
-                                <div class="itemLinks">
-                                    <div class="itemHitsTwitter">
-                                        <div class="clr">
-                                        </div>
-                                    </div>
-                                    <!-- Item social links -->
                                  
-                                    <div class="clr">
-                                    </div>
-                                </div>
-                            </div>--%>
                                     <div class="clr">
                                     </div>
                                     <!-- Plugins: AfterDisplayContent -->
@@ -295,7 +269,7 @@
                                                 <div>
                                                     <%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Sale").ToString()))%></div>
                                             </div>
-                                            <div class="dealorig">
+                                            <div class="dealorig" id="giagoc" runat="Server">
                                                 <em>Giá gốc:&nbsp;</em><span><strike><%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Original").ToString()))%></strike></span></div>
                                         </div>
                                         <div class="totalbought">

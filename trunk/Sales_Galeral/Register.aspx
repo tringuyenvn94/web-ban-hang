@@ -260,6 +260,7 @@
             // initiate the ajax pagemethod call
             // upon completion, the OnSucceded callback will be executed
             PageMethods.IsEmailAvailable(email, OnSucceededEmail);
+            
         }
 
         // Callback function invoked on successful completion of the page method.
