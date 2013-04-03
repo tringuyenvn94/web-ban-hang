@@ -79,8 +79,9 @@
                                                 <div>
                                                     <%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Sale").ToString()))%></div>
                                             </div>
-                                            <div class="dealorig">
-                                                <em>Giá gốc:&nbsp;</em><span><strike><%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Original").ToString()))%></strike></span></div>
+                                            <div class="dealorig" id="giagoc" visible="true" runat="Server">
+                                                <em>Giá gốc:&nbsp;</em><span><strike><%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Original").ToString()))%></strike></span>
+                                                </div>
                                         </div>
                                         <div class="totalbought">
                                             <div class="bought">

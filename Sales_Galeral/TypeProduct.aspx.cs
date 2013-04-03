@@ -22,6 +22,15 @@ public partial class TypeProduct : System.Web.UI.Page
             dtble = pm.LoadTypeProduct(Convert.ToInt32(type));
             dtlTypeProduct.DataSource = dtble;
             dtlTypeProduct.DataBind();
+            for (int i = 0; i < dtble.Rows.Count; i++)
+            {
+                if (dtble.Rows[i]["Price_Discount"].ToString().Equals("0"))
+                {
+                    ((Control)dtlTypeProduct.Items[i].FindControl("giamgia")).Visible = false;
+                    ((Control)dtlTypeProduct.Items[i].FindControl("giagoc")).Visible = false;
+                }
+            }
+
             type = null;
         }
 
@@ -32,6 +41,16 @@ public partial class TypeProduct : System.Web.UI.Page
             dtble = pm.LoadProductByCate(Convert.ToInt32(cate));
             dtlTypeProduct.DataSource = dtble;
             dtlTypeProduct.DataBind();
+            for (int i = 0; i < dtble.Rows.Count; i++)
+            {
+                if (dtble.Rows[i]["Price_Discount"].ToString().Equals("0"))
+                {
+                    ((Control)dtlTypeProduct.Items[i].FindControl("giamgia")).Visible = false;
+                    ((Control)dtlTypeProduct.Items[i].FindControl("giagoc")).Visible = false;
+                }
+            }
+
+            type = null;
             cate = null;
         }
     }
