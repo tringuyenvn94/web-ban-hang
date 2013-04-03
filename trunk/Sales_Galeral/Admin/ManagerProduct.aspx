@@ -168,22 +168,14 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Giá gốc" ItemStyle-HorizontalAlign="Center" ControlStyle-ForeColor="Red">
                                     <ItemTemplate>
-<<<<<<< .mine
-                                        <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original")+".000" %>'></asp:Label>
-=======
                                         <asp:Label ID="LBL_PriceOriginalItem" runat="server" Text='<%# Eval("Price_Original") %>'></asp:Label>
->>>>>>> .r27
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
                                     <ItemStyle Width="9%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="% giảm giá" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-<<<<<<< .mine
-                                        <asp:Label ID="LBL_PriceSaleItem" runat="server" Text='<%# Eval("Price_Sale")+".000" %>'></asp:Label>
-=======
                                         <asp:Label ID="LBL_PriceDiscountItem" runat="server" Text='<%# Eval("Price_Discount") %>'></asp:Label>
->>>>>>> .r27
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="Silver" />
                                     <ItemStyle Width="8%" />
@@ -318,37 +310,22 @@
             <div style="width:150px;padding:2px;float:left;">
                 Giá gốc : 
             </div>
-<<<<<<< .mine
-            <div style="width:350px;padding:2px;float:left;color:Red;">
-                <asp:TextBox ID="TB_GiaGoc" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>nghìn
-=======
             <div style="width:350px;padding:2px;float:left;color:Blue;">
                 <asp:TextBox ID="TB_GiaGoc" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>VNĐ
->>>>>>> .r27
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
                 % Giảm giá : 
             </div>
-<<<<<<< .mine
-            <div style="width:350px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_GiamGia" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>
-=======
             <div style="width:350px;padding:2px;float:left;color:Blue;">
                 <asp:TextBox ID="TB_GiamGia" runat="server" Width="150px" MaxLength="12" style="text-align:right;"></asp:TextBox>%
->>>>>>> .r27
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">
                 Giá bán : 
             </div>
-<<<<<<< .mine
-            <div style="width:350px;padding:2px;float:left;">
-                <asp:TextBox ID="TB_GiaBan" runat="server" Width="150px" MaxLength="12" ReadOnly="true" CssClass="ReadonlyTextRight"></asp:TextBox>
-=======
             <div style="width:350px;padding:2px;float:left;color:Blue;">
                 <asp:TextBox ID="TB_GiaBan" runat="server" Width="150px" MaxLength="12" CssClass="ReadonlyTextRight"></asp:TextBox>VNĐ
->>>>>>> .r27
             </div>
             <div style="clear:left;"></div>
             <div style="width:150px;padding:2px;float:left;">

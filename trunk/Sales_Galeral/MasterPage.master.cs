@@ -12,6 +12,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     ClientProductBAL productBAL = new ClientProductBAL();
     ClientAccountBAL accountBAL = new ClientAccountBAL();
+    LinkBAL ToolsAdmin = new LinkBAL();
+    SupportOnlineBAL ToolsAdmin1 = new SupportOnlineBAL();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -22,6 +24,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 password_querry.Attributes.Add("value", Request.Cookies["PWD"].Value);
             if (Request.Cookies["UName"] != null && Request.Cookies["PWD"] != null)
                 cbxRemember.Checked = true;
+            Load_Lienket();
+            Load_SupportOnline();
         } 
       
         DataListMenu.DataSource = productBAL.GetAllCategory();
@@ -107,5 +111,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Session["UserClient"] = "";
         MultiView1.ActiveViewIndex = 0;
         Response.Redirect("Default.aspx");
+    }
+
+    public void Load_Lienket() {
+        DTL_ShowLienKet.DataSource = ToolsAdmin.Load_Link().Tables[0];
+        DTL_ShowLienKet.DataBind();
+        DTL_ShowLienKet.Dispose();
+    }
+
+    public void Load_SupportOnline()
+    {
+        DTL_ShowOnline.DataSource = ToolsAdmin1.Load_SupportOnline().Tables[0];
+        DTL_ShowOnline.DataBind();
+        DTL_ShowOnline.Dispose();
     }
 }
