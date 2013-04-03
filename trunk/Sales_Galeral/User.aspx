@@ -141,15 +141,14 @@
                                                 </li>
                                                 <li style="margin-left: -125px"><span id="spanEmailAvailability"></span></li>
                                             </ul>
-                                            <ul style="margin-left: 175px; margin-top: 10px">
+                                            <ul style="margin-left: 250px; margin-top: 20px">
                                                 <li>
                                                     <asp:Button ID="btnSubmit" CssClass="mouseButton" runat="server" Text="Submit" 
                                                         BackColor="#000000" BorderStyle="None"
                                                         Font-Bold="True" ForeColor="White" Height="30px" Width="55px" 
                                                         onclick="btnSubmit_Click" ValidationGroup="update" />
                                                 </li>
-
-                                                <li style="margin-left: 20px">
+                                                <li style="margin-left: 5px">
                                                     <asp:Button ID="btnClear" CssClass="mouseButton" runat="server" Text="Clear" BackColor="#000000" BorderStyle="None"
                                                         Font-Bold="True" ForeColor="White" Height="30px" Width="55px" />
                                                 </li>
