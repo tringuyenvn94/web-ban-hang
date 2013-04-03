@@ -147,9 +147,9 @@
 		
 			
 			            <li id="user_info">	Welcome:&nbsp;(&nbsp;<asp:LinkButton ID="lbtn_Account" 
-                                runat="server" onclick="lbtn_Account_Click" Text="account" ></asp:LinkButton> &nbsp;)</li>
+                                runat="server" onclick="lbtn_Account_Click" Text="account" ForeColor="Blue"></asp:LinkButton> &nbsp;)</li>
 			            <li id="your_account"><asp:LinkButton ID="lbtn_Exit" runat="server" 
-                                onclick="lbtn_Exit_Click">Thoát</asp:LinkButton></li>
+                                onclick="lbtn_Exit_Click" ForeColor="Red">Thoát</asp:LinkButton></li>
 		
                             </asp:View>
                         </asp:MultiView>
@@ -191,35 +191,49 @@
 				            <div align="center">
 					            <h4>Thai Deals</h4>
 					            <ul>
-						            <li><a href="About.aspx">Giới thiệu</a></li>
+						            <li><a href="About.aspx" style="color:Black;">Giới thiệu</a></li>
 					            </ul>
 				            </div>
-				            <div align="center">
-					            <h4>Hướng Dẫn</h4>
-					            <ul>
-						            <li><a href="">Hướng dẫn mua hàng</a></li>
-					            </ul>
-				            </div>
-				            <div align="center">
+                            <div align="center">
 					            <h4>Thanh Toán</h4>
 					            <ul>
-						            <li><a href="PaymentInfo.aspx">Thông tin thanh toán</a></li>
+						            <li><a href="PaymentInfo.aspx" style="color:Black;">Thông tin thanh toán</a></li>
 					            </ul>
 				            </div>
-				            <%--<p>Địa chỉ số 7 tổ 6 ngõ 105 Đường Lương Ngọc Quyến TP Thai Nguyên | Email: loveyou_is_loveme_1501@yahoo.com.</p>--%>
+				            <div align="center">
+					            <h4>Hỗ trợ Online</h4>
+					            <ul>
+                                    <li>
+                                        <asp:DataList ID="DTL_ShowOnline" CellPadding="1" Width="100%" runat="server" RepeatColumns="1">
+                                            <ItemTemplate>
+                                                <div align="left">
+                                                    <asp:Label ID="lbl_name" Text='<%# Eval("Name") %>' runat="server" style="color:Black;font-weight:bold;" ></asp:Label>
+                                                    &nbsp;&nbsp;<a href="ymsgr:sendIM?<%# Eval("Yahoo") %>"><img alt="" src="http://opi.yahoo.com/online?u=<%# Eval("Yahoo") %>&m=g&t=2" border="0" /></a>
+                                                    <br />Phone : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lbl_phone" Text='<%# Eval("PhoneSuppot") %>' runat="server" style="color:Black;font-weight:bold;" ></asp:Label>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:DataList>
+                                    </li>
+                                </ul>
+				            </div>
 			            </div>
 			            <div id="social_block" align="center">
 				            <h4>Chia Sẻ Liên Kết</h4>
-				            <ul>
-					            <%--<li class="rss"><a href="RSS">RSS</a></li>--%>
-					            <li class="facebook"><a href="http://www.facebook.com/">Facebook</a></li>	
-					            <li class="twitter"><a href="http://www.twitter.com/">Twitter</a></li>	
-				            </ul>
+                            <div id="DIV_5" class="div5" runat="server">
+                                <asp:DataList ID="DTL_ShowLienKet" CellPadding="1" Width="40px" runat="server" RepeatColumns="4">
+                                    <ItemTemplate>
+                                        <div align="left">
+                                            <a href='<%# Eval("Link") %>'> 
+                                            <img alt="" src='<%#"./Images/ImageLienKet/"+Eval("Images") %>' width="40px" height="40px" /></a>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                            </div>
 			            </div>
 		            </div>
 	            </div>
                 <div style="clear:left;padding-top:20px;background-color:#272727;color:White;padding-bottom:15px;" align="center">
-                    <p>Địa chỉ số 7 tổ 6 ngõ 105 Đường Lương Ngọc Quyến TP Thái Nguyên | Email: loveyou_is_loveme_1501@yahoo.com
+                    <p>Địa chỉ : số 7,tổ 6,ngõ 105,Đường Lương Ngọc Quyến - TP Thái Nguyên | Email: loveyou_is_loveme_1501@yahoo.com
                     <br />Phone : 0983165163</p>
                 </div>
             </footer>

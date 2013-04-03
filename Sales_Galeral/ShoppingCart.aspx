@@ -10,11 +10,11 @@
     <div style="background-color: #FAFAD2; background-position: left 5px; background-repeat: no-repeat; border-color: #AACCAA; border-style: dotted none;  border-width: 1px 0;
     color: black; font-weight: 900;  margin: 1pt 1pt 1em 1em;  padding: 0.5em 1em 1.5em 48px;  background-image: url('client/img_product/information.png');">
        
-            <b>Thông tin</b> : Sản phẩm đã được thêm vào giỏ.
+            <b style="color:Red;">Thông tin</b> : Sản phẩm đã được thêm vào giỏ.
             <br>
        
     </div>
-    <h2 style="line-height: 1.2; font-family: Arial,sans-serif;font-size: 150%; font-weight: bold">Giỏ hàng</h2>
+    <h2 style="line-height: 1.2; font-family: Arial,sans-serif;font-size: 150%; font-weight: bold;color:Blue;">Giỏ hàng</h2>
      <p id="messageStatus" runat="Server" visible="false" style="background-color: #68C5C3;
                 margin: 20px auto; width: 685px;">
                 <asp:Label ID="lblMessage" runat="server" ForeColor="White" Font-Size="14pt" Text="" />

@@ -23,9 +23,9 @@ public class LinkBAL
     }
 
     //Update and Insert Link
-    public bool Update_Link(int id, string Link)
+    public bool Update_Link(int id, string Link, string Images)
     {
-        return new LinkDAL().Update_Link(id, Link);
+        return new LinkDAL().Update_Link(id, Link, Images);
     }
 
     //Delete Link By ID

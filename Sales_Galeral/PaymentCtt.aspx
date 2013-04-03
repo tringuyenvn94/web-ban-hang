@@ -77,7 +77,7 @@
             <asp:Label ID="lblTotalPrice" runat="server" CssClass="total-price"  Font-Bold="True" ForeColor="#5496B6"></asp:Label>       
     </div>
     <div style="clear:both;"></div>
-    <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;">Vui lòng kiểm tra lại thông tin và xác nhận việc mua hàng</h4>
+    <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;color:Blue;">Vui lòng kiểm tra lại thông tin và xác nhận việc mua hàng</h4>
     <strong style="margin-left:10px;">Hình Thức Thanh Toán: </strong>
         <asp:Label ID="lblTypePay" runat="server" Text=""></asp:Label>
       <div style=" margin-left: 728px; margin-top: 15px;">
@@ -88,7 +88,7 @@
    </asp:Panel>
     <asp:Panel ID="pnlFinish" Visible="false" runat="server">
           <img src="client/img_product/step4.png" style="margin-bottom: 20px;" />
-           <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;">Qúy khách vui lòng chuyển khoản cho ThaiDeal theo thông tin sau</h4>
+           <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;color:Blue;">Qúy khách vui lòng chuyển khoản cho ThaiDeal theo thông tin sau</h4>
             <div style="width: 100%;">
                 <asp:Label ID="lblInfo" runat="server" Text="Label"></asp:Label>
             </div><br />

@@ -44,13 +44,27 @@
                                         <asp:Label ID="LBL_LinkLinkItem" runat="server" Text='<%# Eval("Link") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle BackColor="#D2B48C" />
-                                    <ItemStyle Width="90%" />
+                                    <ItemStyle Width="80%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Ảnh" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Image ID="LBL_ImageLinkItem" runat="server" ImageUrl='<%# "../Images/ImageLienKet/"+Eval("Images")%>'  Width="30px" Height="30px"/>
+                                    </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver" />
+                                    <ItemStyle Width="10%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Đường dẫn ảnh" Visible="false" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBL_LinkImageLinkItem" runat="server" Text='<%# Eval("Images") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle BackColor="Silver" />
+                                    <ItemStyle Width="10%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:Button ID="BT_SelectLink" CausesValidation="false" CssClass="ButtonText" Text="Cập Nhật" runat="server" CommandName="Select"/>
                                     </ItemTemplate>
-                                    <HeaderStyle BackColor="Silver" />
+                                    <HeaderStyle BackColor="#D2B48C" />
                                     <ItemStyle Width="5%" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
@@ -104,6 +118,29 @@
                 <asp:TextBox ID="TB_LienKet" runat="server" TextMode="MultiLine" Rows="3" Width="300px"></asp:TextBox>
             </div>
             <div style="clear:left;"></div>
+
+            <div style="width:150px;padding:2px;float:left;">
+                Ảnh Liên Kết
+            </div>
+            <div style="width:350px;padding:2px;float:left;">
+                <asp:FileUpload ID="FileUpload_Image" runat="server" Width="220px"/>
+                <asp:Button ID="BT_Upload" runat="server" CausesValidation="false" Text="Upload" onclick="BT_Upload_Click" />
+            </div>
+            <div style="clear:left;"></div>
+            <div style="width:150px;padding:2px;float:left;height:70px;">
+            </div>
+            <div style="width:250px;padding:2px;float:left;">
+                <div style="float:left;width:100px;">
+                    <asp:Image ID="IMG_Upload" runat="server" Width="110px" Height="70px" BorderWidth="1"/>
+                </div>
+                <div style="float:left;width:150px;padding-top:48px;">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="clear:left;">
+                </div>
+            </div>
+            <div style="clear:left;"></div>
+
             <div style="width:410px;padding-top:20px;padding-bottom:10px;" align="center">
                 <div style="width:205px;float:left;" align="right">
                     <asp:Button ID="BT_SubmitLink" runat="server" CssClass="ButtonText" 
@@ -119,6 +156,7 @@
     </div>
     <div visible="false">
         <input id="HD_ID_Link" type="hidden" runat="server" value="0"/>
+        <input id="TB_PartImage" type="hidden" runat="server" value=""/>
     </div>
         </ContentTemplate>
     </asp:UpdatePanel>

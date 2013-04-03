@@ -54,6 +54,8 @@ public partial class Admin_ManagerLink : System.Web.UI.Page
     public void set_Text_Link()
     {
         TB_LienKet.Text = "";
+        TB_PartImage.Value = "";
+        IMG_Upload.ImageUrl = null;
     }
 
     protected void OnRowData_Link(object sender, GridViewRowEventArgs e)
@@ -72,12 +74,15 @@ public partial class Admin_ManagerLink : System.Web.UI.Page
         DIV_AddEditLink.Visible = true;
         HD_ID_Link.Value = ((Label)Grid_Link.SelectedRow.FindControl("LBL_LinkItem")).Text;
         TB_LienKet.Text = ((Label)Grid_Link.SelectedRow.FindControl("LBL_LinkLinkItem")).Text;
+        TB_PartImage.Value = ((Label)Grid_Link.SelectedRow.FindControl("LBL_LinkImageLinkItem")).Text;
+        IMG_Upload.ImageUrl = "../Images/ImageLienKet/" + TB_PartImage.Value;
     }
 
     protected void BT_SubmitLink_Click(object sender, EventArgs e)
     {
         string link = TB_LienKet.Text.Trim();
-        if (ToolsAdmin.Update_Link(Convert.ToInt32(HD_ID_Link.Value), link))
+        string PartImage = TB_PartImage.Value.Trim();
+        if (ToolsAdmin.Update_Link(Convert.ToInt32(HD_ID_Link.Value), link, PartImage))
         {
             Load_Grid_Link();
         }
@@ -99,5 +104,26 @@ public partial class Admin_ManagerLink : System.Web.UI.Page
     {
         set_Hidden_DIVLink();
         set_Text_Link();
+    }
+
+    protected void BT_Upload_Click(object sender, EventArgs e)
+    {
+        string uploadPath = Server.MapPath("../Images/ImageLienKet/");
+        if (FileUpload_Image.HasFile)
+        {
+            string filename = FileUpload_Image.FileName;
+            string extension = System.IO.Path.GetExtension(filename);
+            string savefile = uploadPath + "\\" + filename;
+            try
+            {
+                FileUpload_Image.SaveAs(savefile);
+                IMG_Upload.ImageUrl = "../Images/ImageLienKet/" + filename;
+                TB_PartImage.Value = FileUpload_Image.FileName;
+            }
+            catch (Exception ex)
+            {
+                Trace.Write("-----Write File Error: \n" + ex.Message + "\n---------");
+            }
+        }
     }
 }

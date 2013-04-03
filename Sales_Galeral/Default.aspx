@@ -100,7 +100,7 @@
 
     <!-- MODULE Home Dael Hot -->
     <div id="featured_products">
-        <h4>
+        <h4 style="color:Red;">
             Deal Hot</h4>
         <div class="block_content" style="margin-left: -10px; margin-top: 10px;">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">

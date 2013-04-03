@@ -45,7 +45,7 @@ public class LinkDAL
     }
 
     //Update and Insert Link
-    public bool Update_Link(int id, string Link)
+    public bool Update_Link(int id, string Link,string Images)
     {
         try
         {
@@ -56,6 +56,8 @@ public class LinkDAL
                 command.CommandType = CommandType.StoredProcedure;
                 SqlParameter pr_Link = command.Parameters.Add("@Link", SqlDbType.NVarChar);
                 pr_Link.Value = Link;
+                SqlParameter pr_Images = command.Parameters.Add("@Images", SqlDbType.NVarChar);
+                pr_Images.Value = Images;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Value = id;
                 int row = command.ExecuteNonQuery();
@@ -68,6 +70,8 @@ public class LinkDAL
                 command.CommandType = CommandType.StoredProcedure;
                 SqlParameter pr_Link = command.Parameters.Add("@Link", SqlDbType.NVarChar);
                 pr_Link.Value = Link;
+                SqlParameter pr_Images = command.Parameters.Add("@Images", SqlDbType.NVarChar);
+                pr_Images.Value = Images;
                 SqlParameter pr_ID = command.Parameters.Add("@ID", SqlDbType.Int);
                 pr_ID.Direction = ParameterDirection.Output;
                 int row = command.ExecuteNonQuery();

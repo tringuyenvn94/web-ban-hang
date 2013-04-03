@@ -388,7 +388,7 @@
             <asp:Label ID="lblTotalPrice" runat="server" CssClass="total-price"  Font-Bold="True" ForeColor="#5496B6"></asp:Label>       
     </div>
     <div style="clear:both;"></div>
-    <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;">Vui lòng chọn một cách thanh toán</h4>
+    <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;color:Blue;">Vui lòng chọn một cách thanh toán</h4>
     <strong style="margin-left:10px;">Thanh Toán</strong>
     <ul>
     
