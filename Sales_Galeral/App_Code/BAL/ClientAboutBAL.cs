@@ -27,4 +27,9 @@ public class ClientAboutBAL
         return aboutDAL.GetAllType_Payment();
     }
 
+    public DataTable GetAllType_Payment_By_ID(int id)
+    {
+        return aboutDAL.GetAllType_Payment_By_ID(id);
+    }
+
 }

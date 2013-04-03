@@ -45,7 +45,7 @@ public partial class ShoppingCart : System.Web.UI.Page
             else
             {
                 messageStatus.Visible = true;
-                lblMessage.Text = "Quantity Out Of Range In Stock: " + quantityInstock.ToString();
+                lblMessage.Text = "Số lượng trong kho còn: " + quantityInstock.ToString() + " !Vui lòng chọn lại";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
             }
 

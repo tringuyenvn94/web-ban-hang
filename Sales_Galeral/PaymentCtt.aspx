@@ -89,8 +89,10 @@
     <asp:Panel ID="pnlFinish" Visible="false" runat="server">
           <img src="client/img_product/step4.png" style="margin-bottom: 20px;" />
            <h4 style="margin-bottom: 20px; font-family: Arial; font-weight: bold; font-size: 1.2em;">Qúy khách vui lòng chuyển khoản cho ThaiDeal theo thông tin sau</h4>
-            <strong style="margin-left:10px; margin-left:150px;">Chủ Tài Khoản: </strong><br />
-            <strong style="margin-left:10px; margin-left:150px">Ngân Hàng...... : </strong>
+            <div style="width: 100%;">
+                <asp:Label ID="lblInfo" runat="server" Text="Label"></asp:Label>
+            </div><br />
+           
     </asp:Panel> 
 </asp:Content>
 

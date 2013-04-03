@@ -25,9 +25,14 @@ public partial class Payment : System.Web.UI.Page
             pnlPayment.Visible = true;
             pnlRegis.Visible = false;
         }
-       
-            loadDatabse();
+        if (!IsPostBack)
+        {
             bindRdioList();
+
+            loadDatabse();
+        }
+          
+           
       
     }
 
@@ -37,9 +42,9 @@ public partial class Payment : System.Web.UI.Page
         rdobtList.DataTextField = "Title_Info";
         rdobtList.DataValueField = "ID";
         rdobtList.DataBind();
-        if (rdobtList.Items.Count > 0) {
-            rdobtList.Items[0].Selected = true;
-        }
+        //if (rdobtList.Items.Count > 0) {
+        //    rdobtList.Items[0].Selected = true;
+        //}
     }
 
     protected void btnLogg_Click(object sender, EventArgs e)
@@ -216,18 +221,36 @@ public partial class Payment : System.Web.UI.Page
     }
     protected void btnContinuos_Click(object sender, EventArgs e)
     {
-        RadioButtonList rbl = (RadioButtonList)Page.FindControl("rdobtList");
-
-        if (rbl.SelectedValue.Equals("1"))
-        {
-            Response.Redirect("PaymentCtt.aspx?type=bank");
-        }
-        if (rbl.SelectedValue.Equals("2"))
-        {
-            Response.Redirect("PaymentCtt.aspx?type=cash");
-        }
+        //RadioButtonList rbl = (RadioButtonList)Page.FindControl("rdobtList");
+       
+            //if (rdobtList.SelectedValue.Equals("1"))
+            //{
+            //    Response.Redirect("PaymentCtt.aspx?type=bank");
+            //}
+            //if (rdobtList.SelectedValue.Equals("2"))
+            //{
+            //    Response.Redirect("PaymentCtt.aspx?type=cash");
+            //}
+            if (value.Equals("1"))
+            {
+                Response.Redirect("PaymentCtt.aspx?type=bank");
+            }
+            if (value.Equals("2"))
+            {
+                Response.Redirect("PaymentCtt.aspx?type=cash");
+            }
+       
         
     }
 
-  
+    string value = "";
+    protected void rdobtList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (IsPostBack)
+        {
+            value = rdobtList.SelectedValue;
+           
+        }
+       
+    }
 }

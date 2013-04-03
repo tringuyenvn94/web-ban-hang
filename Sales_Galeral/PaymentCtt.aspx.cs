@@ -4,26 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 public partial class PaymentCtt : System.Web.UI.Page
 {
     ClientProductBAL productBAL = new ClientProductBAL();
     ClientBillBAL billBAL = new ClientBillBAL();
+    ClientAboutBAL aboutBAL = new ClientAboutBAL();
     static int tpPM=0;
     protected void Page_Load(object sender, EventArgs e)
     {
+       
         string type = Request.QueryString["type"];
         if (type != null)
         {
             if (type.Equals("bank"))
             {
                 lblTypePay.Text = "Chuyển khoản trực tiếp";
+                tpPM = 1;
 
             }
             if (type.Equals("cash"))
             {
                 lblTypePay.Text = "Thanh toán cho người giao hàng";
-                tpPM = 1;
+                tpPM = 2;
             }
             loadDatabse();
         }
@@ -49,20 +53,26 @@ public partial class PaymentCtt : System.Web.UI.Page
         //string typePayment = "Cash";
         bool status = false;
         int idBill = billBAL.InsertBill(idCustomer, datePurchase, allNameProduct, totalQuantity, totalMoney, tpPM, status);
-     
-     
-        //foreach (DataRow row in Cart.Rows)
-        //{
-        //    int quantityOut = Convert.ToInt32(row["Quantity"].ToString());
-        //    int idProduct = Convert.ToInt32(row["ID"].ToString());
-        //    productBAL.UpdateQuantity(quantityOut, idProduct);
-        //}   
 
 
+        foreach (DataRow row in Cart.Rows)
+        {
+            int quantityOut = Convert.ToInt32(row["Quantity"].ToString());
+            int idProduct = Convert.ToInt32(row["ID"].ToString());
+            string namePr=row["Name"].ToString();
+            double price=Convert.ToDouble(row["Price_Sale"].ToString());
+            double ttPrice=Convert.ToDouble(row["Amount"].ToString());
+            billBAL.InsertShopCart(idBill, namePr, price, quantityOut, ttPrice);
+            productBAL.Update_Quantity(idProduct, quantityOut);
+        }   
+
+        
 
         Cart.RemoveAll();
         LinkButton quantity = (LinkButton)Master.FindControl("lbtn_Cart");
         quantity.Text = String.Format("Cart ({0}) item", Cart.TotalQuantity());
+
+        lblInfo.Text = aboutBAL.GetAllType_Payment_By_ID(tpPM).Rows[0][2].ToString();
     }
 
     protected void grvProductCart_RowCommand(object sender, GridViewCommandEventArgs e)

@@ -69,4 +69,14 @@ public class ClientAboutDAL
         return dtlTemp = this.FillData(command);
     }
 
+    public DataTable GetAllType_Payment_By_ID(int id)
+    {
+        DataTable dtlTemp = new DataTable();
+        SqlCommand command = new SqlCommand("SP_GetList_Type_Payment_By_ID", connectDatabase.Connection());
+        command.Parameters.AddWithValue("@ID", id);
+        command.CommandType = CommandType.StoredProcedure;
+        return dtlTemp = this.FillData(command);
+    }
+
+
 }
