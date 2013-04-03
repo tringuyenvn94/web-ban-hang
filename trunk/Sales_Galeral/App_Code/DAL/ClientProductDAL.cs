@@ -148,6 +148,35 @@ public class ClientProductDAL
         return dtlTemp = this.FillData(command);
     }
 
+    public int Update_Quantity(int id, int quantity)
+    {
+        SqlConnection conn=connectDatabase.Connection();
+        SqlTransaction transaction = conn.BeginTransaction();
+        try
+        {
+            SqlCommand command = new SqlCommand("SP_Update_Quantity_In", conn, transaction);
+            command.Parameters.AddWithValue("@ID", id);
+            command.Parameters.AddWithValue("@Quantity", quantity);
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+
+            command = new SqlCommand("SP_Update_Quantity_Bought", conn, transaction);
+            command.Parameters.AddWithValue("@ID", id);
+            command.Parameters.AddWithValue("@Quantity", quantity);
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+
+            transaction.Commit();
+            return 1;
+        }
+        catch (System.Exception ex)
+        {
+            transaction.Rollback();
+            System.Console.Write(ex);
+            return -1;
+        }
+        
+    }
 
   
 }

@@ -100,4 +100,10 @@ public class ClientProductBAL
     {
         return productDAL.GetProductByID(idProduct);
     }
+
+
+     public int Update_Quantity(int id, int quantity)
+    {
+        return productDAL.Update_Quantity(id, quantity);
+    }
 }

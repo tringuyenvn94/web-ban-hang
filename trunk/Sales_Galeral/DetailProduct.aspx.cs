@@ -21,7 +21,7 @@ public partial class DetailProduct : System.Web.UI.Page
             dtableProduct = productBAL.GetProductByID(idProduct);
             if (dtableProduct.Rows.Count > 0)
             {
-                ShowValueProduct();               
+                ShowValueProduct(); Set_Attribute();             
               
             }
         }
@@ -43,6 +43,12 @@ public partial class DetailProduct : System.Web.UI.Page
         
     }
 
+    public void Set_Attribute()
+    {
+        tbxQtt.Attributes["onKeyPress"] = "javascript:return EnsureNumericKeyEntry(this.id);";
+
+    }
+
     protected void ShowValueProduct()
     {
         lblNameProduct.Text = dtableProduct.Rows[0]["Name"].ToString();//column 2 is Name
@@ -59,10 +65,25 @@ public partial class DetailProduct : System.Web.UI.Page
         ShopCart cart = (ShopCart)Session["ShopCart"];
         // LinkButton lbtnAdd = (LinkButton)sender;
         int productID = int.Parse(Request.QueryString["idProduct"].ToString());
-        cart.Add(productID, Convert.ToInt32(tbxQtt.Text));
-        LinkButton quantity = (LinkButton)Master.FindControl("lbtn_Cart");
-        quantity.Text = String.Format("Shopping Cart ({0}) item", cart.TotalQuantity());
-        lblQTtCart.Text = cart.TotalQuantity() + " sản phẩm";
-        cart_block_total.Text = FunctionLibrary.DisplayPrice(cart.TotalAmount);
+        int quantity1 = Convert.ToInt32(tbxQtt.Text);
+        int quantityInstock = productBAL.CompareQuantityInAndOut(productID, quantity1);
+        if (quantityInstock == -1) //-1 neu so luong mua < so luong con trong kho
+        {
+            cart.Add(productID, Convert.ToInt32(tbxQtt.Text));
+            LinkButton quantity = (LinkButton)Master.FindControl("lbtn_Cart");
+            quantity.Text = String.Format("Shopping Cart ({0}) item", cart.TotalQuantity());
+            lblQTtCart.Text = cart.TotalQuantity() + " sản phẩm";
+            cart_block_total.Text = FunctionLibrary.DisplayPrice(cart.TotalAmount);
+            Response.Redirect(Request.Url.ToString());
+        }
+        else
+        {
+            messageStatus.Visible = true;
+            lblMessage.Text = "Số lượng trong kho còn: " + quantityInstock.ToString() + " !Vui lòng chọn lại";
+            lblMessage.ForeColor = System.Drawing.Color.Red;
+        }
+
+
+        
     }
 }

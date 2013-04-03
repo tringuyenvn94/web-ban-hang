@@ -47,4 +47,15 @@ public class ClientBillBAL
     {
         return billDAL.GetBillByCustomerID(customerID);
     }
+
+
+    public int InsertShopCart(int billID, string namePr,double price, int qtt, double ttPrice )
+    {
+        int idCart = billDAL.InsertShopCart(billID, namePr,price, qtt, ttPrice );
+        if (idCart != -1)
+        {
+            return idCart;
+        }
+        return -1;
+    }
 }

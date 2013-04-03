@@ -12,7 +12,66 @@
           $('#ex2').zoom({ grab: true });
       });
     </script>
+      <script type="text/javascript" language="javascript">
+          function EnsureNumericKeyEntry(x) {
+              var kCode, kChar
+              kCode = event.keyCode
+              kChar = String.fromCharCode(kCode)
+              /*if(kCode == 13){
+              SubmitOK()
+              }*/
+              /*  ns7 added -  Remove blanks = 32 , */
 
+              if (kCode == 32 || kCode == 37) {
+                  return false;
+              }
+
+              if (!isNaN(kChar)) {
+                  return true;
+              } else {
+                  if (kChar == ".") {
+                      var index
+                      index = x.indexOf(".")
+                      if (index != -1) {
+                          return false;
+                      }
+                  } else {
+                      if ((kCode != 8) && (kCode != 45)) {
+                          return false;
+                      }
+                  }
+                  return true;
+              }
+          }
+
+          function maskIt_Space(fld) {
+              fldVal = fld.value;
+              var tmpStr = "(";
+              keyCount = fldVal.length;
+              keyEntered = fldVal.substring(keyCount - 1, keyCount);
+              var isNamedFone;
+              if (keyCount < 2) isNamedFone = false;
+              if (!isNamedFone) isNamedFone = chkNAN(keyEntered);
+              keyCount++;
+              with (document.forms[0]) {
+                  switch (keyCount) {
+                      case 2:
+                          tmpStr += fldVal;
+                          fld.value = tmpStr;
+                          break;
+                      case 5:
+                          fld.value += ") ";
+                          break;
+                      case 10:
+                          fld.value += "-";
+                          break;
+                      case 14:
+                          fld.value += "";
+                          break;
+                  }
+              }
+          }
+    </script>
     <div class="itemBody">
         <div class="itemFullText">
             <div id="center_column" class="center_column">
@@ -20,6 +79,10 @@
             <p id="detail" style="text-align: justify;">
                 <strong><span style="font-size: 12pt;"><strong>THÔNG TIN CHI TIẾT</strong> </span>
                 </strong>
+            </p>
+             <p id="messageStatus" runat="Server" visible="false" style="background-color: #68C5C3;
+                margin: 20px auto; width: 685px;">
+                <asp:Label ID="lblMessage" runat="server" ForeColor="White" Font-Size="14pt" Text="" />
             </p>
             <div id="primary_block" class="clearfix">
                 <!-- right infos-->

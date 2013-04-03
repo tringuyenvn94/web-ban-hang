@@ -76,7 +76,7 @@ public class ClientBillDAL
             prTotalQtt.Value = totalQtt;
             SqlParameter prTotalMoney = command.Parameters.Add("@TotalMoney", SqlDbType.Float);
             prTotalMoney.Value = totalMoney;
-            SqlParameter prTypePayment = command.Parameters.Add("@Type_Payment", SqlDbType.Int);
+            SqlParameter prTypePayment = command.Parameters.Add("@Type_Payment_ID", SqlDbType.Int);
             prTypePayment.Value = typePayment;
             SqlParameter prPayment = command.Parameters.Add("@Status_Payment", SqlDbType.Bit);
             prPayment.Value = statusPayment;
@@ -111,5 +111,43 @@ public class ClientBillDAL
         command.Parameters.AddWithValue("@Customer_ID", customerID);
         command.CommandType = CommandType.StoredProcedure;
         return dtlTemp = this.FillData(command);
+    }
+
+
+    public int InsertShopCart(int billID, string namePr,double price, int qtt, double ttPrice )
+    {
+        int idShopCart = -1;
+        SqlConnection connect = connectDatabase.Connection();
+        try
+        {
+            SqlCommand command = new SqlCommand("SP_Insert_ShoppingCart", connect);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter prBillID = command.Parameters.Add("@Bill_ID", SqlDbType.Int);
+            prBillID.Value = billID;
+            SqlParameter prNamePr = command.Parameters.Add("@NameProduct", SqlDbType.NVarChar);
+            prNamePr.Value = namePr;
+            SqlParameter prPrice = command.Parameters.Add("@PriceProduct", SqlDbType.Float);
+            prPrice.Value = price;
+            SqlParameter prQtt = command.Parameters.Add("@Quantity", SqlDbType.Int);
+            prQtt.Value = qtt;
+            SqlParameter prTotalMoney = command.Parameters.Add("@TotalMoneyProduct", SqlDbType.Float);
+            prTotalMoney.Value = ttPrice;         
+            SqlParameter prID = command.Parameters.Add("@ID", SqlDbType.Int);
+            prID.Direction = ParameterDirection.Output;
+            int row = command.ExecuteNonQuery();
+            if (row > 0)
+            {
+                idShopCart = Int32.Parse(prID.Value.ToString());
+                connect.Close();
+                return idShopCart;
+            }
+            return idShopCart;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.Print(ex.Message);
+            return idShopCart;
+        }
+
     }
 }
