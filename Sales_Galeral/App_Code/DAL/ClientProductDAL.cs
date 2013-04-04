@@ -50,26 +50,79 @@ public class ClientProductDAL
         return dtlTemp = this.FillData(command);
     }
 
+    //Get total Product type
+    public int get_Total_Product_Type(int type)
+    {
+        try
+        {
+            DataTable dtble = new DataTable();
+            SqlCommand command = new SqlCommand("get_Total_Product_Type", connectDatabase.Connection());
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter pr_type = command.Parameters.Add("@Type", SqlDbType.Int);
+            pr_type.Value = type;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(dtble);
+            return Convert.ToInt32(dtble.Rows[0][0].ToString());
+        }
+        catch (SqlException e)
+        {
+            WebMsgBox.Show(e.Message);
+        }
+        finally
+        {
+            connectDatabase.Connection().Close();
+        }
+        return -1;
+    }
+
     //load theo Type New or Hot
-    public DataTable LoadTypeProduct(int type)
+    public DataTable LoadTypeProduct(int type,int PageSize,int CurrentPage)
     {
         DataTable dtlTemp = new DataTable();
         SqlCommand command = new SqlCommand("SP_Get_Type_Product", connectDatabase.Connection());
         command.Parameters.AddWithValue("@Type", type);
+        command.Parameters.AddWithValue("@PageSize", PageSize);
+        command.Parameters.AddWithValue("@CurrentPage", CurrentPage);
         command.CommandType = CommandType.StoredProcedure;
         return dtlTemp = this.FillData(command);
     }
 
-    //load theo Type New or Hot
-    public DataTable LoadProductByCate(int cate)
+    //load theo Cate
+    public DataTable LoadProductByCate(int cate, int PageSize, int CurrentPage)
     {
         DataTable dtlTemp = new DataTable();
         SqlCommand command = new SqlCommand("SP_Get_Category_Product", connectDatabase.Connection());
-        command.Parameters.AddWithValue("@IDCt", cate);
+        command.Parameters.AddWithValue("@Category_ID", cate);
+        command.Parameters.AddWithValue("@PageSize", PageSize);
+        command.Parameters.AddWithValue("@CurrentPage", CurrentPage);
         command.CommandType = CommandType.StoredProcedure;
         return dtlTemp = this.FillData(command);
     }
 
+    //Get total Product cate
+    public int get_Total_Product_Cate(int cate)
+    {
+        try
+        {
+            DataTable dtble = new DataTable();
+            SqlCommand command = new SqlCommand("get_Total_Product_Cate", connectDatabase.Connection());
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter pr_cate = command.Parameters.Add("@Category_ID", SqlDbType.Int);
+            pr_cate.Value = cate;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(dtble);
+            return Convert.ToInt32(dtble.Rows[0][0].ToString());
+        }
+        catch (SqlException e)
+        {
+            WebMsgBox.Show(e.Message);
+        }
+        finally
+        {
+            connectDatabase.Connection().Close();
+        }
+        return -1;
+    }
 
     /// <summary>
     /// Clear All Data In Dataset and DataTable

@@ -8,7 +8,6 @@ using System.Data;
 
 public partial class DetailProduct : System.Web.UI.Page
 {
-   
     ClientProductBAL productBAL = new ClientProductBAL();
     DataTable dtableProduct = new DataTable();
 
@@ -26,7 +25,7 @@ public partial class DetailProduct : System.Web.UI.Page
             }
         }
         ShopCart cart = (ShopCart)Session["ShopCart"];
-       if (cart.Count > 0)
+        if (cart.Count > 0)
             {
                 lblQTtCart.Text = cart.TotalQuantity() + " sản phẩm";
                 cart_block_total.Text = FunctionLibrary.DisplayPrice(cart.TotalAmount);
@@ -37,16 +36,15 @@ public partial class DetailProduct : System.Web.UI.Page
                 lblQTtCart.Text = "Không có sản phẩm nào";
                 cart_block_total.Text = "0,00đ";
             }
-       dtlNewPrd.DataSource = productBAL.GetTopNewDataProduct();
-       dtlNewPrd.DataBind();
-        
-        
+        if(!IsPostBack){
+            dtlNewPrd.DataSource = productBAL.GetTopNewDataProduct();
+            dtlNewPrd.DataBind();
+        }
     }
 
     public void Set_Attribute()
     {
         tbxQtt.Attributes["onKeyPress"] = "javascript:return EnsureNumericKeyEntry(this.id);";
-
     }
 
     protected void ShowValueProduct()
@@ -60,10 +58,10 @@ public partial class DetailProduct : System.Web.UI.Page
         imgProduct.AlternateText = lblNameProduct.Text;
         lblDetails.Text = dtableProduct.Rows[0]["Details"].ToString();
     }
+
     protected void lbtnAdd_Click(object sender, EventArgs e)
     {
         ShopCart cart = (ShopCart)Session["ShopCart"];
-        // LinkButton lbtnAdd = (LinkButton)sender;
         int productID = int.Parse(Request.QueryString["idProduct"].ToString());
         int quantity1 = Convert.ToInt32(tbxQtt.Text);
         int quantityInstock = productBAL.CompareQuantityInAndOut(productID, quantity1);
@@ -82,8 +80,5 @@ public partial class DetailProduct : System.Web.UI.Page
             lblMessage.Text = "Số lượng trong kho còn: " + quantityInstock.ToString() + " !Vui lòng chọn lại";
             lblMessage.ForeColor = System.Drawing.Color.Red;
         }
-
-
-        
     }
 }

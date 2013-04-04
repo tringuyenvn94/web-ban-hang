@@ -3,8 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
- 
         <div class="block_content" style="margin-left: -10px; margin-top: 10px;">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -115,6 +113,12 @@
                     </div>
                 </ItemTemplate>
             </asp:DataList>
+            <div align="right" style="width:100%;padding-top:5px;font-size:larger;color:Blue;">
+                <asp:Literal ID="LTR_page" runat="server"></asp:Literal>
+            </div>
+            <div align="right" style="width:100%;padding-top:5px;font-size:larger;color:Blue;">
+                <asp:Literal ID="LTR_page_1" runat="server"></asp:Literal>
+            </div>
             </ContentTemplate>
             </asp:UpdatePanel>
        

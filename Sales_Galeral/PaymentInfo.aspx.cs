@@ -18,7 +18,6 @@ public partial class PaymentInfo : System.Web.UI.Page
 
     private void LoadInforPayment()
     {
-        
         lblInfo.Text = ToolsAdmin.GetAllType_Payment().Rows[0][3].ToString();
     }
 }

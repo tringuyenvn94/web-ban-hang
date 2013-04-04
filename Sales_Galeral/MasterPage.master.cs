@@ -26,10 +26,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 cbxRemember.Checked = true;
             Load_Lienket();
             Load_SupportOnline();
+            DataListMenu.DataSource = productBAL.GetAllCategory();
+            DataListMenu.DataBind();
         } 
       
-        DataListMenu.DataSource = productBAL.GetAllCategory();
-        DataListMenu.DataBind();
         if (Session["UserClient"] != "" && Session["UserClient"] !=null)
         {
             MultiView1.ActiveViewIndex = 1;
@@ -48,8 +48,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             lbtn_Cart.Text = "CART:(EMPTY)";
         }
-       
     }
+
     protected void lbtn_Register_Click(object sender, EventArgs e)
     {
         Response.Redirect("Register.aspx");
@@ -59,6 +59,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         Response.Redirect("ShoppingCart.aspx");
     }
+
     protected void lbtn_Account_Click(object sender, EventArgs e)
     {
         if (Session["IDClient"] != "")
@@ -106,6 +107,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         sb.Append("');");
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showalert", sb.ToString(), true);
     }
+
     protected void lbtn_Exit_Click(object sender, EventArgs e)
     {
         Session["UserClient"] = "";

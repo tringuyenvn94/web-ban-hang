@@ -14,7 +14,6 @@ public partial class PaymentCtt : System.Web.UI.Page
     static int tpPM=0;
     protected void Page_Load(object sender, EventArgs e)
     {
-       
         string type = Request.QueryString["type"];
         if (type != null)
         {
@@ -22,16 +21,18 @@ public partial class PaymentCtt : System.Web.UI.Page
             {
                 lblTypePay.Text = "Chuyển khoản trực tiếp";
                 tpPM = 1;
-
             }
             if (type.Equals("cash"))
             {
                 lblTypePay.Text = "Thanh toán cho người giao hàng";
                 tpPM = 2;
             }
-            loadDatabse();
+            if(!IsPostBack){
+                loadDatabse();
+            }
         }
     }
+
     protected void loadDatabse()
     {
         ShopCart Cart = (ShopCart)Session["ShopCart"];
@@ -50,10 +51,8 @@ public partial class PaymentCtt : System.Web.UI.Page
         string allNameProduct = Cart.getAllNameProduct();
         int totalQuantity = Cart.TotalQuantity();
         double totalMoney = Cart.TotalAmount;
-        //string typePayment = "Cash";
         bool status = false;
         int idBill = billBAL.InsertBill(idCustomer, datePurchase, allNameProduct, totalQuantity, totalMoney, tpPM, status);
-
 
         foreach (DataRow row in Cart.Rows)
         {
@@ -64,14 +63,11 @@ public partial class PaymentCtt : System.Web.UI.Page
             double ttPrice=Convert.ToDouble(row["Amount"].ToString());
             billBAL.InsertShopCart(idBill, namePr, price, quantityOut, ttPrice);
             productBAL.Update_Quantity(idProduct, quantityOut);
-        }   
-
-        
+        }
 
         Cart.RemoveAll();
         LinkButton quantity = (LinkButton)Master.FindControl("lbtn_Cart");
         quantity.Text = String.Format("Cart ({0}) item", Cart.TotalQuantity());
-
         lblInfo.Text = aboutBAL.GetAllType_Payment_By_ID(tpPM).Rows[0][2].ToString();
     }
 
@@ -105,7 +101,6 @@ public partial class PaymentCtt : System.Web.UI.Page
                 lblMessage.Text = "Quantity Out Of Range In Stock: " + quantityInstock.ToString();
                 lblMessage.ForeColor = System.Drawing.Color.Red;
             }
-
         }
     }
 }
