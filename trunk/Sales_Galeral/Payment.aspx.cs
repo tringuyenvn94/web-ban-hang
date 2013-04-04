@@ -12,7 +12,7 @@ using System.Web.Services;
 public partial class Payment : System.Web.UI.Page
 {
     ClientProductBAL productBAL = new ClientProductBAL();
-   static ClientAccountBAL accountBAL = new ClientAccountBAL();
+    static ClientAccountBAL accountBAL = new ClientAccountBAL();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["UserClient"] == "")
@@ -28,12 +28,8 @@ public partial class Payment : System.Web.UI.Page
         if (!IsPostBack)
         {
             bindRdioList();
-
             loadDatabse();
         }
-          
-           
-      
     }
 
     private void bindRdioList()
@@ -42,9 +38,6 @@ public partial class Payment : System.Web.UI.Page
         rdobtList.DataTextField = "Title_Info";
         rdobtList.DataValueField = "ID";
         rdobtList.DataBind();
-        //if (rdobtList.Items.Count > 0) {
-        //    rdobtList.Items[0].Selected = true;
-        //}
     }
 
     protected void btnLogg_Click(object sender, EventArgs e)
@@ -54,7 +47,6 @@ public partial class Payment : System.Web.UI.Page
         DataRow drow = accountBAL.AuthenticateAccount(userName, password);
         if (drow != null)
         {
-
             Session["UserClient"] = userName;
             Session["IDClient"] = drow["ID"].ToString();
             if (chkbxRMB.Checked == true)
@@ -63,7 +55,6 @@ public partial class Payment : System.Web.UI.Page
                 Response.Cookies["PWD"].Value = password;
                 Response.Cookies["UName"].Expires = DateTime.Now.AddMonths(2);
                 Response.Cookies["PWD"].Expires = DateTime.Now.AddMonths(2);
-
             }
             else
             {
@@ -72,13 +63,13 @@ public partial class Payment : System.Web.UI.Page
             }
             pnlPayment.Visible = true;
             pnlRegis.Visible = false;
-
         }
         else
         {
             ShowPopUpMsg("Tên đăng nhập hoặc mật khẩu sai.");
         }
     }
+
     private void ShowPopUpMsg(string psmsg)
     {
         StringBuilder sb = new StringBuilder();
@@ -99,6 +90,7 @@ public partial class Payment : System.Web.UI.Page
         txtAddress.Text = "";
         txtEmail.Text = "";
     }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         if (IsPostBack)
@@ -144,6 +136,7 @@ public partial class Payment : System.Web.UI.Page
             }
         }
     }
+
     public string EnscryptionPassword()
     {
         if (txtPass.Text.Equals(txtConfirmPass.Text))
@@ -219,28 +212,17 @@ public partial class Payment : System.Web.UI.Page
         grvItemShopping.DataBind();
         lblTotalPrice.Text = FunctionLibrary.DisplayPrice(Cart.TotalAmount);
     }
+
     protected void btnContinuos_Click(object sender, EventArgs e)
     {
-        //RadioButtonList rbl = (RadioButtonList)Page.FindControl("rdobtList");
-       
-            //if (rdobtList.SelectedValue.Equals("1"))
-            //{
-            //    Response.Redirect("PaymentCtt.aspx?type=bank");
-            //}
-            //if (rdobtList.SelectedValue.Equals("2"))
-            //{
-            //    Response.Redirect("PaymentCtt.aspx?type=cash");
-            //}
-            if (value.Equals("1"))
-            {
-                Response.Redirect("PaymentCtt.aspx?type=bank");
-            }
-            if (value.Equals("2"))
-            {
-                Response.Redirect("PaymentCtt.aspx?type=cash");
-            }
-       
-        
+        if (value.Equals("1"))
+        {
+            Response.Redirect("PaymentCtt.aspx?type=bank");
+        }
+        if (value.Equals("2"))
+        {
+            Response.Redirect("PaymentCtt.aspx?type=cash");
+        }
     }
 
     string value = "";
@@ -249,8 +231,6 @@ public partial class Payment : System.Web.UI.Page
         if (IsPostBack)
         {
             value = rdobtList.SelectedValue;
-           
         }
-       
     }
 }

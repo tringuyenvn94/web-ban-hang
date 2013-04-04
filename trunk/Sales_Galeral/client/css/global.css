@@ -995,8 +995,8 @@ a.tag_level3 {font-size:17px;font-weight:bold;}
 
 /* homefeatured.tpl */
 #featured_products {padding:0px 0 0 0;}
-#featured_products  h4 {padding:0px; font-family: 'Kreon', serif;font-size:18px; font-weight:400;background:#e2e2e2;line-height:26px;padding:12px 20px}
-#new_product h4 {padding:0px; font-family: 'Kreon', serif;font-size:18px; font-weight:400;background:#e2e2e2;line-height:26px;padding:12px 20px}
+#featured_products  h4 {padding:0px; font-family: 'Kreon', serif;font-size:18px; font-weight:400;background:#5A6D86;line-height:26px;padding:12px 20px}
+#new_product h4 {padding:0px; font-family: 'Kreon', serif;font-size:18px; font-weight:400;background:#5A6D86;line-height:26px;padding:12px 20px}
 
 
 #featured_products ul {width:960px;overflow:hidden;}

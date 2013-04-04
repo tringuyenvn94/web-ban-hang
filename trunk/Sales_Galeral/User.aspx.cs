@@ -25,14 +25,12 @@ public partial class User : System.Web.UI.Page
                     ShowValueCustomer();                 
                     idCust = idCustomer;
                 }
-
             }
         }
     }
 
     protected void ShowValueCustomer()
     {
-
         tbxName.Text = dtableCustomer.Rows[0]["Name"].ToString();
         tbxPhone.Text = dtableCustomer.Rows[0]["Phone"].ToString();
         tbxEmail.Text = dtableCustomer.Rows[0]["Email"].ToString();
@@ -47,8 +45,8 @@ public partial class User : System.Web.UI.Page
         {
             rdbMale.Checked = true;
         }
-
     }
+
     public string EnscryptionPassword()
     {
         if (tbxNewPass.Text.Equals(tbxConfirm.Text))
@@ -57,12 +55,10 @@ public partial class User : System.Web.UI.Page
         }
         return "null";
     }
+
     public string DescryptionPassword(string value)
     {
-
         return new Description().Decrypt(FunctionLibrary.KEY_ENSCRYPTION,value);
-              
-       
     }
 
     public bool Getgender()
@@ -73,6 +69,7 @@ public partial class User : System.Web.UI.Page
         }
         return true;
     }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         int idCustomer = Convert.ToInt32(dtableCustomer.Rows[0]["ID"].ToString());

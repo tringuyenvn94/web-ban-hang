@@ -14,6 +14,7 @@ public partial class Register : System.Web.UI.Page
     {
         mtviewRegister.ActiveViewIndex = 0;
     }
+
     protected void btnClear_Click(object sender, EventArgs e)
     {
         txtUserName.Text = "";
@@ -25,6 +26,7 @@ public partial class Register : System.Web.UI.Page
         txtAddress.Text = "";
         txtEmail.Text = "";
     }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         if (IsPostBack)
@@ -70,6 +72,7 @@ public partial class Register : System.Web.UI.Page
             }
         }
     }
+
     public string EnscryptionPassword()
     {
         if (txtPass.Text.Equals(txtConfirmPass.Text))

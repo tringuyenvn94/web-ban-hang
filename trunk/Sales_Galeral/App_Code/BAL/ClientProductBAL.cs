@@ -39,15 +39,26 @@ public class ClientProductBAL
     /// Load all records Product from database
     /// </summary>
     /// <returns></returns>
-    public System.Data.DataTable LoadTypeProduct(int type)
+    public DataTable LoadTypeProduct(int type, int PageSize, int CurrentPage)
     {
-        return productDAL.LoadTypeProduct(type);
+        return productDAL.LoadTypeProduct(type, PageSize, CurrentPage);
     }
 
-
-    public System.Data.DataTable LoadProductByCate(int cate)
+    //Get total Product type
+    public int get_Total_Product_Type(int type)
     {
-        return productDAL.LoadProductByCate(cate);
+        return productDAL.get_Total_Product_Type(type);
+    }
+
+    public DataTable LoadProductByCate(int cate, int PageSize, int CurrentPage)
+    {
+        return productDAL.LoadProductByCate(cate, PageSize, CurrentPage);
+    }
+
+    //Get total Product cate
+    public int get_Total_Product_Cate(int cate)
+    {
+        return productDAL.get_Total_Product_Cate(cate);
     }
 
     /// <summary>

@@ -13,22 +13,21 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        dtlHotProduct.DataSource = productlManager.GetTopHotDataProduct();
-        dtlHotProduct.DataBind();
+        if(!IsPostBack){
+            dtlHotProduct.DataSource = productlManager.GetTopHotDataProduct();
+            dtlHotProduct.DataBind();
 
-        DataTable dtbletemp= productlManager.GetTopNewDataProduct();
-        dtlDealNew.DataSource = dtbletemp;
-        dtlDealNew.DataBind();
-        for (int i = 0; i < dtbletemp.Rows.Count; i++)
-        {
-            if (dtbletemp.Rows[i]["Price_Discount"].ToString().Equals("0"))
+            DataTable dtbletemp = productlManager.GetTopNewDataProduct();
+            dtlDealNew.DataSource = dtbletemp;
+            dtlDealNew.DataBind();
+            for (int i = 0; i < dtbletemp.Rows.Count; i++)
             {
-                ((Control)dtlDealNew.Items[i].FindControl("giamgia")).Visible = false;
-              //  ((Image)myDataList.Items[itemIndex].FindControl("imageid")).ImageUrl = "~/images/someImage.jpg";
+                if (dtbletemp.Rows[i]["Price_Discount"].ToString().Equals("0"))
+                {
+                    ((Control)dtlDealNew.Items[i].FindControl("giamgia")).Visible = false;
+                }
             }
         }
-   
-
     }
 
     static string lbtn1;
@@ -41,7 +40,7 @@ public partial class _Default : System.Web.UI.Page
         LinkButton quantity = (LinkButton)Master.FindControl("lbtn_Cart");
 
         quantity.Text = String.Format("Cart ({0}) item", cart.TotalQuantity());
-        lbtn1 = lbtnAdd.ID;// .Attributes["ID"].ToString(); ;\
+        lbtn1 = lbtnAdd.ID;
         
     }
 

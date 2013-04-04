@@ -8,10 +8,8 @@ using System.Web.UI.WebControls;
 public partial class ShoppingCart : System.Web.UI.Page
 {
     ClientProductBAL productBAL = new ClientProductBAL();
-  
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
             loadDatabse();
@@ -48,7 +46,6 @@ public partial class ShoppingCart : System.Web.UI.Page
                 lblMessage.Text = "Số lượng trong kho còn: " + quantityInstock.ToString() + " !Vui lòng chọn lại";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
             }
-
         }
     }
 
@@ -59,6 +56,7 @@ public partial class ShoppingCart : System.Web.UI.Page
         grvItemShopping.DataBind();
         lblTotalPrice.Text = FunctionLibrary.DisplayPrice(Cart.TotalAmount);
     }
+
     protected void btnCheckOut_Click(object sender, EventArgs e)
     {
         Response.Redirect("Payment.aspx");
