@@ -24,6 +24,7 @@
     {
         // Code that runs when a new session is started
         Session["UserClient"] = "";
+        Session["IDClient"] = "";
         Session["ShopCart"] = new ShopCart();
         //admin
         Session["UseName"] = "";
@@ -37,6 +38,7 @@
         // or SQLServer, the event is not raised.
         Session["UserClient"] = "";
         Session["ShopCart"] = null;
+        Session["IDClient"] = "";
         //admin
         Session["UseName"] = null;
     }

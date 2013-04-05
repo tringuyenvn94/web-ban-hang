@@ -215,7 +215,7 @@
                                         <ItemTemplate>
                                             <div align="left">
                                                 <a href='<%# Eval("Link") %>'> 
-                                                <img alt="" src='<%#"./Images/ImageLienKet/"+Eval("Images") %>' width="40px" height="40px" /></a>
+                                                <%--<img alt="" src='<%#"./Images/ImageLienKet/"+Eval("Images") %>' width="40px" height="40px" />--%></a>
                                             </div>
                                         </ItemTemplate>
                                     </asp:DataList>
