@@ -25,7 +25,7 @@ public partial class TypeProduct : System.Web.UI.Page
     public void Load_Product_type() {
         int total;
         int pageview;
-        int pagesize = 2;
+        int pagesize = 15;
         int du;
         int CurrentPage = 1;
         if (Request.QueryString["page"] == null) CurrentPage = 1;
@@ -68,7 +68,7 @@ public partial class TypeProduct : System.Web.UI.Page
     public void Load_Product_cate() {
         int total;
         int pageview;
-        int pagesize = 2;
+        int pagesize = 15;
         int du;
         int CurrentPage = 1;
         if (Request.QueryString["page"] == null) CurrentPage = 1;

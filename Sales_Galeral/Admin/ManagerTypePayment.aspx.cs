@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_ManagerTypePayment : System.Web.UI.Page
 {
-    TypePaymentDAL ToolsAdmin = new TypePaymentDAL();
+    TypePaymentBAL ToolsAdmin = new TypePaymentBAL();
     Encryption Encryption = new Encryption();
     HtmlRemoval HtmlRemoval = new HtmlRemoval();
     protected void Page_Load(object sender, EventArgs e)

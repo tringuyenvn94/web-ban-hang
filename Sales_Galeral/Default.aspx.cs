@@ -16,6 +16,14 @@ public partial class _Default : System.Web.UI.Page
         if(!IsPostBack){
             dtlHotProduct.DataSource = productlManager.GetTopHotDataProduct();
             dtlHotProduct.DataBind();
+            for (int i = 0; i < productlManager.GetTopHotDataProduct().Rows.Count; i++)
+            {
+                if (productlManager.GetTopHotDataProduct().Rows[i]["Price_Discount"].ToString().Equals("0"))
+                {
+                    ((Control)dtlHotProduct.Items[i].FindControl("giamgia")).Visible = false;
+                    ((Control)dtlHotProduct.Items[i].FindControl("giagoc")).Visible = false;
+                }
+            }
 
             DataTable dtbletemp = productlManager.GetTopNewDataProduct();
             dtlDealNew.DataSource = dtbletemp;
@@ -25,6 +33,18 @@ public partial class _Default : System.Web.UI.Page
                 if (dtbletemp.Rows[i]["Price_Discount"].ToString().Equals("0"))
                 {
                     ((Control)dtlDealNew.Items[i].FindControl("giamgia")).Visible = false;
+                    ((Control)dtlDealNew.Items[i].FindControl("giagoc")).Visible = false;
+                }
+            }
+
+            dtlSanPhamThuong.DataSource = productlManager.Load_Top6_Thuong_Product();
+            dtlSanPhamThuong.DataBind();
+            for (int i = 0; i < productlManager.Load_Top6_Thuong_Product().Rows.Count; i++)
+            {
+                if (productlManager.Load_Top6_Thuong_Product().Rows[i]["Price_Discount"].ToString().Equals("0"))
+                {
+                    ((Control)dtlSanPhamThuong.Items[i].FindControl("giamgia")).Visible = false;
+                    ((Control)dtlSanPhamThuong.Items[i].FindControl("giagoc")).Visible = false;
                 }
             }
         }

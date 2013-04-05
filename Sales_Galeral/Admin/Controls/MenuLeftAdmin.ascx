@@ -48,5 +48,9 @@
         <div class="div3" ></div>
         <a href="ManagerTypePayment.aspx?" class="link2" target="_parent" >Quản lý Thanh toán</a>
     </div>
+    <div class="menu">
+        <div class="div3" ></div>
+        <a href="ManagerAddress.aspx?" class="link2" target="_parent" >Quản lý Địa chỉ</a>
+    </div>
     <div style="height:1000px;"></div>
  </div>

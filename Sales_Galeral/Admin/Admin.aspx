@@ -52,6 +52,11 @@
             <br />
             <b>Quản lý thanh toán</b>
         </div>
+        <div align="center" style="float:left;padding-left:350px;padding-top:20px;color:Red;">
+            <a href="ManagerAddress.aspx?"><img alt="" src="ImageAdmin/ManagerAddress.jpg" width="150px" height="120px"/></a>
+            <br />
+            <b>Quản lý địa chỉ Website</b>
+        </div>
         <div style="clear:left;"></div>
     </div>
 </asp:Content>

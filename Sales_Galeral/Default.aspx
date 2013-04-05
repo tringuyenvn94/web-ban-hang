@@ -77,7 +77,7 @@
     </script>
     <!-- MODULE Home Dael Hot -->
     <div id="featured_products" style="padding-bottom:10px;">
-        <h4 style="color:Red;">
+        <h4 style="color:Yellow;">
             Deal Hot
         </h4>
         <div class="block_content" style="margin-left: -10px; margin-top: 10px;">
@@ -140,7 +140,7 @@
                                                             <%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Sale").ToString()))%>
                                                         </div>
                                                     </div>
-                                                    <div class="dealorig">
+                                                    <div class="dealorig" id="giagoc" runat="Server">
                                                         <em>Giá gốc:&nbsp;</em><span><strike><%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Original").ToString()))%></strike></span>
                                                     </div>
                                                 </div>
@@ -173,8 +173,8 @@
     </div>
     <!-- /MODULE Home Dael Hot -->
     <!-- MODULE Home Deal New -->
-    <div id="new_product" style="padding: 0">
-        <h4 style="color:Red;">
+    <div id="new_product" style="padding-bottom:10px;">
+        <h4 style="color:Aqua;">
             Deal New
         </h4>
         <div class="block_content" style="margin-left: -10px; margin-top: 10px;">
@@ -269,4 +269,101 @@
         </div>
     </div>
     <!-- /MODULE Home Featured Products -->
+    <!-- MODULE Home San Pham Thuong -->
+    <div id="new_product" style="padding: 0">
+        <h4 style="color:Lime;">
+            Sản phẩm bán chạy
+        </h4>
+        <div class="block_content" style="margin-left: -10px; margin-top: 10px;">
+            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                <ContentTemplate>
+                     <asp:DataList ID="dtlSanPhamThuong" runat="server" Width="970px" RepeatColumns="3" CellSpacing="10">
+                        <ItemTemplate>
+                            <div class="itemContainer">
+                                <!-- style="width:32.0%;"-->
+                                <div class="itemContainer-inner">
+                                    <!-- Start K2 Item Layout -->
+                                    <div class="catItemView groupPrimary">
+                                        <!-- Plugins: BeforeDisplay -->
+                                        <!-- K2 Plugins: K2BeforeDisplay -->
+                                        <div class="catItemBlogHeader">
+                                            <!-- Item title -->
+                                            <h3 class="catItemTitle" style="text-transform: none">
+                                                <a href ='<%# "DetailProduct.aspx?idProduct="+Eval("ID") %>' title =' <%# Eval("Name")%>'>
+                                                   <%# Eval("Name")%> </a>
+                                            </h3>
+                                        </div>
+                                        <!-- K2 Plugins: K2AfterDisplayTitle -->
+                                        <div class="catItemBody">
+                                            <div class="ja-before-content">
+                                                <div class="ja-before-inner clearfix">
+                                                    <div class="ja-social-toolbox-small">
+                                                        <div class="inner clearfix">
+                                                            <!-- Plugins: AfterDisplayTitle -->
+                                                        </div>
+                                                    </div>
+                                                    <!-- Plugins: BeforeDisplayContent -->
+                                                </div>
+                                            </div>
+                                            <!-- K2 Plugins: K2BeforeDisplayContent -->
+                                            <!-- Item Image -->
+                                            <div class="catItemImageBlock">
+                                                <div class="deal-new-icon">
+                                                </div>
+                                                <span class="catItemImage"><a href='<%# "DetailProduct.aspx?idProduct="+Eval("ID") %>' title =' <%# Eval("Name")%>'>
+                                                    <img src='<%# "Images/ImageProduct/"+Eval("IMAGE")%>' alt='<%# Eval("Name")%>'
+                                                    style="width: 250px; height: auto;">
+                                                </a></span>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="clr">
+                                                </div>
+                                            </div>
+                                            <!-- Item introtext -->
+                                 
+                                            <div class="clr">
+                                            </div>
+                                            <!-- Plugins: AfterDisplayContent -->
+                                            <!-- K2 Plugins: K2AfterDisplayContent -->
+                                            <div id="lofdeals-detail-itemlist">
+                                                <div class="saleoff-icon-itemlist" runat="Server" id="giamgia" visible="true">
+                                                    Giảm<br>
+                                                    <span> <%# Eval("Price_Discount")%> %</span>
+                                                </div>
+                                                <!-- Item extra fields -->
+                                                <div class="price-buynow-itemlist">
+                                                    <div class="dealprice">
+                                                        <div>
+                                                            <%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Sale").ToString()))%></div>
+                                                    </div>
+                                                    <div class="dealorig" id="giagoc" runat="Server">
+                                                        <em>Giá gốc:&nbsp;</em><span><strike><%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Original").ToString()))%></strike></span></div>
+                                                </div>
+                                                <div class="totalbought">
+                                                    <div class="bought">
+                                                        Số người mua
+                                                    </div> 
+                                                    <div class="bought-value">
+                                                         <%# Eval("Quantity_Bought")%>
+                                                    </div>
+                                                </div>
+                                                <asp:LinkButton ID="lbtnAdd" runat="server" OnClick="lbtnAdd_Click" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+                                        <div class="clr"></div>
+                                        <div class="clr"></div>                               
+                                        <div class="clr"></div>
+                                        <!-- Plugins: AfterDisplay -->
+                                        <!-- K2 Plugins: K2AfterDisplay -->
+                                        <div class="clr"></div>
+                                    </div>
+                                    <!-- End K2 Item Layout -->
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
+    <!-- /MODULE Home San Pham Thuong -->
 </asp:Content>

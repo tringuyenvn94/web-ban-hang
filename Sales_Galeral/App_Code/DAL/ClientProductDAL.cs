@@ -50,6 +50,14 @@ public class ClientProductDAL
         return dtlTemp = this.FillData(command);
     }
 
+    public DataTable Load_Top6_Thuong_Product()
+    {
+        DataTable dtlTemp = new DataTable();
+        SqlCommand command = new SqlCommand("SP_Get_Top6_Thuong_Product", connectDatabase.Connection());
+        command.CommandType = CommandType.StoredProcedure;
+        return dtlTemp = this.FillData(command);
+    }
+
     //Get total Product type
     public int get_Total_Product_Type(int type)
     {
