@@ -3,9 +3,27 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="client/js/jquery.zoom.js" type="text/javascript"></script>
-    <link href="client/css/ZoomStyle.css" rel="stylesheet" type="text/css" />    
+    <link href="client/css/ZoomStyle.css" rel="stylesheet" type="text/css" />
+        
+
+<!--ComentFace-->
+<meta property="fb:app_id" content="237701829707470">
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+<!--Like face-->
+<div id="fb-root"></div>
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=237701829707470";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
     <script type="text/javascript">
       $(document).ready(function () {
           $('#ex1').zoom();
@@ -170,14 +188,14 @@
                     <p></p>
                     <div style="height: 380px; background-color:#E5E3DF; overflow: hidden; position: relative; width: 400px; background: none repeat scroll 0 0 #FFFFFF;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
-                        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0"
-                            marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=210351912700930860644.0004d933b9683c145bde9&amp;ie=UTF8&amp;ll=21.595954,105.824436&amp;spn=0,0&amp;t=m&amp;iwloc=0004d933bd91208ca46f5&amp;output=embed">
-                        </iframe>
-                        <br />
-                        <small>Xem <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=210351912700930860644.0004d933b9683c145bde9&amp;ie=UTF8&amp;ll=21.595954,105.824436&amp;spn=0,0&amp;t=m&amp;iwloc=0004d933bd91208ca46f5&amp;source=embed"
-                                    style="color: #0000FF; text-align: left">Thai Deal</a> ở bản đồ lớn hơn
-                        </small>
+                      <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=210351912700930860644.0004d933b9683c145bde9&amp;ie=UTF8&amp;ll=21.595954,105.824436&amp;spn=0,0&amp;t=m&amp;output=embed"></iframe><br /><small>Xem <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=210351912700930860644.0004d933b9683c145bde9&amp;ie=UTF8&amp;ll=21.595954,105.824436&amp;spn=0,0&amp;t=m&amp;source=embed" style="color:#0000FF;text-align:left">Thai Deal</a> ở bản đồ lớn hơn</small>
                     </div>
+                    <p style="text-align: center; font-weight: bold; font-size: 22px;">Bình luận bằng tài khoản Facebook của bạn</p>
+                    <p></p>
+                    <div class="fb-like" data-href="http://thaideail.vn" data-send="true" data-width="450" data-show-faces="true"></div>
+                   <fb:comments href="<% Response.Write(Request.Url.AbsoluteUri.ToString()); %>" num-posts="2" width="500"></fb:comments>
+
+
                 </div>
         	<div id="right_column" class="column">
 		<!-- MODULE Block cart -->

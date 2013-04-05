@@ -3,8 +3,18 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+<%--<div style=" background: none repeat scroll 0 0 #6A9FC7;border: 1px solid #4F504F;  border-radius: 5px 5px 5px 5px;
+    bottom: 120px;   color: white;  font-family: arial;  font-size: 13px;  font-weight: bold;  height: 35x;   position: fixed;  right: 8px;
+    text-align: center; width: 130px; padding: 5px;" clientidmode="Static" runat="Server" id="thongbao">
+    Thêm sản phẩm vào <a href="ShoppingCart.aspx" style="font-family: arial; color: white;
+    font-size: 13px;
+    font-weight: bold;">Cart</a> thành công
+</div>--%>
+
     <script type="text/javascript" src="client/js/nivo.slider.js"></script>
     <div id="tmnivoslider">
         <div id="slider">
@@ -120,7 +130,7 @@
                                                     <img src='<%# "Images/ImageProduct/"+Eval("IMAGE")%>' alt='<%# Eval("Name")%>'
                                                         style="width: 250px; height: auto;">
                                                 </a></span>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="clr">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="clr">
                                                 </div>
                                             </div>
                                 
@@ -141,8 +151,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="dealorig" id="giagoc" runat="Server">
-                                                        <em>Giá gốc:&nbsp;</em><span><strike><%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Original").ToString()))%></strike></span>
-                                                    </div>
+                                                        <em>Giá gốc:&nbsp;</em><span><strike><%# FunctionLibrary.DisplayPrice(double.Parse(DataBinder.Eval(Container.DataItem, "Price_Original").ToString()))%></strike></span></div>
                                                 </div>
                                                 <div class="totalbought">
                                                     <div class="bought">
@@ -217,7 +226,7 @@
                                                     <img src='<%# "Images/ImageProduct/"+Eval("IMAGE")%>' alt='<%# Eval("Name")%>'
                                                     style="width: 250px; height: auto;">
                                                 </a></span>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="clr">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="clr">
                                                 </div>
                                             </div>
                                             <!-- Item introtext -->
@@ -248,7 +257,7 @@
                                                          <%# Eval("Quantity_Bought")%>
                                                     </div>
                                                 </div>
-                                                <asp:LinkButton ID="lbtnAdd" runat="server" OnClick="lbtnAdd_Click" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
+                                                <asp:LinkButton ID="lbtnAdd"  runat="server" OnClick="lbtnAdd_Click" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                                             </div>
                                             <div class="clr"></div>
                                         </div>

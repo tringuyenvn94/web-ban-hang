@@ -13,7 +13,8 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!IsPostBack){
+        if (!IsPostBack)
+        {
             dtlHotProduct.DataSource = productlManager.GetTopHotDataProduct();
             dtlHotProduct.DataBind();
             for (int i = 0; i < productlManager.GetTopHotDataProduct().Rows.Count; i++)
@@ -48,25 +49,25 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
         }
+
     }
 
-    static string lbtn1;
     protected void lbtnAdd_Click(object sender, EventArgs e)
     {
         ShopCart cart = (ShopCart)Session["ShopCart"];
         LinkButton lbtnAdd = (LinkButton)sender;
         int productID = int.Parse(lbtnAdd.CommandArgument);
         cart.Add(productID, 1);
+
+        //Control c = this.Master.FindControl("thongbao");// "masterDiv"= the Id of the div.
+        //c.Visible = false;//to set the div to be hidden.
+
+        //     ((Control)Master.FindControl("thongbao")).Visible = true; 
         LinkButton quantity = (LinkButton)Master.FindControl("lbtn_Cart");
-
         quantity.Text = String.Format("Cart ({0}) item", cart.TotalQuantity());
-        lbtn1 = lbtnAdd.ID;
-        
+
+
     }
 
-    [WebMethod]
-    public static string GetLinkButton()
-    {
-        return lbtn1;
-    }
+
 }
