@@ -14,6 +14,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     ClientAccountBAL accountBAL = new ClientAccountBAL();
     LinkBAL ToolsAdmin = new LinkBAL();
     SupportOnlineBAL ToolsAdmin1 = new SupportOnlineBAL();
+    AddressBAL ToolsAdmin2 = new AddressBAL();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -26,6 +27,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 cbxRemember.Checked = true;
             Load_Lienket();
             Load_SupportOnline();
+            Load_Address();
             DataListMenu.DataSource = productBAL.GetAllCategory();
             DataListMenu.DataBind();
         } 
@@ -42,11 +44,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         ShopCart Cart = (ShopCart)Session["ShopCart"];
         if (Cart.Count > 0)
         {
-            lbtn_Cart.Text = String.Format("Cart: ({0}) sản phẩm", Cart.TotalQuantity());
+            lbtn_Cart.Text = String.Format("CART ({0}) sản phẩm", Cart.TotalQuantity());
         }
         else
         {
-            lbtn_Cart.Text = "CART:(EMPTY)";
+            lbtn_Cart.Text = "CART (EMPTY)";
         }
     }
 
@@ -126,5 +128,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         DTL_ShowOnline.DataSource = ToolsAdmin1.Load_SupportOnline().Tables[0];
         DTL_ShowOnline.DataBind();
         DTL_ShowOnline.Dispose();
+    }
+
+    public void Load_Address()
+    {
+        DTL_Address.DataSource = ToolsAdmin2.Load_Address().Tables[0];
+        DTL_Address.DataBind();
+        DTL_Address.Dispose();
     }
 }

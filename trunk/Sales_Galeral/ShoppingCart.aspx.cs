@@ -10,10 +10,7 @@ public partial class ShoppingCart : System.Web.UI.Page
     ClientProductBAL productBAL = new ClientProductBAL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            loadDatabse();
-        }
+        loadDatabse();
     }
 
     protected void grvProductCart_RowCommand(object sender, GridViewCommandEventArgs e)

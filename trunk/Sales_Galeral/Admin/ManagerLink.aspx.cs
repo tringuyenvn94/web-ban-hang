@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_ManagerLink : System.Web.UI.Page
 {
-    LinkDAL ToolsAdmin = new LinkDAL();
+    LinkBAL ToolsAdmin = new LinkBAL();
     Encryption Encryption = new Encryption();
     HtmlRemoval HtmlRemoval = new HtmlRemoval();
     protected void Page_Load(object sender, EventArgs e)

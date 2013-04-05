@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_ManagerSupportOnline : System.Web.UI.Page
 {
-    SupportOnlineDAL ToolsAdmin = new SupportOnlineDAL();
+    SupportOnlineBAL ToolsAdmin = new SupportOnlineBAL();
     Encryption Encryption = new Encryption();
     HtmlRemoval HtmlRemoval = new HtmlRemoval();
     protected void Page_Load(object sender, EventArgs e)

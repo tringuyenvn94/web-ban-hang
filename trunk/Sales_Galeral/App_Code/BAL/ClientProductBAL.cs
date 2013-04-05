@@ -70,6 +70,10 @@ public class ClientProductBAL
         return productDAL.Load_Top6_New_Product();
     }
 
+    public System.Data.DataTable Load_Top6_Thuong_Product()
+    {
+        return productDAL.Load_Top6_Thuong_Product();
+    }
     /// <summary>
     /// Load all records Category from database
     /// </summary>
